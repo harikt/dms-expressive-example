@@ -274,7 +274,7 @@ $container->bindValue('route', $container->get(UrlHelper::class));
 
 $container->bindValue('path.public', dirname(__DIR__) . '/public');
 
-$dmsconfig = require dirname(__DIR__) . '/web.expressive/config/dms.php';
+$dmsconfig = require dirname(__DIR__) . '/vendor/harikt/web.expressive/config/dms.php';
 
 $container->bindValue('laravel.config', new \Illuminate\Config\Repository(['dms' => $dmsconfig]));
 

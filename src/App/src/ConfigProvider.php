@@ -22,11 +22,6 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
-			'session_config' => [
-				'config_class' => \Zend\Session\SaveHandler\Cache::class,
-				// 'phpSaveHandler' => 'Cache',
-    			// 'savePath' => 'tcp://127.0.0.1:6379?weight=1&timeout=1',
-			],
         ];
     }
 
