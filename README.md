@@ -3,6 +3,7 @@
 ```
 git clone https://github.com/harikt/example.web.expressive
 cd example.web.expressive
+git clone https://github.com/harikt/web.expressive
 composer install
 mysql -u <username> -p dms < db.sql
 
