@@ -243,7 +243,7 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, IConnection::class, fun
     $config = new \Doctrine\DBAL\Configuration();
 
     $connectionParams = array(
-        'url' => 'mysql://root:password@localhost/dms',
+        'url' => getenv('DATABASE_URL'),
     );
     $connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 

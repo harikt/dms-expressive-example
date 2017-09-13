@@ -36,7 +36,7 @@ use Zend\Expressive\Router\Route;
  * );
  */
 
-// $app->get('/', App\Action\HomePageAction::class, 'home');
+$app->get('/', App\Action\HomePageAction::class, 'home');
 // $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
 $app->route('/dms/auth/login', Dms\Web\Expressive\Http\Controllers\Auth\LoginController::class, ['GET', 'POST'], 'dms::auth.login');
 $app->get('/dms/auth/logout', Dms\Web\Expressive\Http\Controllers\Auth\LogoutController::class, 'dms::auth.logout');
