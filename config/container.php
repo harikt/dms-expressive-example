@@ -438,4 +438,12 @@ $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
    ->needs('$fileStorageBasePath')
    ->give(dirname(__DIR__) . '/data/cache');
 
+$laravelContainer->bind(PublicFileModule::class, function () use ($container) {
+   return new PublicFileModule(
+       DirectoryTree::from(config('dms.storage.public-files.dir')),
+       DirectoryTree::from(config('dms.storage.trashed-files.dir')),
+       $container->get(IAuthSystem::class)
+   );
+});
+
 return $container;
