@@ -1,3 +1,13 @@
+## Quick demo
+
+[YouTube](https://www.youtube.com/watch?v=hMtGHVgYhmE) .
+
+<p align="center">
+    <a href="https://www.youtube.com/watch?v=hMtGHVgYhmE">
+        <img src="https://img.youtube.com/vi/hMtGHVgYhmE/0.jpg" alt="Integrating DMS with Zend Expressive" />
+    </a>
+</p>
+
 ## Usage
 
 ```bash
@@ -16,5 +26,3 @@ php -S 0.0.0.0:8080 -t public public/index.php
 ```
 
 Browse http://localhost:8080/dms .
-
-In a real world scenario many of the things in `config/container.php` will move to  ConfigProvider.
