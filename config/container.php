@@ -446,4 +446,9 @@ $laravelContainer->bind(PublicFileModule::class, function () use ($container) {
    );
 });
 
+use App\Domain\Services\Persistence\ITodoItemRepository;
+use App\Infrastructure\Persistence\DbTodoItemRepository;
+
+$container->bind(IIocContainer::SCOPE_SINGLETON, ITodoItemRepository::class, DbTodoItemRepository::class);
+
 return $container;

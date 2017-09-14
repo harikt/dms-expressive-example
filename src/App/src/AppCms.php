@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Cms\MyContentPackage;
+use App\Cms\TodoAppPackage;
 use Dms\Core\Cms;
 use Dms\Core\CmsDefinition;
 use Dms\Web\Expressive\Auth\AdminPackage;
@@ -34,6 +35,7 @@ class AppCms extends Cms
             'blog' => BlogPackage::class,
             'content' => MyContentPackage::class,
             'contact-us' => ContactUsPackage::class,
+            'todo-app' => TodoAppPackage::class,
         ]);
     }
 }
