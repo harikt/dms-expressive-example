@@ -1,6 +1,7 @@
 <?php
 namespace App\Action;
 
+use Dms\Core\ICms;
 use Dms\Package\ContactUs\Core\ContactEnquiry;
 use Dms\Package\ContactUs\Core\ContactEnquiryService;
 use Interop\Http\ServerMiddleware\DelegateInterface;
@@ -22,7 +23,8 @@ class ContactAction implements ServerMiddlewareInterface
     public function __construct(
         Router\RouterInterface $router,
         Template\TemplateRendererInterface $template = null,
-        ContactEnquiryService $contactEnquiryService
+        ContactEnquiryService $contactEnquiryService,
+        ICms $cms
     ) {
         $this->router   = $router;
         $this->template = $template;
