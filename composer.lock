@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8390f5e0265a4874fbdfc1100789a09c",
+    "content-hash": "e54b98fe49fb7acb3d6158d0c9fcbfeb",
     "packages": [
         {
             "name": "aura/session",
@@ -399,6 +399,130 @@
             ],
             "description": "The blog package for the DMS",
             "time": "2017-07-18T06:20:03+00:00"
+        },
+        {
+            "name": "dms-org/package.contact-us",
+            "version": "0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dms-org/package.contact-us.git",
+                "reference": "1d56fb8d5538a0386bce293b18c394bfb90f5d63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dms-org/package.contact-us/zipball/1d56fb8d5538a0386bce293b18c394bfb90f5d63",
+                "reference": "1d56fb8d5538a0386bce293b18c394bfb90f5d63",
+                "shasum": ""
+            },
+            "require": {
+                "dms-org/common.structure": "^0.8",
+                "dms-org/core": "^0.8",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "dms-org/common.testing": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dms\\Package\\ContactUs\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elliot Levin",
+                    "email": "elliotlevin@hotmail.com"
+                }
+            ],
+            "description": "The generic contact us package for the DMS",
+            "time": "2017-07-18T06:20:29+00:00"
+        },
+        {
+            "name": "dms-org/package.content",
+            "version": "0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dms-org/package.content.git",
+                "reference": "6511e805c5be586c1f3740e095b49adabd621f80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dms-org/package.content/zipball/6511e805c5be586c1f3740e095b49adabd621f80",
+                "reference": "6511e805c5be586c1f3740e095b49adabd621f80",
+                "shasum": ""
+            },
+            "require": {
+                "dms-org/common.structure": "^0.8",
+                "dms-org/core": "^0.8",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "dms-org/common.testing": "dev-master",
+                "dms-org/library.testing": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dms\\Package\\Content\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elliot Levin",
+                    "email": "elliotlevin@hotmail.com"
+                }
+            ],
+            "description": "The generic content package for the DMS",
+            "time": "2017-07-18T06:21:57+00:00"
+        },
+        {
+            "name": "dms-org/package.faqs",
+            "version": "0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dms-org/package.faqs.git",
+                "reference": "90644fd913e4aa1a56f8dd8c172c8369051952bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dms-org/package.faqs/zipball/90644fd913e4aa1a56f8dd8c172c8369051952bc",
+                "reference": "90644fd913e4aa1a56f8dd8c172c8369051952bc",
+                "shasum": ""
+            },
+            "require": {
+                "dms-org/common.structure": "^0.8",
+                "dms-org/core": "^0.8",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "dms-org/common.testing": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dms\\Package\\Faq\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elliot Levin",
+                    "email": "elliotlevin@hotmail.com"
+                }
+            ],
+            "description": "The generic FAQ's package for the DMS",
+            "time": "2017-07-18T06:22:36+00:00"
         },
         {
             "name": "doctrine/annotations",

@@ -420,4 +420,9 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, Translator::class, func
 
 $container->alias(Translator::class, 'translator');
 
+use Dms\Package\ContactUs\Core\IContactEnquiryRepository;
+use Dms\Package\ContactUs\Persistence\DbContactEnquiryRepository;
+
+$container->bind(IIocContainer::SCOPE_SINGLETON, IContactEnquiryRepository::class, DbContactEnquiryRepository::class);
+
 return $container;

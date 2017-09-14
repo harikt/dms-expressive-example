@@ -6,6 +6,8 @@ use Dms\Core\Persistence\Db\Mapping\Definition\Orm\OrmDefinition;
 use Dms\Core\Persistence\Db\Mapping\Orm;
 use Dms\Web\Expressive\Persistence\Db\DmsOrm;
 use Dms\Package\Blog\Infrastructure\Persistence\BlogOrm;
+use Dms\Package\Content\Persistence\ContentOrm;
+use Dms\Package\ContactUs\Persistence\ContactUsOrm;
 
 
 /**
@@ -29,5 +31,7 @@ class AppOrm extends Orm
         // TODO: Register your mappers...
 
 		$orm->encompass((new BlogOrm($this->iocContainer))->inNamespace('blog_'));
+		// $orm->encompass(new ContentOrm($this->iocContainer));
+		$orm->encompass(new ContactUsOrm());
     }
 }
