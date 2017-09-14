@@ -33,7 +33,6 @@ class MyContentPackage extends ContentPackage
     protected function defineContent(ContentPackageDefinition $content)
     {
         $content->module('pages', 'file-text', function (ContentModuleDefinition $module) {
-
             $module->group('home', 'Home')
                 ->withText('title', 'Title')
                 ->withHtml('content', 'Content')
@@ -49,14 +48,14 @@ class MyContentPackage extends ContentPackage
                 // ->setPreviewCallback(function () {
                 //     return \app()->call(PageController::class . '@showHomePage')->render();
                 // })
-				;
+                ;
 
-				$module->group('about', 'About')
-	                ->withText('title', 'Title')
-	                ->withHtml('content', 'Content')
-	                ->withMetadata('title', 'Meta - Title')
-	                ->withMetadata('description', 'Meta - Description')
-	                ;
+            $module->group('about', 'About')
+                    ->withText('title', 'Title')
+                    ->withHtml('content', 'Content')
+                    ->withMetadata('title', 'Meta - Title')
+                    ->withMetadata('description', 'Meta - Description')
+                    ;
             // Add more pages here ...
         });
 

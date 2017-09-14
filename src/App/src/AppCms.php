@@ -31,9 +31,9 @@ class AppCms extends Cms
             // 'analytics' => AnalyticsPackage::class,
 
             // TODO: Register your application cms packages...
-			'blog' => BlogPackage::class,
-			// 'content' => MyContentPackage::class,
-			'contact-us' => ContactUsPackage::class,
+            'blog' => BlogPackage::class,
+            'content' => MyContentPackage::class,
+            'contact-us' => ContactUsPackage::class,
         ]);
     }
 }

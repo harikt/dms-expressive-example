@@ -79,9 +79,123 @@ CREATE TABLE `blog_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `blog_categories` (`id`, `name`, `slug`, `published`, `created_at`, `updated_at`) VALUES
-(1,	'Php',	'php',	1,	'2017-08-06 17:06:09',	'2017-09-13 15:34:25'),
-(2,	'Golang',	'golang',	1,	'2017-08-06 17:06:22',	'2017-08-06 17:06:22'),
+(1,	'Php',	'php',	1,	'2017-08-06 17:06:09',	'2017-09-14 18:00:16'),
+(2,	'Golang',	'golang',	1,	'2017-08-06 17:06:22',	'2017-09-14 05:23:12'),
 (3,	'Another',	'another',	1,	'2017-09-13 15:18:41',	'2017-09-13 15:18:41');
+
+DROP TABLE IF EXISTS `contact_enquiries`;
+CREATE TABLE `contact_enquiries` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` varchar(8000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `contact_enquiries` (`id`, `email`, `name`, `subject`, `message`, `created_at`) VALUES
+(1,	'kthari85@gmail.com',	'Hari KT',	'Hello world',	'Hello world',	'2017-09-14 09:50:24'),
+(2,	'john@derbis.com',	'Debris Netting',	'Debris Netting',	'Debris Netting',	'2017-09-14 10:00:12'),
+(3,	'someone@example.com',	'Hello',	'H and I',	'Oh man.',	'2017-09-14 17:23:15'),
+(4,	'someone@example.com',	'Hello',	';) and edited',	'Oh man.',	'2017-09-14 17:23:56'),
+(5,	'someone@example.com',	'Hello',	'Oh I am edited',	'Oh man.',	'2017-09-14 17:24:36');
+
+DROP TABLE IF EXISTS `content_groups`;
+CREATE TABLE `content_groups` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) unsigned DEFAULT NULL,
+  `namespace` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_index` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_985B49DC727ACA70` (`parent_id`),
+  CONSTRAINT `fk_content_groups_parent_id_content_groups` FOREIGN KEY (`parent_id`) REFERENCES `content_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `content_groups` (`id`, `parent_id`, `namespace`, `name`, `order_index`, `updated_at`) VALUES
+(1,	NULL,	'pages',	'home',	1,	'2017-09-14 18:37:42'),
+(6,	NULL,	'pages',	'about',	2,	'2017-09-14 09:55:13');
+
+DROP TABLE IF EXISTS `content_group_file_areas`;
+CREATE TABLE `content_group_file_areas` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content_group_id` int(10) unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_path` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_file_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_group_file_unique_index` (`content_group_id`,`name`),
+  KEY `IDX_9DC2122BACE333A8` (`content_group_id`),
+  CONSTRAINT `fk_content_group_file_areas_content_group_id_content_groups` FOREIGN KEY (`content_group_id`) REFERENCES `content_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `content_group_html_areas`;
+CREATE TABLE `content_group_html_areas` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content_group_id` int(10) unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `html` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_group_html_unique_index` (`content_group_id`,`name`),
+  KEY `IDX_87B6C2F3ACE333A8` (`content_group_id`),
+  CONSTRAINT `fk_content_group_html_areas_content_group_id_content_groups` FOREIGN KEY (`content_group_id`) REFERENCES `content_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `content_group_html_areas` (`id`, `content_group_id`, `name`, `html`) VALUES
+(6,	6,	'content',	'<p>And content of about</p>'),
+(9,	1,	'content',	'<p>And this is a big content.</p>\r\n<p>More content can be placed here.</p>\r\n<p>And this is a big content.</p>\r\n<p>More content can be placed here.</p>\r\n<p>&nbsp;</p>\r\n<p>And this is a big content.</p>\r\n<p>More content can be placed here.</p>\r\n<p>&nbsp;</p>\r\n<p>And this is a big content.</p>\r\n<p>More content can be placed here.</p>\r\n<p>&nbsp;</p>\r\n<p>And this is a big content.</p>\r\n<p>More content can be placed here.</p>\r\n<p>&nbsp;</p>\r\n<p>And this is a big content.</p>\r\n<p>More content can be placed here.</p>\r\n<p>&nbsp;</p>');
+
+DROP TABLE IF EXISTS `content_group_image_areas`;
+CREATE TABLE `content_group_image_areas` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content_group_id` int(10) unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_path` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_file_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_text` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_group_images_unique_index` (`content_group_id`,`name`),
+  KEY `IDX_39468675ACE333A8` (`content_group_id`),
+  CONSTRAINT `fk_content_group_image_areas_content_group_id_content_groups` FOREIGN KEY (`content_group_id`) REFERENCES `content_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `content_group_metadata`;
+CREATE TABLE `content_group_metadata` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content_group_id` int(10) unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_group_metadata_unique_index` (`content_group_id`,`name`),
+  KEY `IDX_2CCF82BFACE333A8` (`content_group_id`),
+  CONSTRAINT `fk_content_group_metadata_content_group_id_content_groups` FOREIGN KEY (`content_group_id`) REFERENCES `content_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `content_group_metadata` (`id`, `content_group_id`, `name`, `value`) VALUES
+(11,	6,	'title',	'Meta title'),
+(12,	6,	'description',	'Meta description'),
+(17,	1,	'title',	'Meta title a'),
+(18,	1,	'description',	'and meta description');
+
+DROP TABLE IF EXISTS `content_group_text_areas`;
+CREATE TABLE `content_group_text_areas` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content_group_id` int(10) unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_group_text_unique_index` (`content_group_id`,`name`),
+  KEY `IDX_61F51841ACE333A8` (`content_group_id`),
+  CONSTRAINT `fk_content_group_text_areas_content_group_id_content_groups` FOREIGN KEY (`content_group_id`) REFERENCES `content_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `content_group_text_areas` (`id`, `content_group_id`, `name`, `text`) VALUES
+(8,	6,	'title',	'About page'),
+(13,	1,	'title',	'Hello World');
 
 DROP TABLE IF EXISTS `dms_analytics`;
 CREATE TABLE `dms_analytics` (
@@ -142,91 +256,6 @@ CREATE TABLE `dms_temp_files` (
   UNIQUE KEY `dms_temp_files_token_unique_index` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `dms_temp_files` (`id`, `token`, `file`, `client_file_name`, `type`, `expiry_time`) VALUES
-(1,	'PGqxhU2BfRRXfFygrzCsklT8Ah9p3Dfw0wdgsSo2',	'/home/hari/experiments/php/dms-experiments/storage/dms/temp-uploads/dCQI54Pob6zWKIy5D8PZVPMSRn0uQMnZ',	'Screenshot from 2017-07-18 20-36-07.png',	'stored-image',	'2017-07-19 06:03:23'),
-(2,	'wJEcQFHTMQJFIap67Y3YnjAz1i3aZRzLc5PqpBIW',	'/home/hari/experiments/php/dms-experiments/storage/dms/temp-uploads/1pmRzi4AZT3bcKXLCVXlFNBX9eYSAkws',	'Screenshot from 2017-07-18 20-36-07.png',	'stored-image',	'2017-07-19 06:05:26'),
-(3,	'zBdBuQFq340gi4i114ZOm1JGl1pnu0kO8KwgsKwP',	'/home/hari/experiments/php/dms-experiments/storage/dms/temp-uploads/jUkXZt7dBOKrFZ6XCss9R1MGNIRiqqJ6',	'Screenshot from 2017-07-18 20-36-07.png',	'stored-image',	'2017-07-19 06:05:42'),
-(4,	'6pVuMPaSN0r6DCanby8WtlXkmqbH3zqzMwJZwY38',	'/home/hari/experiments/php/dms-experiments/public/files/Screenshot from 2017-07-18 20-36-07-1.png',	'Screenshot from 2017-07-18 20-36-07-1.png',	'stored-image',	'2017-07-19 06:06:12'),
-(5,	'Lfbi2LHubkTz9fpFBlMSo2AGaEmYOhoI7y68faBF',	'/home/hari/experiments/php/dms-experiments/storage/dms/temp-uploads/3iHQFpkIBylaGGGwF32COvDp7Ez7udrS',	'Screenshot from 2017-06-24 11-18-17.png',	'stored-image',	'2017-07-19 06:36:20'),
-(6,	'1tZflRa19ELp2n03R7nI9pLEOY6JL01Qxn0QtR8L',	'/home/hari/experiments/php/dms-experiments/storage/dms/temp-uploads/dxQ6CXb1OD2s8ReN0PEZxfZp4Gn72JQZ',	'unnamed.png',	'stored-image',	'2017-08-06 18:07:44'),
-(7,	'WF0yqzWxe6YPhjizGozEZc1W2dWUjtw9paDVk1QH',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-08-06 18:07:58'),
-(8,	'3UJe3gfvTLETf4htuMgsle3qHnrQnznWVjDShj5c',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:04:19'),
-(9,	'PayHkMeYoZrEfbFH7Ga6POkXf8n4kz2mKVDhFUlB',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:06:32'),
-(10,	'dDXCkdVAFLyM487btvLrKvAydZ9GzQv8Hj4bzKJp',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:09:31'),
-(11,	'fkAiT4Prq5LG2F1LyKei4R6o34DfP0gFr0daNxrD',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:09:33'),
-(12,	'9whDCSWkygSJWASuweyVFEy3ZoWZ7uz8hdi4UIfV',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:09:34'),
-(13,	'EnVLFb3cPXnOaNtgBWckL4G4TuVPJkGsnFZGA66n',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:10:10'),
-(14,	'aDVk706lZkkkWiwpFpbydr15mtHA8yfsH88P4Yzh',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:10:24'),
-(15,	'5xOZztUc33CJNmlIATmni1O5cNKH5itbLBXDBlyu',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:10:30'),
-(16,	'78VPSzbPNwtrh6KEmRpa7UM1zK6vKJbh26mRCHD9',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:12:02'),
-(17,	'6NtKEdSZBmfEBMcqcAuCkPPcOiQlTtpycBqq6huV',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:12:22'),
-(18,	'4C1J4Lm2gIJOaWWeLDVweDXKOMWku6gDk6dgIcWJ',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:19:26'),
-(19,	'phWKSi26xnDqrbYvWLFH8PIeiwQZwJcjsjq9TPZr',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:19:27'),
-(20,	'gDiPUsJuGKjOlVjpan7NNUBR2E1fI3X4FgJzks6X',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:19:28'),
-(21,	'SyNc73Hit787hJJpysrZ0bvPzNhe1gDpWDsNJ2az',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:19:29'),
-(22,	'nCyNXwZmFJzdzaltTKewkzifFbrS4wetXbzQEIVO',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:19:30'),
-(23,	'aRFI7TT6vMTjmnNm1yJkk9N44hjOIXEjhPyiXd9h',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:19:33'),
-(24,	'wpbkp6xiusJEdoPOxyQDr3cDDFIwLuZz5NSlyQMi',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:20:36'),
-(25,	'FN9E0ZPnxdblUn47iiarhwneqPFluMC3oxSSZVs7',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:20:36'),
-(26,	'r2LgRaZDyrTM34xoxuDhKrqRMlVmkuYnhq5130Tl',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:21:42'),
-(27,	'pt1X1LkJTuIAJTyNITipccnKrK6uyAfSmUKVLAtz',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:22:25'),
-(28,	'quWD8fzf8xg8cGWLsDdl835kDWOnaLRf7QmoczBw',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:26:01'),
-(29,	'8uZuKBLvJG8kgtT7t5diX4p5CvwILJTCtAAYtat0',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:26:15'),
-(30,	'JbWgV37IzRcu1XLGbB40zGsmZlLh1Od8MmYKpLz6',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:26:39'),
-(31,	'qtLFVT7ncDUPOUd8vxVy6wiMXxmY9oyyWEdvcuoj',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:26:40'),
-(32,	'7Id7svy8pISwKpoLCZwH5mXr3re83ddrpwa6sPO7',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:26:48'),
-(33,	'3XGnlsJipAk15XjTuRpc8jrm4hS2w9xfJ2OfKXgy',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:26:48'),
-(34,	'NaczoEkImrWZD0JHlQQT7ZacP4x1Lqz3grjbud9j',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:26:49'),
-(35,	'yBQIpZ8SeQTGwcaxs8OxWrBuNvYgLTpxScJFUyLP',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:20'),
-(36,	'eTysVBT84vjizs9534oObdGMupoXovN2Aspq9VGX',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:20'),
-(37,	'Xc7tnsBrfuQzLgHrSGLIQpzeE7vvjH2OxzEIu34W',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:21'),
-(38,	'Uv1lOkTXappIPhqYCAyOB8XsUKYFIlorOMs3xXzi',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:43'),
-(39,	'nXl8dOJ8w4e0wZoiN2sMf8Rwb9bPRjWiVq9mtVLs',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:44'),
-(40,	'F8z1anvFge2MlizT86iTjYnAgXpXHEclHT8a7Yw6',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:44'),
-(41,	'wcjdqC388DchZW2gvJ66oRm60yJCjGaubOAHssmV',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:45'),
-(42,	'PnPPw5XWSaXqm3sLtsqyHJtlRl305ZNvwkBQBNnh',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:27:46'),
-(43,	'VQwVdiCacnVMHYZzCJVJ8QPdLHtMg3MB9BuAeJxF',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:29:37'),
-(44,	'NMCOpFrV2vrl0vGok2lilFCbLP0R8FtX1aZRsjsa',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:29:38'),
-(45,	'eAuFWHnAJbuCl9dmtkYCz02QksgRKbJ8RbRwvI5n',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 07:29:39'),
-(46,	'ULhO5u6mfNC7bmrVTuNi6X2S78mlep8gYdhXIgHo',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:33:02'),
-(47,	'BZchbAXmoov4EDmkKFRB91nj1Wtnp4TIqnXE2bOb',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:35:26'),
-(48,	'ZGnx2ezt4t5xz6k1Qhb93uOkMQzp6Uf6eY6etJpV',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:37:49'),
-(49,	'5RKNAEbNJ7WpxHIAxxHL0SsDyRBxJVXQX1PUS3wr',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:37:54'),
-(50,	'Ru1NoxDmrlzj1BXhImdb7hq4x0hen9tXEl9tGdBO',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:38:41'),
-(51,	'IP48ZwGZ3pKT0J8kxQL9jqFAVDrcgeb0oMp64nIr',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:38:50'),
-(52,	'YOWFtyO9quVffJSVsTjCOpKDHCufsBEWk1Wqzgyb',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:39:41'),
-(53,	'PXqYOnYYcow9jUeqeRZYaFDFVkLyNCBcS4CfRtOG',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:41:52'),
-(54,	'2ArYf8VUt2YKKKV5yppfMsEqUFI9rfmRBv2wFpxV',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:43:37'),
-(55,	'4nSJMxKIECLEn2bkZupscNrF4OzpnKhUYSRZUF6x',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:44:08'),
-(56,	'zXT6a2EAxpfTxjJkkQxrjZtoRhHWTI4YWaqHO0DW',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:44:10'),
-(57,	'H8X8aCyWUXDaPB4WJksZ8c5GGQkappRDi70kkmWg',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:44:32'),
-(58,	'tpyd2E5Ff44VrSjfvSEGvLZnryqBDHarOtS5L2bo',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:44:39'),
-(59,	'ZrjyOnkhOcEgYJNxyoMfsuxa1l5qcWLn2kio7zdh',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:46:50'),
-(60,	'9YNksymKdgBBjlkW7p1WFowOQBx5nQs61q9UGKgZ',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:50:28'),
-(61,	'SQCrAncyanvP8f9T3xJHh7QosnO9JH15jx8gBGEE',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 10:56:04'),
-(62,	'6yqnx5jhdJn89oEhFs2jDDs3ztHM19WP2ggqepxo',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:00:50'),
-(63,	'R5JsyK6Tzm8YbexriCcgxBaLvJ2dMLgDptcXyhmv',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:01:02'),
-(64,	'jVdaJ2HmRmKFwUehozWJ9B3z5y8VHek7h8GhLt3v',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:01:10'),
-(65,	'5LidmeHwSHErTKmeh0D8uzvFo4IlR31uc4UknznX',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:01:38'),
-(66,	'CgE3KWi2MOWp2H9N2tjJ6E10IPAFcpYdm5324Kdy',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:02:19'),
-(67,	'HnIEGCqbhY3DK0fLHGsMMX2TXEq8BedUtWgTcZaL',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:02:46'),
-(68,	'zDojua30TYpTz7FJinwU8z0L7EDojOXmDr4CkAp3',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:24:34'),
-(69,	'kgAkmoJEQMURlbAmkIJups9aQrtqg6L6290urIfp',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:25:45'),
-(70,	'tj9YtTxRKDoRpnBZcARoXrAQZgidKgwJ0MX50xbA',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:25:49'),
-(71,	'f4WqoX4DHNUgJQFZYRb5vTMKfTX5RcHu7CVRMjMy',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:26:18'),
-(72,	'GYauA7YWZWompouMciGQamo63XWAPDj1Sa5mO25S',	'/home/hari/experiments/php/dms-expressive-integration/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:26:30'),
-(73,	'kLoMbzXGFmXdc4ePV3yaxDxlI9tPRUeCNQooZb7S',	'/home/hari/experiments/php/dms-experiments/public/app/images/blog/ddDW4k7fZ3p0e675',	'unnamed.png',	'stored-image',	'2017-09-12 11:27:04'),
-(74,	'QlcFYtarEYXkiErBZbZ4QqW86Eq4szyyL0sVq8vQ',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/VewYkW8HoxxZ5mD1paA9bz3xv9v8MAbb',	'unnamed.png',	'stored-image',	'2017-09-12 11:46:24'),
-(75,	'fRDnHnFI5teKw2xiohfcg1hfXqi7t7RhFTo0ZLXY',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/TMbZub7Nhcc9ug2ow28AjFtp9XPYLoUn',	'unnamed.png',	'stored-image',	'2017-09-12 11:47:12'),
-(76,	'ASuosjRfMZ198CH3WNU2jykBUKAk2PUgxqFkqyNK',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/IcIrFSIEHiLzqpPUzfhvGuhetGJulKEk',	'unnamed.png',	'stored-image',	'2017-09-12 11:47:27'),
-(77,	'PWdHAJhGvCbtUma8bfhjOnLSnkoyFKB7UTJCpLxK',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/Y0T2HTPS3EReSs6peVOqGXD4ytOchHLw',	'unnamed.png',	'stored-image',	'2017-09-12 19:45:19'),
-(78,	'OnmQUNh1xpw7fqhTyQkdajUuc5S2VXNF1nQV0hDI',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/6cdpvzhS1kAS9F1UjwDHT9JvhFcOuloy',	'Henke.jpg',	'stored-image',	'2017-09-13 07:24:29'),
-(79,	'1qqiJqpPsRRE8kqqGObCF1vJ2YjkkkaqKMhPaGVv',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/6sZesxpglwlOa1OntMrIYCHSuWbfQf0v',	'medium_animals-beautiful-sweet-funny-cute-cats-picture-hd-wallpaper.jpg',	'stored-image',	'2017-09-13 07:24:29'),
-(80,	'z0hdOihTDQBQWHL8vdf1tumrHGc4i0DsjEqj9ZBV',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/IF8h6q1CqSS3wjk05duWGA2DhDdRls5p',	'OIo.jpg',	'stored-image',	'2017-09-13 07:24:29'),
-(81,	'pS485Bm6jZwiD2km8UhTfJBffXHFG9Tq7g56E4hj',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/AFbeuZOUha9WIydyYeT4gIm0ckYbSBbj',	'OIo-sm.jpg',	'stored-image',	'2017-09-13 07:24:29'),
-(82,	'VLfvJFlLpSnMCrzXtx0qDtHFa4VBIaovyldFAQBs',	'/home/hari/experiments/php/dms-expressive-integration/dms-web/config/Ds3W5LTzm875JV1Mpucm1dc2L7NIbqdw',	'unnamed.png',	'stored-image',	'2017-09-13 07:24:29'),
-(83,	'pqUFiIbJDDwMDSzUDls7BCUGzMEgTL2iFsKITTrg',	'/home/hari/experiments/php/dms-expressive-integration/web.expressive/config/DqYZRam2TGKfEYohBu4PQ6y9rJxlaPWD',	'OIo.jpg',	'stored-image',	'2017-09-13 16:34:33'),
-(84,	'SHcPUMjLiMvS2yDMMKZYnEhQ4gRKzr5S5kUOp4lt',	'/home/hari/experiments/php/dms-expressive-integration/data/cache/dms/temp-uploads/OVxB5x84rCuNtaTCML1UxRzYi27T37XO',	'medium_animals-beautiful-sweet-funny-cute-cats-picture-hd-wallpaper.jpg',	'stored-image',	'2017-09-13 16:41:15');
 
 DROP TABLE IF EXISTS `dms_users`;
 CREATE TABLE `dms_users` (
@@ -249,8 +278,8 @@ CREATE TABLE `dms_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `dms_users` (`id`, `type`, `full_name`, `email`, `username`, `is_super_user`, `is_banned`, `password_hash`, `password_algorithm`, `password_cost_factor`, `remember_token`, `oauth_provider_name`, `oauth_account_id`) VALUES
-(1,	'local',	'Admin',	'admin@admin.com',	'admin',	1,	0,	'$2y$10$yORc6P2EGmzoMP5.rri.pucVDk9XQPs.JYQlsMHeZvZ.hkua25CEq',	'bcrypt',	10,	'vVRZ95ieIiCXB2cY71fNSM6NuRPjmNqNuDgPiKgzlBoQyYhdm2y8OduWtyAa',	NULL,	NULL),
-(2,	'local',	'Hari KT',	'kthari85@gmail.com',	'harikt',	1,	0,	'$2y$10$o9hNWM/siGp0tOCPzu0BgenF8VfKYfBL7dAkaN49rwQn4qjnGfbYW',	'bcrypt',	10,	'ko6EdolS3w9Kmv3tqWp0sOJiCVWNjCNmA1m0Dy3bZGsWAbjrAu2xbF4Yh0MV',	NULL,	NULL),
+(1,	'local',	'Hari KT',	'kthari85@gmail.com',	'admin',	1,	0,	'$2y$10$yORc6P2EGmzoMP5.rri.pucVDk9XQPs.JYQlsMHeZvZ.hkua25CEq',	'bcrypt',	10,	'ZtOF1hDs8BGas0jGcy2YPWm43iMpjsQw3sv8kc61lLFJ7qDgMhzdvYG5PO9s',	NULL,	NULL),
+(2,	'local',	'Hari',	'someone@gmail.com',	'harikt',	1,	0,	'$2y$10$o9hNWM/siGp0tOCPzu0BgenF8VfKYfBL7dAkaN49rwQn4qjnGfbYW',	'bcrypt',	10,	'ko6EdolS3w9Kmv3tqWp0sOJiCVWNjCNmA1m0Dy3bZGsWAbjrAu2xbF4Yh0MV',	NULL,	NULL),
 (3,	'local',	'Elliot Levin',	'hello@example.com',	'Time_Toogo',	1,	0,	'$2y$10$BLjom0GZh1K8xBT/8T90ZOttlxLyGx/0FiY0R/1S/4YltcKfq6Era',	'bcrypt',	10,	NULL,	NULL,	NULL);
 
 DROP TABLE IF EXISTS `dms_user_roles`;
@@ -266,8 +295,8 @@ CREATE TABLE `dms_user_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `dms_user_roles` (`id`, `role_id`, `user_id`) VALUES
-(2,	1,	2),
-(3,	1,	3);
+(3,	1,	3),
+(5,	1,	2);
 
 DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
@@ -280,7 +309,9 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1,	'2017_07_19_050100_initial_db',	1),
 (2,	'2017_07_19_052054_todo-1',	2),
-(3,	'2017_08_06_170253_blog',	3);
+(3,	'2017_08_06_170253_blog',	3),
+(4,	'2017_09_14_091536_content',	4),
+(5,	'2017_09_14_095013_contact',	5);
 
 DROP TABLE IF EXISTS `todo_items`;
 CREATE TABLE `todo_items` (
@@ -294,4 +325,4 @@ INSERT INTO `todo_items` (`id`, `description`, `completed`) VALUES
 (1,	'Hello World',	1),
 (2,	'Another world',	1);
 
--- 2017-09-13 15:45:50
+-- 2017-09-14 18:41:06

@@ -264,7 +264,6 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, OauthProviderCollection
 });
 
 $container->bindValue('path.storage', dirname(__DIR__) . '/data/cache');
-$container->bindValue('path.storage', dirname(__DIR__) . '/data/cache');
 $container->bindValue('url', $container->get(UrlHelper::class));
 $container->bindValue('route', $container->get(UrlHelper::class));
 // $sessionManager = new \Illuminate\Session\SessionManager($container);
@@ -424,5 +423,19 @@ use Dms\Package\ContactUs\Core\IContactEnquiryRepository;
 use Dms\Package\ContactUs\Persistence\DbContactEnquiryRepository;
 
 $container->bind(IIocContainer::SCOPE_SINGLETON, IContactEnquiryRepository::class, DbContactEnquiryRepository::class);
+
+$laravelContainer = $container->getLaravelContainer();
+
+$laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
+     ->needs('$imageStorageBasePath')
+     ->give(dirname(__DIR__) . '/data/cache');
+
+$laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
+  ->needs('$imageBaseUrl')
+  ->give('/');
+
+$laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
+   ->needs('$fileStorageBasePath')
+   ->give(dirname(__DIR__) . '/data/cache');
 
 return $container;

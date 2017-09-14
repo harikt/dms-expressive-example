@@ -113,7 +113,7 @@ class BladeRenderer implements TemplateRendererInterface
         // $params = [$param => $value];
         //
         // if ($templateName === self::TEMPLATE_ALL) {
-            $templateName = null;
+        $templateName = null;
         // }
 
         $this->template->share($param, $value);

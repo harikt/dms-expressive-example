@@ -7,6 +7,7 @@
 
 namespace Hkt\IlluminateView;
 
+use Dms\Package\Content\Core\ContentLoaderService;
 use Interop\Container\ContainerInterface;
 use Illuminate\Container\Container;
 // use Illuminate\Events\Dispatcher;
@@ -31,7 +32,7 @@ class BladeEngineFactory
     {
         // $config = $container->has('config') ? $container->get('config') : [];
         // $config = isset($config['blade']) ? $config['blade'] : [];
-		//
+        //
         // $pathsToTemplates = [];
         // $pathToCompiledTemplates = $config['cache_dir'];
         // // Dependencies
@@ -49,12 +50,16 @@ class BladeEngineFactory
         // $viewFinder = new FileViewFinder($filesystem, $pathsToTemplates);
         // $viewFactory = new Factory($viewResolver, $viewFinder, $eventDispatcher);
 
-		$viewFactory = $container->get(Factory::class);
+        $viewFactory = $container->get(Factory::class);
 
-		// view()
-		$viewFactory->composer('dms::template.default', DmsNavigationViewComposer::class);
+        // view()
+        $viewFactory->composer('dms::template.default', DmsNavigationViewComposer::class);
         $viewFactory->composer('dms::dashboard', DmsNavigationViewComposer::class);
-		$viewFactory->setContainer($container->getLaravelContainer());
+        $viewFactory->composer('*', function ($view) {
+            $view->with('contentLoader', app(ContentLoaderService::class));
+        });
+
+        $viewFactory->setContainer($container->getLaravelContainer());
 
         return $viewFactory;
     }
