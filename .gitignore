@@ -1,6 +1,7 @@
 /vendor
 /data
-/public
 /web.expressive
 /serve
 /.env
+/public/files
+/public/app
