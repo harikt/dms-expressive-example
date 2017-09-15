@@ -4,6 +4,14 @@ use Zend\ConfigAggregator\ArrayProvider;
 use Zend\ConfigAggregator\ConfigAggregator;
 use Zend\ConfigAggregator\PhpFileProvider;
 
+if (file_exists(dirname(__DIR__) . '/.env')) {
+	$loader = new josegonzalez\Dotenv\Loader(dirname(__DIR__) . '/.env');
+	// Parse the .env file
+	$loader->parse();
+	// Send the parsed .env file to the $_ENV variable
+	$loader->putenv(true);
+}
+
 // To enable or disable caching, set the `ConfigAggregator::ENABLE_CACHE` boolean in
 // `config/autoload/local.php`.
 $cacheConfig = [

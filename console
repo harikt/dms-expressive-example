@@ -1,0 +1,26 @@
+#!/usr/bin/php
+<?php // console.php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Dms\Core\Persistence\Db\Connection\IConnection;
+use Symfony\Component\Console\Application;
+
+$container = require __DIR__ . '/config/container.php';
+$application = new Application('Application console');
+
+$connection = $container->get(IConnection::class);
+$db = $connection->getDoctrineConnection();
+$helperSet = new \Symfony\Component\Console\Helper\HelperSet(array(
+    'db' => new \Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper($db),
+    'dialog' => new \Symfony\Component\Console\Helper\QuestionHelper(),
+));
+
+$application->setHelperSet($helperSet);
+
+$commands = $container->get('config')['console']['commands'];
+foreach ($commands as $command) {
+    $application->add($container->get($command));
+}
+
+$application->run();
