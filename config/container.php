@@ -99,6 +99,8 @@ $config = require __DIR__ . '/config.php';
 $container = LaravelIocContainer::getInstance();
 new ExpressiveLaravelIocConfig($container, $config);
 
+$container->bindValue('config', $config);
+
 $container->bindValue(Illuminate\Contracts\Container\Container::class, $container->getLaravelContainer());
 
 use Aura\Session\Session;

@@ -19,7 +19,7 @@ return [
     ],
 
     'blade' => [
-        'cache_dir'      => 'data/cache/blade',
+        'cache_dir'      => dirname(dirname(__DIR__)) . '/data/cache/blade',
         'assets_url'     => '/',
         'assets_version' => null,
         'extensions'     => [

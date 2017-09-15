@@ -42,6 +42,7 @@
         "dms-org/package.content": "^0.8.0",
         "dms-org/package.faqs": "^0.8.0",
         "doctrine/migrations": "^1.5",
+        "harikt/web.expressive": "0.1.0",
         "illuminate/cache": "^5.4",
         "illuminate/config": "^5.4",
         "illuminate/container": "^5.4",
@@ -73,11 +74,9 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/App/src/",
-            "Hkt\\": "src/Hkt/",
-            "Dms\\Web\\Expressive\\": "./web.expressive/src/"
+            "Hkt\\": "src/Hkt/"
         },
         "files" : [
-            "./web.expressive/src/helper.php",
             "./src/helper.php"
         ]
     },
