@@ -26,3 +26,10 @@ php -S 0.0.0.0:8080 -t public public/index.php
 ```
 
 Browse http://localhost:8080/dms .
+
+> Templates not rendered due to Permission issues. Quick and dirty fix.
+
+```
+mkdir -p data/cache/blade
+sudo chmod -R 755 data/cache/blade
+```
