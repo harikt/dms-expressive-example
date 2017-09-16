@@ -10,13 +10,6 @@ $container = require __DIR__ . '/config/container.php';
 $application = new Application('Application console');
 
 $connection = $container->get(IConnection::class);
-$db = $connection->getDoctrineConnection();
-$helperSet = new \Symfony\Component\Console\Helper\HelperSet(array(
-    'db' => new \Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper($db),
-    'dialog' => new \Symfony\Component\Console\Helper\QuestionHelper(),
-));
-
-$application->setHelperSet($helperSet);
 
 $commands = $container->get('config')['console']['commands'];
 foreach ($commands as $command) {
