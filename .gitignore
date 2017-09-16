@@ -1,7 +1,10 @@
 /vendor
 /data
 /web.expressive
+/web.laravel
 /serve
 /.env
 /public/files
 /public/app
+/bk/
+/blade-renderer

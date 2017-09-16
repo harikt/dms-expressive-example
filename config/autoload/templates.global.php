@@ -1,7 +1,7 @@
 <?php
 
 use Zend\Expressive\Template\TemplateRendererInterface;
-use Hkt\IlluminateView\BladeRendererFactory;
+use Harikt\Blade\BladeRendererFactory;
 
 return [
     'dependencies' => [

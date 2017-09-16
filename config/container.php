@@ -218,7 +218,7 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, \Illuminate\Contracts\C
 });
 
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, \Dms\Common\Structure\FileSystem\Directory::class, function() {
-	return new \Dms\Common\Structure\FileSystem\Directory('/home/hari/experiments/php/dms-expressive-integration/public');
+	return new \Dms\Common\Structure\FileSystem\Directory(dirname(__DIR__) . '/public');
 });
 
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, \Dms\Web\Expressive\Document\DirectoryTree::class, function() use ($container) {
@@ -256,7 +256,7 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, IConnection::class, fun
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, OauthProviderCollection::class, function () {
     $providers = [];
 
-    // foreach ($this->app['config']->get('dms.auth.oauth-providers', []) as $providerConfig) {
+    // foreach (config('dms.auth.oauth-providers', []) as $providerConfig) {
     //     /** @var OauthProvider $providerClass */
     //     $providerClass = $providerConfig['provider'];
     //     $providers[]   = $providerClass::fromConfiguration($providerConfig);
@@ -306,87 +306,37 @@ $container->bind(IIocContainer::SCOPE_SINGLETON, IBlogAuthorRepository::class, D
 use Dms\Package\Blog\Domain\Entities\BlogArticle;
 use Dms\Package\Blog\Domain\Services\Config\BlogConfiguration;
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, BlogConfiguration::class, function () {
-            return BlogConfiguration::builder()
-                ->setFeaturedImagePath(public_path('app/images/blog'))
-                ->useDashedSlugGenerator()
-                // Supply a preview callback to provide article previews
-                // directly from the backend. This can be omitted to disable this feature.
-                ->setArticlePreviewCallback(function (BlogArticle $article) {
-                    return view('blog.article', ['article' => $article])->render();
-                })
-                ->build();
-        });
+    return BlogConfiguration::builder()
+        ->setFeaturedImagePath(public_path('app/images/blog'))
+        ->useDashedSlugGenerator()
+        // Supply a preview callback to provide article previews
+        // directly from the backend. This can be omitted to disable this feature.
+        ->setArticlePreviewCallback(function (BlogArticle $article) {
+            return view('blog.article', ['article' => $article])->render();
+        })
+        ->build();
+});
 
-use Illuminate\View\Compilers\BladeCompiler;
-use Illuminate\View\Engines\CompilerEngine;
-use Illuminate\View\Engines\EngineResolver;
-use Illuminate\View\Engines\PhpEngine;
-use Illuminate\Filesystem\Filesystem as IlluminateFilesystem;
+use Illuminate\Contracts\View\Factory as ViewFactory;
+use Harikt\Blade\BladeViewFactory;
+use Dms\Package\Content\Core\ContentLoaderService;
+$container->bindCallback(IIocContainer::SCOPE_SINGLETON, ViewFactory::class, function () use ($container) {
+	$factory = new BladeViewFactory();
 
-// $container->bindCallback(IIocContainer::SCOPE_SINGLETON, Illuminate\View\Engines\EngineResolver::class, function () use ($container) {
-// 	$viewResolver = $container->get(Illuminate\View\Engines\EngineResolver::class);
-//
-// 	$config = $container->has('config') ? $container->get('config') : [];
-// 	$config = isset($config['blade']) ? $config['blade'] : [];
-//
-// 	$pathToCompiledTemplates = $config['cache_dir'];
-//
-// 	$viewResolver->register('blade', function () use ($container) {
-// 		$bladeCompiler = $container->makeWith(BladeCompiler::class, [
-// 			'files' => $container->get(IlluminateFilesystem::class),
-// 			'cachePath' => $pathToCompiledTemplates,
-// 		]);
-//
-// 		return $container->makeWith(CompilerEngine::class, [
-// 			'compiler' => $bladeCompiler,
-// 		]);
-// 	});
-//
-// 	$viewResolver->register('php', function () {
-// 	    return new PhpEngine();
-// 	});
-//
-// 	return $viewResolver;
-// });
+	$viewFactory = $factory->createViewFactory($container);
 
-$container->bindCallback(IIocContainer::SCOPE_SINGLETON, Illuminate\View\ViewFinderInterface::class, function () use ($container) {
-	return $container->makeWith(Illuminate\View\FileViewFinder::class, [
-		'paths' => [],
-	]);
+	$viewFactory->composer('dms::template.default', DmsNavigationViewComposer::class);
+	$viewFactory->composer('dms::dashboard', DmsNavigationViewComposer::class);
+	$viewFactory->composer('*', function ($view) use ($container) {
+		$view->with('contentLoader', $container->get(ContentLoaderService::class));
+	});
+
+	$viewFactory->setContainer($container->getLaravelContainer());
+
+	return $viewFactory;
 });
 
 $container->bind(IIocContainer::SCOPE_SINGLETON, Illuminate\Contracts\Events\Dispatcher::class, Illuminate\Events\Dispatcher::class);
-
-$container->bindCallback(IIocContainer::SCOPE_SINGLETON, Illuminate\Contracts\View\Factory::class, function() use ($container) {
-	$viewResolver = $container->get(EngineResolver::class);
-
-	$config = $container->has('config') ? $container->get('config') : [];
-	$config = isset($config['blade']) ? $config['blade'] : [];
-
-	$pathToCompiledTemplates = $config['cache_dir'];
-
-	$bladeCompiler = $container->makeWith(BladeCompiler::class, [
-		'files' => $container->get(IlluminateFilesystem::class),
-		'cachePath' => $pathToCompiledTemplates,
-	]);
-
-	$viewResolver->register('blade', function () use ($container, $pathToCompiledTemplates, $bladeCompiler) {
-		return $container->makeWith(CompilerEngine::class, [
-			'compiler' => $bladeCompiler,
-		]);
-	});
-
-	$viewResolver->register('php', function () {
-	    return new PhpEngine();
-	});
-
-	$finder = $container->get(Illuminate\View\ViewFinderInterface::class);
-	$dispatcher = $container->get(Illuminate\Contracts\Events\Dispatcher::class);
-
-	$factory = new \Illuminate\View\Factory($viewResolver, $finder, $dispatcher);
-
-	return $factory;
-});
 
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, ActionInputTransformerCollection::class, function () use ($container) {
 	return new ActionInputTransformerCollection($container->makeAll(
@@ -405,9 +355,6 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, ActionExceptionHandlerC
 		config('dms.services.actions.exception-handlers')
 	));
 });
-
-use Aura\Router\RouterContainer as Router;
-$container->bind(IIocContainer::SCOPE_SINGLETON, Router::class, Router::class);
 
 use Dms\Web\Expressive\Middleware\AuthenticationMiddleware;
 $container->bind(IIocContainer::SCOPE_SINGLETON, AuthenticationMiddleware::class, AuthenticationMiddleware::class);
