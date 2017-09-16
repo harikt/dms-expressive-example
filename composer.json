@@ -1,9 +1,9 @@
 {
-    "name": "zendframework/zend-expressive-skeleton",
-    "description": "Zend expressive skeleton. Begin developing PSR-7 middleware applications in seconds!",
+    "name": "harikt/dms-expressive-skeleton",
+    "description": "Zend expressive skeleton with dms. Begin developing PSR-7 middleware applications in seconds!",
     "type": "project",
-    "homepage": "https://github.com/zendframework/zend-expressive-skeleton",
-    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/harikt/dms-expressive-skeleton",
+    "license": "MIT",
     "config": {
         "sort-packages": true
     },
@@ -41,7 +41,6 @@
         "dms-org/package.contact-us": "^0.8.0",
         "dms-org/package.content": "^0.8.0",
         "dms-org/package.faqs": "^0.8.0",
-        "doctrine/migrations": "^1.5",
         "harikt/web.expressive": "0.1.0",
         "illuminate/cache": "^5.4",
         "illuminate/config": "^5.4",

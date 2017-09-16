@@ -33,3 +33,9 @@ Browse http://localhost:8080/dms .
 mkdir -p data/cache/blade
 sudo chmod -R 755 data/cache/blade
 ```
+
+# Todos
+
+* Fix the Laravel Blad integration with expressive.
+* Fix all the container related configurations.
+* Fix tests
