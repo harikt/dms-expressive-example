@@ -7,60 +7,6 @@
     "config": {
         "sort-packages": true
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package":
-            {
-                "name": "harikt/web.expressive",
-                "version": "0.2.0",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/harikt/web.expressive",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-4": {
-                        "Dms\\Web\\Expressive\\": "./src/"
-                    },
-                    "files" : [
-                        "./src/helper.php"
-                    ]
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package":
-            {
-                "name": "harikt/blade-renderer",
-                "version": "0.2.0",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/harikt/blade-renderer",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-4": {
-                        "Harikt\\Blade\\": "src/"
-                    }
-                },
-                "autoload-dev": {
-                    "psr-4": {
-                        "Harikt\\Blade\\": "tests/"
-                    }
-                },
-                "require": {
-                    "illuminate/container": "^5.5",
-                    "illuminate/events": "^5.5",
-                    "illuminate/filesystem": "^5.5",
-                    "illuminate/view": "^5.5",
-                    "psr/container": "~1.0",
-                    "zendframework/zend-expressive-template": "^1.0"
-                }
-            }
-        }
-    ],
     "require": {
         "php": "^5.6 || ^7.0",
         "aura/session": "^2.1",
@@ -70,8 +16,7 @@
         "dms-org/package.contact-us": "^0.8.0",
         "dms-org/package.content": "^0.8.0",
         "dms-org/package.faqs": "^0.8.0",
-        "harikt/blade-renderer": "0.2.0",
-        "harikt/web.expressive": "0.2.0",
+        "harikt/web.expressive": "dev-master",
         "illuminate/cache": "^5.4",
         "illuminate/config": "^5.4",
         "illuminate/container": "^5.4",

@@ -13,9 +13,9 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-        @foreach($content->getArrayOf('carousel-item') as $item)
-            <div class="item">
-              <img class="first-slide" src="{{ $item->hasImage('image') ? asset_file_url($item->getImage('image')) : 'http://placehold.it/500x500' }}" alt="First slide">
+        @foreach($content->getArrayOf('carousel-item') as $key => $item)
+            <div class="item @if ($key == 0) active @endif" >
+              <img class="{{ $key }}" src="{{ $item->hasImage('image') ? asset_file_url($item->getImage('image')) : 'http://placehold.it/500x500' }}" alt="{{ $item->getImageAltText('image') }}">
               <div class="container">
                 <div class="carousel-caption">
                   <h1>{{ $item->getText('caption') }}.</h1>

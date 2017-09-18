@@ -377,15 +377,15 @@ $laravelContainer = $container->getLaravelContainer();
 
 $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
      ->needs('$imageStorageBasePath')
-     ->give(dirname(__DIR__) . '/data/cache');
+     ->give(public_path('/app/content/images/'));
 
 $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
   ->needs('$imageBaseUrl')
-  ->give('/');
+  ->give('/app/content/images/');
 
 $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
    ->needs('$fileStorageBasePath')
-   ->give(dirname(__DIR__) . '/data/cache');
+   ->give(public_path('/app/content/files/'));
 
 $laravelContainer->bind(PublicFileModule::class, function () use ($container) {
    return new PublicFileModule(
