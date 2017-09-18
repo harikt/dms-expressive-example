@@ -13,7 +13,7 @@
             "package":
             {
                 "name": "harikt/web.expressive",
-                "version": "0.1.0",
+                "version": "0.2.0",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/harikt/web.expressive",
@@ -34,7 +34,7 @@
             "package":
             {
                 "name": "harikt/blade-renderer",
-                "version": "0.1.0",
+                "version": "0.2.0",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/harikt/blade-renderer",
@@ -70,8 +70,8 @@
         "dms-org/package.contact-us": "^0.8.0",
         "dms-org/package.content": "^0.8.0",
         "dms-org/package.faqs": "^0.8.0",
-        "harikt/blade-renderer": "0.1.0",
-        "harikt/web.expressive": "0.1.0",
+        "harikt/blade-renderer": "0.2.0",
+        "harikt/web.expressive": "0.2.0",
         "illuminate/cache": "^5.4",
         "illuminate/config": "^5.4",
         "illuminate/container": "^5.4",

@@ -28,7 +28,7 @@
 $app->get('/', App\Action\HomePageAction::class, 'home');
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
 
-$app->get('/content', App\Action\ContentAction::class, 'content');
+$app->get('/about', App\Action\AboutAction::class, 'about');
 $app->route('/contact', App\Action\ContactAction::class, ['GET', 'POST'], 'app::contact');
 
 $app->injectRoutesFromConfig((new Dms\Web\Expressive\ConfigProvider())());

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "520d5f1d46248cc0d9dc7ff7190b3663",
+    "content-hash": "cad722eed7127b8cac0c14000dc0d0c4",
     "packages": [
         {
             "name": "aura/session",
@@ -1276,7 +1276,7 @@
         },
         {
             "name": "harikt/blade-renderer",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/blade-renderer",
@@ -1304,7 +1304,7 @@
         },
         {
             "name": "harikt/web.expressive",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive",
