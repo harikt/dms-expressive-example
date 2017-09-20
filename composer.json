@@ -38,9 +38,9 @@
     },
     "require-dev": {
         "filp/whoops": "^2.1.7",
+        "harikt/cli.expressive": "dev-master",
         "heroku/heroku-buildpack-php": "^124.0",
         "phpunit/phpunit": "^6.0.8 || ^5.7.15",
-        "robmorgan/phinx": "^0.9.1",
         "squizlabs/php_codesniffer": "^2.8.1",
         "zendframework/zend-expressive-tooling": "^0.4.1",
         "zfcampus/zf-development-mode": "^3.1"

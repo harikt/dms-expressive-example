@@ -8,3 +8,5 @@
 /public/app
 /bk/
 /blade-renderer
+/database
+/cli.expressive

@@ -245,7 +245,7 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, IConnection::class, fun
     $config = new \Doctrine\DBAL\Configuration();
 
     $connectionParams = array(
-        'url' => getenv('DATABASE_URL'),
+        'url' => getenv('driver') . '://' . getenv('username') . ':' . getenv('password') . '@' . getenv('host') . '/' . getenv('database'),
     );
     $connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
@@ -399,5 +399,36 @@ use App\Domain\Services\Persistence\ITodoItemRepository;
 use App\Infrastructure\Persistence\DbTodoItemRepository;
 
 $container->bind(IIocContainer::SCOPE_SINGLETON, ITodoItemRepository::class, DbTodoItemRepository::class);
+
+use Illuminate\Database\Migrations\MigrationRepositoryInterface;
+use Illuminate\Database\Migrations\DatabaseMigrationRepository;
+use Illuminate\Database\ConnectionResolverInterface;
+$container->bindCallback(IIocContainer::SCOPE_SINGLETON, MigrationRepositoryInterface::class, function () use ($container) {
+    return new DatabaseMigrationRepository($container->get(ConnectionResolverInterface::class), 'migrations');
+});
+
+$container->bindCallback(IIocContainer::SCOPE_SINGLETON, ConnectionResolverInterface::class, function () use ($container) {
+
+    $settings = array(
+        'driver' => getenv('driver'),
+        'host' => getenv('host'),
+        'database' => getenv('database'),
+        'username' => getenv('username'),
+        'password' => getenv('password'),
+        'collation' => getenv('collation'),
+        'prefix' => ''
+    );
+
+    $connFactory = new \Illuminate\Database\Connectors\ConnectionFactory($container->getLaravelContainer());
+    $conn = $connFactory->make($settings);
+    $resolver = new \Illuminate\Database\ConnectionResolver();
+    $resolver->addConnection('default', $conn);
+    $resolver->setDefaultConnection('default');
+    \Illuminate\Support\Facades\Schema::setFacadeApplication($container->getLaravelContainer());
+
+    return $resolver;
+});
+
+$container->alias(ConnectionResolverInterface::class, 'db');
 
 return $container;
