@@ -1,8 +1,7 @@
 <?php
-use App\ExpressiveLaravelIocConfig;
+use App\ExpressiveDmsConfig;
 use Dms\Core\Language\ILanguageProvider;
 use App\AppOrm;
-
 use Psr\Cache\CacheItemPoolInterface;
 use Cache\Adapter\Filesystem\FilesystemCachePool;
 use League\Flysystem\Adapter\Local;
@@ -12,7 +11,6 @@ use Illuminate\Events\Dispatcher;
 use Dms\Web\Expressive\Auth\HktAuthSystem;
 use Doctrine\DBAL\Connection;
 use Zend\Expressive\Helper\UrlHelper;
-
 use Dms\Common\Structure\FileSystem\IApplicationDirectories;
 use Dms\Core\Auth\IAdminRepository;
 use Dms\Core\Auth\IAuthSystem;
@@ -73,23 +71,12 @@ use Dms\Web\Expressive\Renderer\Widget\WidgetRendererCollection;
 use Dms\Web\Expressive\Scaffold\ScaffoldCmsCommand;
 use Dms\Web\Expressive\Scaffold\ScaffoldPersistenceCommand;
 use Dms\Web\Expressive\View\DmsNavigationViewComposer;
-// use Illuminate\Auth\AuthManager;
-// use Illuminate\Console\Scheduling\Schedule;
-// use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Container\Container;
-// use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-// use Illuminate\Database\Connection;
 // use Illuminate\Database\MySqlConnection;
-// use Illuminate\Foundation\Application;
 // use Illuminate\Routing\Middleware\SubstituteBindings;
-// use Illuminate\Routing\Middleware\ThrottleRequests;
-// use Illuminate\Routing\Router;
-// use Illuminate\Session\Middleware\StartSession;
-// use Illuminate\Support\ServiceProvider;
 // use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-require_once __DIR__ . '/ExpressiveLaravelIocConfig.php';
-// require_once __DIR__ . '/ExpressiveAuraDelegatorFactory.php';
+require_once __DIR__ . '/ExpressiveDmsConfig.php';
 
 // Load configuration
 $config = require __DIR__ . '/config.php';
@@ -97,7 +84,8 @@ $config = require __DIR__ . '/config.php';
 // Build container
 // new Illuminate\Container\Container()
 $container = LaravelIocContainer::getInstance();
-new ExpressiveLaravelIocConfig($container, $config);
+$configurator = new ExpressiveDmsConfig($container);
+$configurator($config);
 
 $container->bindValue('config', $config);
 
@@ -227,40 +215,27 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, \Dms\Web\Expressive\Doc
 });
 
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, IConnection::class, function () {
-    /** @var Connection $connection */
-    // $connection = $container->get(Connection::class);
-    //
-    // if ($this->isRunningInConsole()) {
-    //     $connection->getDoctrineConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('enum',
-    //         'string');
-    //     $connection->getDoctrineConnection()->getEventManager()->addEventSubscriber(new CustomColumnDefinitionEventSubscriber());
-    // }
-    //
-    // if ($connection instanceof MySqlConnection
-    //     && version_compare($connection->getPdo()->getAttribute(\PDO::ATTR_SERVER_VERSION), '5.7.6', '>=')
-    // ) {
-    //     $connection->statement('SET optimizer_switch = \'derived_merge=off\'');
-    // }
-
     $config = new \Doctrine\DBAL\Configuration();
 
     $connectionParams = array(
         'url' => getenv('driver') . '://' . getenv('username') . ':' . getenv('password') . '@' . getenv('host') . '/' . getenv('database'),
+        'driverOptions' => [
+            \PDO::MYSQL_ATTR_FOUND_ROWS => true
+        ],
     );
     $connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
     return new \Dms\Core\Persistence\Db\Doctrine\DoctrineConnection($connection);
-    // new LaravelConnection($connection);
 });
 
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, OauthProviderCollection::class, function () {
     $providers = [];
 
-    // foreach (config('dms.auth.oauth-providers', []) as $providerConfig) {
-    //     /** @var OauthProvider $providerClass */
-    //     $providerClass = $providerConfig['provider'];
-    //     $providers[]   = $providerClass::fromConfiguration($providerConfig);
-    // }
+    foreach (config('dms.auth.oauth-providers', []) as $providerConfig) {
+        /** @var OauthProvider $providerClass */
+        $providerClass = $providerConfig['provider'];
+        $providers[]   = $providerClass::fromConfiguration($providerConfig);
+    }
 
     return new OauthProviderCollection($providers);
 });
@@ -268,10 +243,6 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, OauthProviderCollection
 $container->bindValue('path.storage', dirname(__DIR__) . '/data/cache');
 $container->bindValue('url', $container->get(UrlHelper::class));
 $container->bindValue('route', $container->get(UrlHelper::class));
-// $sessionManager = new \Illuminate\Session\SessionManager($container);
-// $sessionManager->driver();
-// $container->bindValue('session', $sessionManager);
-// $container->bindValue('session.store', $container->get(\Illuminate\Session\Store::class));
 
 $container->bindValue('path.public', dirname(__DIR__) . '/public');
 
@@ -427,6 +398,25 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, ConnectionResolverInter
     \Illuminate\Support\Facades\Schema::setFacadeApplication($container->getLaravelContainer());
 
     return $resolver;
+});
+
+use Doctrine\Common\Cache\FilesystemCache;
+use BehEh\Flaps\Flaps;
+use BehEh\Flaps\Flap;
+use BehEh\Flaps\Storage\DoctrineCacheAdapter;
+use BehEh\Flaps\Throttling\LeakyBucketStrategy;
+use BehEh\Flaps\Violation\PassiveViolationHandler;
+$container->bindCallback(IIocContainer::SCOPE_SINGLETON, Flap::class, function () use ($container) {
+    $cache = new FilesystemCache(dirname(__DIR__) . '/data/cache');
+    $storage = new DoctrineCacheAdapter($cache);
+    $flaps = new Flaps($storage);
+    $flap = $flaps->__get('api');
+    $flap->pushThrottlingStrategy(
+        new LeakyBucketStrategy(3, '1s')
+    );
+    $flap->setViolationHandler(new PassiveViolationHandler);
+
+    return $flap;
 });
 
 $container->alias(ConnectionResolverInterface::class, 'db');

@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e2235e786317a32d4ae883a583c7b2f",
+    "content-hash": "ddfb9f8c0f2145611220a5bde4983dea",
     "packages": [
+        {
+            "name": "akrabat/rka-ip-address-middleware",
+            "version": "0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akrabat/rka-ip-address-middleware.git",
+                "reference": "832687b13bae4d7fe889fab1414aef6fafeecf80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akrabat/rka-ip-address-middleware/zipball/832687b13bae4d7fe889fab1414aef6fafeecf80",
+                "reference": "832687b13bae4d7fe889fab1414aef6fafeecf80",
+                "shasum": ""
+            },
+            "require": {
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^2.3",
+                "zendframework/zend-diactoros": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RKA\\Middleware\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Allen",
+                    "email": "rob@akrabat.com",
+                    "homepage": "http://akrabat.com"
+                }
+            ],
+            "description": "PSR-7 Middleware that determines the client IP address and stores it as an ServerRequest attribute",
+            "homepage": "http://github.com/akrabat/rka-ip-address-middleware",
+            "keywords": [
+                "IP",
+                "middleware",
+                "psr7"
+            ],
+            "time": "2016-11-13T12:23:41+00:00"
+        },
         {
             "name": "aura/session",
             "version": "2.1.0",
@@ -67,6 +115,59 @@
                 "sessions"
             ],
             "time": "2016-10-03T20:28:32+00:00"
+        },
+        {
+            "name": "beheh/flaps",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beheh/flaps.git",
+                "reference": "327110f6c97a3a3e90bd39c47ebb9e2f02db9d61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beheh/flaps/zipball/327110f6c97a3a3e90bd39c47ebb9e2f02db9d61",
+                "reference": "327110f6c97a3a3e90bd39c47ebb9e2f02db9d61",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.4",
+                "phpunit/phpunit": "~4.0",
+                "predis/predis": "~1.0"
+            },
+            "suggest": {
+                "doctrine/cache": "Enables a wide variety of caching systems as storage",
+                "predis/predis": "Enable Redis as storage system"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BehEh\\Flaps\\": "src/Flaps"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Benedict Etzel",
+                    "email": "developer@beheh.de",
+                    "homepage": "https://beheh.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Modular library for rate limiting requests in applications",
+            "homepage": "https://github.com/beheh/flaps",
+            "keywords": [
+                "http",
+                "rate limit",
+                "throttle"
+            ],
+            "time": "2017-06-02T21:56:31+00:00"
         },
         {
             "name": "cache/cache",
@@ -144,7 +245,7 @@
                 {
                     "name": "Tobias Nyholm",
                     "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/Nyholm"
+                    "homepage": "https://github.com/nyholm"
                 }
             ],
             "description": "Library of all the php-cache adapters",
@@ -1322,21 +1423,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "2a74a9a9981d2b311d59f8eddba8355af60d0cef"
+                "reference": "334361254dedee6fd7c68acc7db897734a78ee78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/2a74a9a9981d2b311d59f8eddba8355af60d0cef",
-                "reference": "2a74a9a9981d2b311d59f8eddba8355af60d0cef",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/334361254dedee6fd7c68acc7db897734a78ee78",
+                "reference": "334361254dedee6fd7c68acc7db897734a78ee78",
                 "shasum": ""
             },
             "require": {
+                "akrabat/rka-ip-address-middleware": "^0.5.0",
                 "aura/session": "^2.1",
+                "beheh/flaps": "^0.2.0",
                 "cache/cache": "^0.1.0",
                 "dms-org/common.structure": "^0.8",
                 "dms-org/core": "^0.8",
                 "harikt/blade-renderer": "0.1.0",
-                "illuminate/cache": "^5.4",
                 "illuminate/config": "^5.4",
                 "laravel/browser-kit-testing": "^1.0",
                 "league/oauth2-google": "^1.0",
@@ -1346,9 +1448,7 @@
                 "zendframework/zend-expressive": "^2.0.2"
             },
             "require-dev": {
-                "dms-org/common.testing": "dev-master",
-                "dms-org/package.content": "^0.8",
-                "orchestra/testbench": "~3.0"
+                "dms-org/package.content": "^0.8"
             },
             "type": "library",
             "autoload": {
@@ -1374,7 +1474,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2017-09-20 18:56:11"
+            "time": "2017-09-24 17:46:21"
         },
         {
             "name": "http-interop/http-middleware",
@@ -1427,55 +1527,6 @@
                 "response"
             ],
             "time": "2017-01-14T15:23:42+00:00"
-        },
-        {
-            "name": "illuminate/cache",
-            "version": "v5.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/cache.git",
-                "reference": "5fe06340607a9d4748a387096dcfed9cc1694460"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/cache/zipball/5fe06340607a9d4748a387096dcfed9cc1694460",
-                "reference": "5fe06340607a9d4748a387096dcfed9cc1694460",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.5.*",
-                "illuminate/support": "5.5.*",
-                "php": ">=7.0"
-            },
-            "suggest": {
-                "illuminate/database": "Required to use the database cache driver (5.5.*).",
-                "illuminate/filesystem": "Required to use the file cache driver (5.5.*).",
-                "illuminate/redis": "Required to use the redis cache driver (5.5.*)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Cache\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Cache package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-08-31T21:24:23+00:00"
         },
         {
             "name": "illuminate/config",
@@ -4957,16 +5008,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.3.0",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb"
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9501bab711403a1ab5b8378a8adb4ec3db3debdb",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c0ff817b36a827e64bf5f57bc72278150cf30a77",
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77",
                 "shasum": ""
             },
             "require": {
@@ -5037,7 +5088,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-04T05:20:39+00:00"
+            "time": "2017-09-24T07:25:54+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5734,6 +5785,74 @@
                 "standards"
             ],
             "time": "2017-05-22T02:43:20+00:00"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v3.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "89fcb5a73e0ede2be2512234c4e40457bb22b35f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/89fcb5a73e0ede2be2512234c4e40457bb22b35f",
+                "reference": "89fcb5a73e0ede2be2512234c4e40457bb22b35f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
+            },
+            "require-dev": {
+                "ext-iconv": "*",
+                "twig/twig": "~1.34|~2.4"
+            },
+            "suggest": {
+                "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2017-08-27T14:52:21+00:00"
         },
         {
             "name": "theseer/tokenizer",

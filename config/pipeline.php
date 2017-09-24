@@ -7,6 +7,7 @@ use Zend\Expressive\Middleware\ImplicitOptionsMiddleware;
 use Zend\Expressive\Middleware\NotFoundHandler;
 use Zend\Stratigility\Middleware\ErrorHandler;
 use Dms\Web\Expressive\Http\Middleware\Authenticate;
+use RKA\Middleware\IpAddress;
 
 /**
  * Setup middleware pipeline:
@@ -47,6 +48,7 @@ $app->pipe(UrlHelperMiddleware::class);
 // - route-based validation
 // - etc.
 $app->pipe('/dms', Authenticate::class);
+$app->pipe('/dms/auth/login', IpAddress::class);
 
 // Register the dispatch middleware in the middleware pipeline
 $app->pipeDispatchMiddleware();
