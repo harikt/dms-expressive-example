@@ -1377,19 +1377,20 @@
         },
         {
             "name": "harikt/blade-renderer",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/blade-renderer.git",
-                "reference": "1f5afbbe7d9968fb2afb39b9d3b81d6c3108cc16"
+                "reference": "ba55cd92a35b70403fa820776d3964734724ee55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/blade-renderer/zipball/1f5afbbe7d9968fb2afb39b9d3b81d6c3108cc16",
-                "reference": "1f5afbbe7d9968fb2afb39b9d3b81d6c3108cc16",
+                "url": "https://api.github.com/repos/harikt/blade-renderer/zipball/ba55cd92a35b70403fa820776d3964734724ee55",
+                "reference": "ba55cd92a35b70403fa820776d3964734724ee55",
                 "shasum": ""
             },
             "require": {
+                "illuminate/cache": "^5.5",
                 "illuminate/container": "^5.5",
                 "illuminate/events": "^5.5",
                 "illuminate/filesystem": "^5.5",
@@ -1415,7 +1416,7 @@
             ],
             "description": "Laravel blade renderer for Zend expressive",
             "homepage": "https://github.com/harikt/blade-renderer",
-            "time": "2017-09-18T10:13:01+00:00"
+            "time": "2017-09-24T17:50:53+00:00"
         },
         {
             "name": "harikt/web.expressive",
@@ -1423,12 +1424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "334361254dedee6fd7c68acc7db897734a78ee78"
+                "reference": "ca2f7b374603cd35d9ba6054f6c3cee54e764579"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/334361254dedee6fd7c68acc7db897734a78ee78",
-                "reference": "334361254dedee6fd7c68acc7db897734a78ee78",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/ca2f7b374603cd35d9ba6054f6c3cee54e764579",
+                "reference": "ca2f7b374603cd35d9ba6054f6c3cee54e764579",
                 "shasum": ""
             },
             "require": {
@@ -1438,7 +1439,7 @@
                 "cache/cache": "^0.1.0",
                 "dms-org/common.structure": "^0.8",
                 "dms-org/core": "^0.8",
-                "harikt/blade-renderer": "0.1.0",
+                "harikt/blade-renderer": "^0.2",
                 "illuminate/config": "^5.4",
                 "laravel/browser-kit-testing": "^1.0",
                 "league/oauth2-google": "^1.0",
@@ -1474,7 +1475,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2017-09-24 17:46:21"
+            "time": "2017-09-24 18:01:07"
         },
         {
             "name": "http-interop/http-middleware",
@@ -1527,6 +1528,55 @@
                 "response"
             ],
             "time": "2017-01-14T15:23:42+00:00"
+        },
+        {
+            "name": "illuminate/cache",
+            "version": "v5.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/cache.git",
+                "reference": "5fe06340607a9d4748a387096dcfed9cc1694460"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/cache/zipball/5fe06340607a9d4748a387096dcfed9cc1694460",
+                "reference": "5fe06340607a9d4748a387096dcfed9cc1694460",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.5.*",
+                "illuminate/support": "5.5.*",
+                "php": ">=7.0"
+            },
+            "suggest": {
+                "illuminate/database": "Required to use the database cache driver (5.5.*).",
+                "illuminate/filesystem": "Required to use the file cache driver (5.5.*).",
+                "illuminate/redis": "Required to use the redis cache driver (5.5.*)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Cache\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Cache package.",
+            "homepage": "https://laravel.com",
+            "time": "2017-08-31T21:24:23+00:00"
         },
         {
             "name": "illuminate/config",
