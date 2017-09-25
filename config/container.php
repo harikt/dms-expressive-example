@@ -410,9 +410,9 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, Flap::class, function (
     $cache = new FilesystemCache(dirname(__DIR__) . '/data/cache');
     $storage = new DoctrineCacheAdapter($cache);
     $flaps = new Flaps($storage);
-    $flap = $flaps->__get('api');
+    $flap = $flaps->__get('login-throttle');
     $flap->pushThrottlingStrategy(
-        new LeakyBucketStrategy(3, '1s')
+        new LeakyBucketStrategy(3, '15s')
     );
     $flap->setViolationHandler(new PassiveViolationHandler);
 
