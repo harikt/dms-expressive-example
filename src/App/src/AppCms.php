@@ -6,11 +6,11 @@ use App\Cms\MyContentPackage;
 use App\Cms\TodoAppPackage;
 use Dms\Core\Cms;
 use Dms\Core\CmsDefinition;
-use Dms\Web\Expressive\Auth\AdminPackage;
-use Dms\Web\Expressive\Document\PublicFilePackage;
 use Dms\Package\Analytics\AnalyticsPackage;
 use Dms\Package\Blog\Cms\BlogPackage;
 use Dms\Package\ContactUs\Cms\ContactUsPackage;
+use Dms\Web\Expressive\Auth\AdminPackage;
+use Dms\Web\Expressive\Document\PublicFilePackage;
 
 /**
  * The application's cms.
@@ -29,7 +29,7 @@ class AppCms extends Cms
         $cms->packages([
             'admin'     => AdminPackage::class,
             'documents' => PublicFilePackage::class,
-            // 'analytics' => AnalyticsPackage::class,
+            'analytics' => AnalyticsPackage::class,
 
             // TODO: Register your application cms packages...
             'blog' => BlogPackage::class,

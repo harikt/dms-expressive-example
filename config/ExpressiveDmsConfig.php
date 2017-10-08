@@ -18,7 +18,6 @@ use Dms\Core\Ioc\IIocContainer;
  */
 class ExpressiveDmsConfig
 {
-
     protected $container;
 
     /**
@@ -77,7 +76,7 @@ class ExpressiveDmsConfig
             foreach ($dependencies['factories'] as $service => $factory) {
                 // $this->container->set($factory, $this->container->lazyNew($factory));
                 // $this->container->set($service, $this->container->lazyGetCall($factory, '__invoke', $this->container));
-                $this->container->bindCallback(IIocContainer::SCOPE_SINGLETON, $service, function() use($factory) {
+                $this->container->bindCallback(IIocContainer::SCOPE_SINGLETON, $service, function () use ($factory) {
                     $f = $this->container->get($factory);
                     return $f($this->container);
                 });
@@ -88,7 +87,7 @@ class ExpressiveDmsConfig
         if (isset($dependencies['invokables'])) {
             foreach ($dependencies['invokables'] as $service => $class) {
                 // $this->container->set($service, $this->container->lazyNew($class));
-                $this->container->bindCallback(IIocContainer::SCOPE_SINGLETON, $service, function() use($class) {
+                $this->container->bindCallback(IIocContainer::SCOPE_SINGLETON, $service, function () use ($class) {
                     return new $class();
                 });
             }

@@ -10,3 +10,7 @@
 /blade-renderer
 /database
 /cli.expressive
+.php_cs
+.php_cs.cache
+composer.sh
+test.php

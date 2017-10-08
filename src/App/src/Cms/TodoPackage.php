@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace App\Cms;
 
@@ -7,9 +7,9 @@ use Dms\Core\Package\Definition\PackageDefinition;
 use Dms\Core\Package\Package;
 
 /**
- * The TodoApp package.
+ * The todo package.
  */
-class TodoAppPackage extends Package
+class TodoPackage extends Package
 {
     /**
      * Defines the structure of this cms package.
@@ -20,7 +20,7 @@ class TodoAppPackage extends Package
      */
     protected function define(PackageDefinition $package)
     {
-        $package->name('todo-app');
+        $package->name('todo');
 
         $package->metadata([
             'icon' => '',

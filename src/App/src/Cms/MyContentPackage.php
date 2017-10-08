@@ -3,7 +3,6 @@
 namespace App\Cms;
 
 // use App\Http\Controllers\PageController;
-use Dms\Core\ICms;
 use Dms\Package\Content\Cms\ContentPackage;
 use Dms\Package\Content\Cms\Definition\ContentConfigDefinition;
 use Dms\Package\Content\Cms\Definition\ContentGroupDefiner;
