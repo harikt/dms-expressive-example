@@ -2,10 +2,10 @@
 
 namespace App\Domain\Services\Persistence;
 
+use App\Domain\Entities\TodoItem;
 use Dms\Core\Model\ICriteria;
 use Dms\Core\Model\ISpecification;
 use Dms\Core\Persistence\IRepository;
-use App\Domain\Entities\TodoItem;
 
 /**
  * The repository for the App\Domain\Entities\TodoItem entity.

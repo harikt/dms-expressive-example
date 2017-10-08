@@ -2,24 +2,22 @@
 
 namespace App\Cms\Modules;
 
+use App\Domain\Entities\TodoItem;
+use App\Domain\Services\Persistence\ITodoItemRepository;
+use Dms\Common\Structure\Field;
 use Dms\Core\Auth\IAuthSystem;
 use Dms\Core\Common\Crud\CrudModule;
 use Dms\Core\Common\Crud\Definition\CrudModuleDefinition;
 use Dms\Core\Common\Crud\Definition\Form\CrudFormDefinition;
 use Dms\Core\Common\Crud\Definition\Table\SummaryTableDefinition;
-use App\Domain\Services\Persistence\ITodoItemRepository;
-use App\Domain\Entities\TodoItem;
-use Dms\Common\Structure\Field;
 
 /**
  * The todo-item module.
  */
 class TodoItemModule extends CrudModule
 {
-
     public function __construct(ITodoItemRepository $dataSource, IAuthSystem $authSystem)
     {
-
         parent::__construct($dataSource, $authSystem);
     }
 
@@ -49,7 +47,6 @@ class TodoItemModule extends CrudModule
                 )->bindToProperty(TodoItem::COMPLETED),
                 //
             ]);
-
         });
 
         $module->removeAction()->deleteFromDataSource();

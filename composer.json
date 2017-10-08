@@ -9,6 +9,7 @@
     },
     "require": {
         "php": "^5.6 || ^7.0",
+        "aura/intl": "^3.0",
         "aura/session": "^2.1",
         "beheh/flaps": "^0.2.0",
         "cache/cache": "^0.1.0",
@@ -39,7 +40,6 @@
     "require-dev": {
         "filp/whoops": "^2.1.7",
         "harikt/cli.expressive": "dev-master",
-        "heroku/heroku-buildpack-php": "^124.0",
         "phpunit/phpunit": "^6.0.8 || ^5.7.15",
         "squizlabs/php_codesniffer": "^2.8.1",
         "symfony/var-dumper": "^3.3",
