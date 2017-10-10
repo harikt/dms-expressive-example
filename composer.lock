@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6776211ae80c6af166bf8fea95cc8451",
+    "content-hash": "ae59629ec5075c0bf7dfd33b8b479516",
     "packages": [
         {
             "name": "akrabat/rka-ip-address-middleware",
@@ -335,21 +335,21 @@
         },
         {
             "name": "dms-org/common.structure",
-            "version": "0.8.0",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dms-org/common.structure.git",
-                "reference": "8c617bcae26f3f8a27fbafa2161e417a2d7a85a9"
+                "reference": "23f122182f60df5ec847047a81a39c8aab019ff1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dms-org/common.structure/zipball/8c617bcae26f3f8a27fbafa2161e417a2d7a85a9",
-                "reference": "8c617bcae26f3f8a27fbafa2161e417a2d7a85a9",
+                "url": "https://api.github.com/repos/dms-org/common.structure/zipball/23f122182f60df5ec847047a81a39c8aab019ff1",
+                "reference": "23f122182f60df5ec847047a81a39c8aab019ff1",
                 "shasum": ""
             },
             "require": {
                 "dms-org/core": "^0.8",
-                "phine/country": "^1.1",
+                "league/iso3166": "^2.0",
                 "php": ">=7.0.0"
             },
             "require-dev": {
@@ -372,7 +372,7 @@
                 }
             ],
             "description": "Implementation of common data structures for use in domain models",
-            "time": "2017-07-18T05:45:43+00:00"
+            "time": "2017-09-12T01:28:10+00:00"
         },
         {
             "name": "dms-org/core",
@@ -460,16 +460,16 @@
         },
         {
             "name": "dms-org/package.analytics",
-            "version": "0.8.0",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dms-org/package.analytics.git",
-                "reference": "2971f53122ef64ebe7c9c7fa842fd402eab1ebaa"
+                "reference": "2eb972b51a3b36dd078f4b8735704e881f6ed741"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dms-org/package.analytics/zipball/2971f53122ef64ebe7c9c7fa842fd402eab1ebaa",
-                "reference": "2971f53122ef64ebe7c9c7fa842fd402eab1ebaa",
+                "url": "https://api.github.com/repos/dms-org/package.analytics/zipball/2eb972b51a3b36dd078f4b8735704e881f6ed741",
+                "reference": "2eb972b51a3b36dd078f4b8735704e881f6ed741",
                 "shasum": ""
             },
             "require": {
@@ -498,7 +498,7 @@
                 }
             ],
             "description": "The analytics package for the DMS",
-            "time": "2017-07-18T06:15:34+00:00"
+            "time": "2017-10-09T03:36:09+00:00"
         },
         {
             "name": "dms-org/package.blog",
@@ -1470,12 +1470,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "d9df9ed0a6e2804eea2af83d2feee8bab1e510f2"
+                "reference": "3f7295b02257e333a98df2ad6c380a5f6aceadb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/d9df9ed0a6e2804eea2af83d2feee8bab1e510f2",
-                "reference": "d9df9ed0a6e2804eea2af83d2feee8bab1e510f2",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/3f7295b02257e333a98df2ad6c380a5f6aceadb3",
+                "reference": "3f7295b02257e333a98df2ad6c380a5f6aceadb3",
                 "shasum": ""
             },
             "require": {
@@ -1488,8 +1488,6 @@
                 "dms-org/core": "^0.8",
                 "harikt/blade-renderer": "^0.2",
                 "illuminate/config": "^5.4",
-                "laravel/browser-kit-testing": "^1.0",
-                "league/oauth2-google": "^1.0",
                 "marcj/topsort": "^1.0",
                 "php": ">=7.0.0",
                 "zendframework/zend-expressive": "^2.0.2"
@@ -1523,7 +1521,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2017-10-08 10:28:24"
+            "time": "2017-10-10 06:16:54"
         },
         {
             "name": "http-interop/http-middleware",
@@ -2113,53 +2111,6 @@
             "time": "2017-09-19T15:49:58+00:00"
         },
         {
-            "name": "laravel/browser-kit-testing",
-            "version": "v1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/browser-kit-testing.git",
-                "reference": "0adfb725147815bff5516d157577f375a6e66ebd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/browser-kit-testing/zipball/0adfb725147815bff5516d157577f375a6e66ebd",
-                "reference": "0adfb725147815bff5516d157577f375a6e66ebd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/css-selector": "~3.1",
-                "symfony/dom-crawler": "~3.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\BrowserKitTesting\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Provides backwards compatibility for BrowserKit testing in Laravel 5.4.",
-            "keywords": [
-                "laravel",
-                "testing"
-            ],
-            "time": "2017-02-08T22:32:37+00:00"
-        },
-        {
             "name": "league/flysystem",
             "version": "1.0.41",
             "source": {
@@ -2241,6 +2192,60 @@
                 "storage"
             ],
             "time": "2017-08-06T17:41:04+00:00"
+        },
+        {
+            "name": "league/iso3166",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/iso3166.git",
+                "reference": "81c6a2c9250c2689460e5120a9b5952eedd927b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/iso3166/zipball/81c6a2c9250c2689460e5120a9b5952eedd927b0",
+                "reference": "81c6a2c9250c2689460e5120a9b5952eedd927b0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0@dev || ^2.0",
+                "phpunit/phpunit": "^4.6 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\ISO3166\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Bast",
+                    "email": "rob.bast@gmail.com"
+                }
+            ],
+            "description": "ISO 3166-1 PHP Library",
+            "homepage": "https://github.com/thephpleague/iso3166",
+            "keywords": [
+                "3166",
+                "3166-1",
+                "ISO 3166",
+                "countries",
+                "iso",
+                "library"
+            ],
+            "time": "2017-05-11T11:54:51+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -2606,109 +2611,6 @@
                 "php"
             ],
             "time": "2017-09-02T17:10:46+00:00"
-        },
-        {
-            "name": "phine/country",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kherge-abandoned/lib-country.git",
-                "reference": "17278e939832013a3c7981b71f63ceb7480e79a1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kherge-abandoned/lib-country/zipball/17278e939832013a3c7981b71f63ceb7480e79a1",
-                "reference": "17278e939832013a3c7981b71f63ceb7480e79a1",
-                "shasum": ""
-            },
-            "require": {
-                "phine/exception": "~1.0",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "league/phpunit-coverage-listener": "~1.0",
-                "phine/test": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Phine\\Country": "src/lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Herrera",
-                    "email": "kevin@herrera.io",
-                    "homepage": "http://kevin.herrera.io"
-                }
-            ],
-            "description": "A PHP library for country and subdivision data.",
-            "homepage": "https://github.com/phine/lib-country",
-            "keywords": [
-                "countries",
-                "country"
-            ],
-            "abandoned": true,
-            "time": "2015-04-21T03:50:08+00:00"
-        },
-        {
-            "name": "phine/exception",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kherge-abandoned/lib-exception.git",
-                "reference": "150c6b6090b2ebc53c60e87cb20c7f1287b7b68a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kherge-abandoned/lib-exception/zipball/150c6b6090b2ebc53c60e87cb20c7f1287b7b68a",
-                "reference": "150c6b6090b2ebc53c60e87cb20c7f1287b7b68a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "league/phpunit-coverage-listener": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Phine\\Exception": "src/lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kevin Herrera",
-                    "email": "kevin@herrera.io",
-                    "homepage": "http://kevin.herrera.io"
-                }
-            ],
-            "description": "A PHP library for improving the use of exceptions.",
-            "homepage": "https://github.com/phine/lib-exception",
-            "keywords": [
-                "exception"
-            ],
-            "abandoned": true,
-            "time": "2013-08-27T17:43:25+00:00"
         },
         {
             "name": "predis/predis",
@@ -3207,59 +3109,6 @@
             "time": "2017-10-02T06:42:24+00:00"
         },
         {
-            "name": "symfony/css-selector",
-            "version": "v3.3.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/css-selector.git",
-                "reference": "07447650225ca9223bd5c97180fe7c8267f7d332"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/07447650225ca9223bd5c97180fe7c8267f7d332",
-                "reference": "07447650225ca9223bd5c97180fe7c8267f7d332",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\CssSelector\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony CssSelector Component",
-            "homepage": "https://symfony.com",
-            "time": "2017-10-02T06:42:24+00:00"
-        },
-        {
             "name": "symfony/debug",
             "version": "v3.3.10",
             "source": {
@@ -3312,62 +3161,6 @@
                 }
             ],
             "description": "Symfony Debug Component",
-            "homepage": "https://symfony.com",
-            "time": "2017-10-02T06:42:24+00:00"
-        },
-        {
-            "name": "symfony/dom-crawler",
-            "version": "v3.3.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "40dafd42d5dad7fe5ad4e958413d92a207522ac1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/40dafd42d5dad7fe5ad4e958413d92a207522ac1",
-                "reference": "40dafd42d5dad7fe5ad4e958413d92a207522ac1",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/css-selector": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
             "time": "2017-10-02T06:42:24+00:00"
         },
@@ -3593,6 +3386,46 @@
             "time": "2017-09-06T06:27:03+00:00"
         },
         {
+            "name": "webimpress/http-middleware-compatibility",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webimpress/http-middleware-compatibility.git",
+                "reference": "793d21864a0417bbe01437c33f902cac49c1788c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webimpress/http-middleware-compatibility/zipball/793d21864a0417bbe01437c33f902cac49c1788c",
+                "reference": "793d21864a0417bbe01437c33f902cac49c1788c",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-middleware": "^0.1.1 || ^0.2 || ^0.3 || ^0.4.1 || ^0.5",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.22 || ^6.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "autoload/http-middleware.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "description": "Compatibility library for Draft PSR-15 HTTP Middleware",
+            "homepage": "https://github.com/webimpress/http-middleware-compatibility",
+            "keywords": [
+                "middleware",
+                "psr-15",
+                "webimpress"
+            ],
+            "time": "2017-10-05T15:55:30+00:00"
+        },
+        {
             "name": "zendframework/zend-component-installer",
             "version": "1.0.0",
             "source": {
@@ -3788,20 +3621,21 @@
         },
         {
             "name": "zendframework/zend-expressive",
-            "version": "2.0.3",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-expressive.git",
-                "reference": "293145df73f288b16107d1388995282c4e8599fd"
+                "reference": "5abe027d3d6d70c98b85080de602ef8572ac9995"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-expressive/zipball/293145df73f288b16107d1388995282c4e8599fd",
-                "reference": "293145df73f288b16107d1388995282c4e8599fd",
+                "url": "https://api.github.com/repos/zendframework/zend-expressive/zipball/5abe027d3d6d70c98b85080de602ef8572ac9995",
+                "reference": "5abe027d3d6d70c98b85080de602ef8572ac9995",
                 "shasum": ""
             },
             "require": {
                 "fig/http-message-util": "^1.1.2",
+                "http-interop/http-middleware": "^0.4.1",
                 "php": "^5.6 || ^7.0",
                 "psr/container": "^1.0",
                 "psr/http-message": "^1.0.1",
@@ -3816,8 +3650,8 @@
             "require-dev": {
                 "filp/whoops": "^2.1.6 || ^1.1.10",
                 "malukenho/docheader": "^0.1.5",
-                "mockery/mockery": "^0.9.5",
-                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^5.7.22 || ^6.4.1",
                 "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-expressive-aurarouter": "^2.0",
                 "zendframework/zend-expressive-fastroute": "^2.0",
@@ -3852,13 +3686,15 @@
                 "BSD-3-Clause"
             ],
             "description": "PSR-7 Middleware Microframework based on Stratigility",
+            "homepage": "https://docs.zendframework.com/zend-expressive/",
             "keywords": [
+                "PSR-11",
                 "http",
                 "middleware",
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-03-28T15:56:53+00:00"
+            "time": "2017-10-09T21:30:44+00:00"
         },
         {
             "name": "zendframework/zend-expressive-fastroute",
@@ -3920,29 +3756,29 @@
         },
         {
             "name": "zendframework/zend-expressive-helpers",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-expressive-helpers.git",
-                "reference": "bed2e15d3d98cc4af71a4d7500af1737687ec1c2"
+                "reference": "137d863d4741210d05297b4bb1c30264f100ba8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-expressive-helpers/zipball/bed2e15d3d98cc4af71a4d7500af1737687ec1c2",
-                "reference": "bed2e15d3d98cc4af71a4d7500af1737687ec1c2",
+                "url": "https://api.github.com/repos/zendframework/zend-expressive-helpers/zipball/137d863d4741210d05297b4bb1c30264f100ba8f",
+                "reference": "137d863d4741210d05297b4bb1c30264f100ba8f",
                 "shasum": ""
             },
             "require": {
-                "http-interop/http-middleware": "^0.4.1",
                 "php": "^5.6 || ^7.0",
                 "psr/container": "^1.0",
                 "psr/http-message": "^1.0.1",
-                "zendframework/zend-expressive-router": "^2.1"
+                "webimpress/http-middleware-compatibility": "^0.1.1",
+                "zendframework/zend-expressive-router": "^2.2"
             },
             "require-dev": {
                 "malukenho/docheader": "^0.1.5",
-                "mockery/mockery": "^0.9.5",
-                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^5.7.22 || ^6.4.1",
                 "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-diactoros": "^1.3.10"
             },
@@ -3954,8 +3790,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev",
-                    "dev-develop": "4.2-dev"
+                    "dev-master": "4.2-dev",
+                    "dev-develop": "4.3-dev"
                 }
             },
             "autoload": {
@@ -3975,31 +3811,31 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-09-11T16:52:45+00:00"
+            "time": "2017-10-09T19:03:01+00:00"
         },
         {
             "name": "zendframework/zend-expressive-router",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-expressive-router.git",
-                "reference": "88d711aee740ac8fbd684472469e16b85435cc79"
+                "reference": "f6eac53d39cdbf7b6db11b3e6bb3565896633de4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-expressive-router/zipball/88d711aee740ac8fbd684472469e16b85435cc79",
-                "reference": "88d711aee740ac8fbd684472469e16b85435cc79",
+                "url": "https://api.github.com/repos/zendframework/zend-expressive-router/zipball/f6eac53d39cdbf7b6db11b3e6bb3565896633de4",
+                "reference": "f6eac53d39cdbf7b6db11b3e6bb3565896633de4",
                 "shasum": ""
             },
             "require": {
-                "fig/http-message-util": "^1.1",
-                "http-interop/http-middleware": "^0.4.1",
+                "fig/http-message-util": "^1.1.2",
                 "php": "^5.6 || ^7.0",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0.1",
+                "webimpress/http-middleware-compatibility": "^0.1.1"
             },
             "require-dev": {
                 "malukenho/docheader": "^0.1.5",
-                "phpunit/phpunit": "^4.7 || ^5.6",
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
                 "zendframework/zend-coding-standard": "~1.0.0"
             },
             "suggest": {
@@ -4010,8 +3846,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev",
-                    "dev-develop": "2.2-dev"
+                    "dev-master": "2.2-dev",
+                    "dev-develop": "2.3-dev"
                 }
             },
             "autoload": {
@@ -4031,7 +3867,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-01-24T22:28:12+00:00"
+            "time": "2017-10-09T18:44:11+00:00"
         },
         {
             "name": "zendframework/zend-expressive-template",
@@ -4192,27 +4028,27 @@
         },
         {
             "name": "zendframework/zend-stratigility",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stratigility.git",
-                "reference": "229e7d94010d09d9e68096ff6f1d35f354d8dac9"
+                "reference": "74617cffd44180bef0aea63daca830d0b675c1c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stratigility/zipball/229e7d94010d09d9e68096ff6f1d35f354d8dac9",
-                "reference": "229e7d94010d09d9e68096ff6f1d35f354d8dac9",
+                "url": "https://api.github.com/repos/zendframework/zend-stratigility/zipball/74617cffd44180bef0aea63daca830d0b675c1c8",
+                "reference": "74617cffd44180bef0aea63daca830d0b675c1c8",
                 "shasum": ""
             },
             "require": {
-                "http-interop/http-middleware": "^0.4.1",
                 "php": "^5.6 || ^7.0",
                 "psr/http-message": "^1.0",
+                "webimpress/http-middleware-compatibility": "^0.1.1",
                 "zendframework/zend-escaper": "^2.3"
             },
             "require-dev": {
                 "malukenho/docheader": "^0.1.5",
-                "phpunit/phpunit": "^5.7",
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
                 "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-diactoros": "^1.0"
             },
@@ -4222,8 +4058,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.0-dev",
-                    "dev-develop": "2.1.0-dev"
+                    "dev-master": "2.1.0-dev",
+                    "dev-develop": "2.2.0-dev"
                 }
             },
             "autoload": {
@@ -4242,7 +4078,7 @@
                 "middleware",
                 "psr-7"
             ],
-            "time": "2017-01-25T19:16:16+00:00"
+            "time": "2017-10-09T19:25:33+00:00"
         }
     ],
     "packages-dev": [
@@ -4367,17 +4203,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/cli.expressive.git",
-                "reference": "96687a11aa898198905afe05160e5c6777ac1874"
+                "reference": "b2907f5904f78688d48ce5881bd24fcc410be775"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/cli.expressive/zipball/96687a11aa898198905afe05160e5c6777ac1874",
-                "reference": "96687a11aa898198905afe05160e5c6777ac1874",
+                "url": "https://api.github.com/repos/harikt/cli.expressive/zipball/b2907f5904f78688d48ce5881bd24fcc410be775",
+                "reference": "b2907f5904f78688d48ce5881bd24fcc410be775",
                 "shasum": ""
             },
             "require": {
                 "harikt/web.expressive": "dev-master",
-                "illuminate/database": "^5.5"
+                "illuminate/database": "^5.5",
+                "symfony/console": "^3.3"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.4"
@@ -4400,7 +4237,7 @@
             ],
             "description": "DMS migration via Eloquent",
             "homepage": "https://github.com/harikt/cli.expressive",
-            "time": "2017-10-08T10:28:18+00:00"
+            "time": "2017-10-10T06:15:14+00:00"
         },
         {
             "name": "illuminate/database",
