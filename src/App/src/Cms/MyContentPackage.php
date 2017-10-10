@@ -17,9 +17,9 @@ class MyContentPackage extends ContentPackage
     protected static function defineConfig(ContentConfigDefinition $config)
     {
         $config
-            ->storeImagesUnder(public_path('/app/content/images'))
+            ->storeImagesUnder(PUBLIC_PATH . '/app/content/images')
             ->mappedToUrl(url('/app/content/images'))
-            ->storeFilesUnder(public_path('/app/content/files'));
+            ->storeFilesUnder(PUBLIC_PATH . '/app/content/files');
     }
 
     /**
