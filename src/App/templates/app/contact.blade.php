@@ -6,9 +6,9 @@
     	    <h1>Contact</h1>
     	</header>
     	<form action="" method="post">
-    	   {!! csrf_field() !!}
+    	   <input type="hidden" name="_token" value="{!! csrf_token() !!}">
 
-    	   <div class="form-group">
+           <div class="form-group">
     	       <label>Your Name</label>
     	       <input type="text" class="form-control" required name="name">
     	   </div>
