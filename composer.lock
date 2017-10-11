@@ -1470,12 +1470,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "3f7295b02257e333a98df2ad6c380a5f6aceadb3"
+                "reference": "027449c25854f1817a37c1d0c71657f11ea0da5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/3f7295b02257e333a98df2ad6c380a5f6aceadb3",
-                "reference": "3f7295b02257e333a98df2ad6c380a5f6aceadb3",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/027449c25854f1817a37c1d0c71657f11ea0da5a",
+                "reference": "027449c25854f1817a37c1d0c71657f11ea0da5a",
                 "shasum": ""
             },
             "require": {
@@ -1521,7 +1521,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2017-10-10 06:16:54"
+            "time": "2017-10-10 18:02:28"
         },
         {
             "name": "http-interop/http-middleware",
@@ -4028,16 +4028,16 @@
         },
         {
             "name": "zendframework/zend-stratigility",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stratigility.git",
-                "reference": "74617cffd44180bef0aea63daca830d0b675c1c8"
+                "reference": "e2b165ebd0a466fc44fbcb633f25ccc44dd5915b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stratigility/zipball/74617cffd44180bef0aea63daca830d0b675c1c8",
-                "reference": "74617cffd44180bef0aea63daca830d0b675c1c8",
+                "url": "https://api.github.com/repos/zendframework/zend-stratigility/zipball/e2b165ebd0a466fc44fbcb633f25ccc44dd5915b",
+                "reference": "e2b165ebd0a466fc44fbcb633f25ccc44dd5915b",
                 "shasum": ""
             },
             "require": {
@@ -4078,7 +4078,7 @@
                 "middleware",
                 "psr-7"
             ],
-            "time": "2017-10-09T19:25:33+00:00"
+            "time": "2017-10-10T14:08:33+00:00"
         }
     ],
     "packages-dev": [
@@ -4203,12 +4203,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/cli.expressive.git",
-                "reference": "b2907f5904f78688d48ce5881bd24fcc410be775"
+                "reference": "50321e03942512d4ef78cb53a4027f2333a4a550"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/cli.expressive/zipball/b2907f5904f78688d48ce5881bd24fcc410be775",
-                "reference": "b2907f5904f78688d48ce5881bd24fcc410be775",
+                "url": "https://api.github.com/repos/harikt/cli.expressive/zipball/50321e03942512d4ef78cb53a4027f2333a4a550",
+                "reference": "50321e03942512d4ef78cb53a4027f2333a4a550",
                 "shasum": ""
             },
             "require": {
@@ -4237,7 +4237,7 @@
             ],
             "description": "DMS migration via Eloquent",
             "homepage": "https://github.com/harikt/cli.expressive",
-            "time": "2017-10-10T06:15:14+00:00"
+            "time": "2017-10-10T17:26:16+00:00"
         },
         {
             "name": "illuminate/database",

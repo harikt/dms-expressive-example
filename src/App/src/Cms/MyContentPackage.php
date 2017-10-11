@@ -18,7 +18,7 @@ class MyContentPackage extends ContentPackage
     {
         $config
             ->storeImagesUnder(PUBLIC_PATH . '/app/content/images')
-            ->mappedToUrl(url('/app/content/images'))
+            ->mappedToUrl('/app/content/images')
             ->storeFilesUnder(PUBLIC_PATH . '/app/content/files');
     }
 
