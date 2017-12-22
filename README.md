@@ -1,4 +1,4 @@
-## Quick demo
+# Quick demo
 
 [YouTube](https://www.youtube.com/watch?v=hMtGHVgYhmE) .
 
@@ -11,25 +11,34 @@
 ## Usage
 
 ```bash
-git clone https://github.com/harikt/example.web.expressive
-cd example.web.expressive
+git clone https://github.com/harikt/dms-expressive-skeleton
+cd dms-expressive-skeleton
 composer install
-
-# Import database, currently no migration
-mysql -u <username> -p database < db.sql
 
 # copy env and modify username / password and database name
 cp env.example .env
+
+# Copy dms configuration manually for now.
+cp vendor/harikt/web.expressive/config/dms.php config/autoload/dms.global.php
+
+# Create data folder which can save cache files
+mkdir -p data/cache/blade
+chmod -R 755 data/cache/blade
+
+# Create migrations folder
+mkdir -p database/migrations
+
+# Make migration script
+./console dms:make:migration
+
+# Check status of migration
+./console migrate:status
+
+# Execute migration
+./console migrate
 
 # Start your web server
 php -S 0.0.0.0:8080 -t public public/index.php
 ```
 
-Browse http://localhost:8080/dms .
-
-> Templates not rendered due to Permission issues. Quick and dirty fix.
-
-```
-mkdir -p data/cache/blade
-sudo chmod -R 755 data/cache/blade
-```
+Browse [http://localhost:8080/dms/auth/login](http://localhost:8080/dms/auth/login) .

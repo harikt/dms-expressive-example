@@ -16,7 +16,7 @@
         "dms-org/package.contact-us": "^0.8.0",
         "dms-org/package.content": "^0.8.0",
         "dms-org/package.faqs": "^0.8.0",
-        "harikt/web.expressive": "0.2.0",
+        "harikt/web.expressive": "0.2.*",
         "http-interop/http-server-middleware": "^1.0",
         "josegonzalez/dotenv": "^3.1",
         "league/oauth2-google": "^1.0",

@@ -1,4 +1,16 @@
 <?php
+/**
+ * Todo get rid of this
+ */
+if (! defined("PUBLIC_PATH")) {
+    define('PUBLIC_PATH', dirname(dirname(__DIR__)) . '/public');
+}
+if (! defined("BASE_PATH")) {
+    define('BASE_PATH', dirname(dirname(__DIR__)));
+}
+if (! defined("STORAGE_PATH")) {
+    define('STORAGE_PATH', dirname(dirname(__DIR__)) . '/data');
+}
 
 use Zend\ConfigAggregator\ArrayProvider;
 use Zend\ConfigAggregator\ConfigAggregator;
