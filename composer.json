@@ -16,7 +16,7 @@
         "dms-org/package.contact-us": "^0.8.0",
         "dms-org/package.content": "^0.8.0",
         "dms-org/package.faqs": "^0.8.0",
-        "harikt/web.expressive": "dev-psr-15",
+        "harikt/web.expressive": "0.2.0",
         "http-interop/http-server-middleware": "^1.0",
         "josegonzalez/dotenv": "^3.1",
         "league/oauth2-google": "^1.0",
@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "filp/whoops": "^2.1.12",
-        "harikt/cli.expressive": "dev-psr-15",
+        "harikt/cli.expressive": "dev-master",
         "phpunit/phpunit": "^6.5.4",
         "squizlabs/php_codesniffer": "^2.8.1",
         "symfony/var-dumper": "^3.3",
