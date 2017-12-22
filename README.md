@@ -29,7 +29,7 @@ chmod -R 755 data/cache/blade
 mkdir -p database/migrations
 
 # Make migration script
-./console dms:make:migration
+./console dms:make:migration init
 
 # Check status of migration
 ./console migrate:status
