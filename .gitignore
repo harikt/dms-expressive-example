@@ -14,3 +14,4 @@
 .php_cs.cache
 composer.sh
 test.php
+/config/autoload/dms.global.php
