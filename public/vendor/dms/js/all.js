@@ -13984,24 +13984,24 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 /**
  * Bootstrap Multiselect (https://github.com/davidstutz/bootstrap-multiselect)
- *
+ * 
  * Apache License, Version 2.0:
  * Copyright (c) 2012 - 2015 David Stutz
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a
  * copy of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations
  * under the License.
- *
+ * 
  * BSD 3-Clause License:
  * Copyright (c) 2012 - 2015 David Stutz
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *    - Redistributions of source code must retain the above copyright notice,
@@ -14012,7 +14012,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
  *    - Neither the name of David Stutz nor the names of its contributors may be
  *      used to endorse or promote products derived from this software without
  *      specific prior written permission.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -14122,12 +14122,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     function Multiselect(select, options) {
 
         this.$select = $(select);
-
+        
         // Placeholder via data attributes
         if (this.$select.attr("data-placeholder")) {
             options.nonSelectedText = this.$select.data("placeholder");
         }
-
+        
         this.options = this.mergeOptions($.extend({}, options, this.$select.data()));
 
         // Initialization.
@@ -14143,7 +14143,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         this.options.onDropdownHide = $.proxy(this.options.onDropdownHide, this);
         this.options.onDropdownShown = $.proxy(this.options.onDropdownShown, this);
         this.options.onDropdownHidden = $.proxy(this.options.onDropdownHidden, this);
-
+        
         // Build select all if enabled.
         this.buildContainer();
         this.buildButton();
@@ -14158,7 +14158,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         if (this.options.disableIfEmpty && $('option', this.$select).length <= 0) {
             this.disable();
         }
-
+        
         this.$select.hide().after(this.$container);
     };
 
@@ -14169,7 +14169,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
              * Default text function will either print 'None selected' in case no
              * option is selected or a list of the selected options up to a length
              * of 3 selected options.
-             *
+             * 
              * @param {jQuery} options
              * @param {jQuery} select
              * @returns {String}
@@ -14178,9 +14178,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 if (options.length === 0) {
                     return this.nonSelectedText;
                 }
-                else if (this.allSelectedText
-                            && options.length === $('option', $(select)).length
-                            && $('option', $(select)).length !== 1
+                else if (this.allSelectedText 
+                            && options.length === $('option', $(select)).length 
+                            && $('option', $(select)).length !== 1 
                             && this.multiple) {
 
                     if (this.selectAllNumber) {
@@ -14196,18 +14196,18 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 else {
                     var selected = '';
                     var delimiter = this.delimiterText;
-
+                    
                     options.each(function() {
                         var label = ($(this).attr('label') !== undefined) ? $(this).attr('label') : $(this).text();
                         selected += label + delimiter;
                     });
-
+                    
                     return selected.substr(0, selected.length - 2);
                 }
             },
             /**
              * Updates the title of the button similar to the buttonText function.
-             *
+             * 
              * @param {jQuery} options
              * @param {jQuery} select
              * @returns {@exp;selected@call;substr}
@@ -14219,7 +14219,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 else {
                     var selected = '';
                     var delimiter = this.delimiterText;
-
+                    
                     options.each(function () {
                         var label = ($(this).attr('label') !== undefined) ? $(this).attr('label') : $(this).text();
                         selected += label + delimiter;
@@ -14238,9 +14238,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             },
             /**
              * Triggered on change of the multiselect.
-             *
+             * 
              * Not triggered when selecting/deselecting options manually.
-             *
+             * 
              * @param {jQuery} option
              * @param {Boolean} checked
              */
@@ -14265,25 +14265,25 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             },
             /**
              * Triggered after the dropdown is shown.
-             *
+             * 
              * @param {jQuery} event
              */
             onDropdownShown: function(event) {
-
+                
             },
             /**
              * Triggered after the dropdown is hidden.
-             *
+             * 
              * @param {jQuery} event
              */
             onDropdownHidden: function(event) {
-
+                
             },
             /**
              * Triggered on select all.
              */
             onSelectAll: function() {
-
+                
             },
             enableHTML: false,
             buttonClass: 'btn btn-default',
@@ -14404,7 +14404,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         /**
          * Build the dropdown options and binds all nessecary events.
-         *
+         * 
          * Uses createDivider and createOptionValue to create the necessary options.
          */
         buildDropdownOptions: function() {
@@ -14415,7 +14415,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 // Support optgroups and options without a group simultaneously.
                 var tag = $element.prop('tagName')
                     .toLowerCase();
-
+            
                 if ($element.prop('value') === this.options.selectAllValue) {
                     return;
                 }
@@ -14521,12 +14521,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     return false;
                 }
             });
-
+        
             $('li a', this.$ul).on('touchstart click', $.proxy(function(event) {
                 event.stopPropagation();
 
                 var $target = $(event.target);
-
+                
                 if (event.shiftKey && this.options.multiple) {
                     if($target.is("label")){ // Handles checkbox selection manually (see https://github.com/davidstutz/bootstrap-multiselect/issues/431)
                         event.preventDefault();
@@ -14538,39 +14538,39 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                     if (this.lastToggledInput !== null && this.lastToggledInput !== $target) { // Make sure we actually have a range
                         var from = $target.closest("li").index();
                         var to = this.lastToggledInput.closest("li").index();
-
+                        
                         if (from > to) { // Swap the indices
                             var tmp = to;
                             to = from;
                             from = tmp;
                         }
-
+                        
                         // Make sure we grab all elements since slice excludes the last index
                         ++to;
-
+                        
                         // Change the checkboxes and underlying options
                         var range = this.$ul.find("li").slice(from, to).find("input");
-
+                        
                         range.prop('checked', checked);
-
+                        
                         if (this.options.selectedClass) {
                             range.closest('li')
                                 .toggleClass(this.options.selectedClass, checked);
                         }
-
+                        
                         for (var i = 0, j = range.length; i < j; i++) {
                             var $checkbox = $(range[i]);
 
                             var $option = this.getOptionByValue($checkbox.val());
 
                             $option.prop('selected', checked);
-                        }
+                        }                   
                     }
-
+                    
                     // Trigger the select "change" event
                     $target.trigger("change");
                 }
-
+                
                 // Remembers last clicked option
                 if($target.is("input") && !$target.closest("li").is(".multiselect-item")){
                     this.lastToggledInput = $target;
@@ -14672,7 +14672,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             else {
                 $label.text(" " + label);
             }
-
+        
             var $checkbox = $('<input/>').attr('type', inputType);
 
             if (this.options.checkboxName) {
@@ -14730,14 +14730,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             // Add a header for the group.
             var $li = $(this.options.templates.liGroup);
-
+            
             if (this.options.enableHTML) {
                 $('label', $li).html(groupName);
             }
             else {
                 $('label', $li).text(groupName);
             }
-
+            
             if (this.options.enableClickableOptGroups) {
                 $li.addClass('multiselect-group-clickable');
             }
@@ -14756,14 +14756,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         /**
          * Build the selct all.
-         *
+         * 
          * Checks if a select all has already been created.
          */
         buildSelectAll: function() {
             if (typeof this.options.selectAllValue === 'number') {
                 this.options.selectAllValue = this.options.selectAllValue.toString();
             }
-
+            
             var alreadyHasSelectAll = this.hasSelectAll();
 
             if (!alreadyHasSelectAll && this.options.includeSelectAllOption && this.options.multiple
@@ -14776,21 +14776,21 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 var $li = $(this.options.templates.li);
                 $('label', $li).addClass("checkbox");
-
+                
                 if (this.options.enableHTML) {
                     $('label', $li).html(" " + this.options.selectAllText);
                 }
                 else {
                     $('label', $li).text(" " + this.options.selectAllText);
                 }
-
+                
                 if (this.options.selectAllName) {
                     $('label', $li).prepend('<input type="checkbox" name="' + this.options.selectAllName + '" />');
                 }
                 else {
                     $('label', $li).prepend('<input type="checkbox" />');
                 }
-
+                
                 var $checkbox = $('input', $li);
                 $checkbox.val(this.options.selectAllValue);
 
@@ -14817,7 +14817,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                     this.$filter = $(this.options.templates.filter);
                     $('input', this.$filter).attr('placeholder', this.options.filterPlaceholder);
-
+                    
                     // Adds optional filter clear button
                     if(this.options.includeFilterClearBtn){
                         var clearBtn = $(this.options.templates.filterClearBtn);
@@ -14829,7 +14829,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                         }, this));
                         this.$filter.find('.input-group').append(clearBtn);
                     }
-
+                    
                     this.$ul.prepend(this.$filter);
 
                     this.$filter.val(this.query).on('click', function(event) {
@@ -14839,7 +14839,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                         if (event.which === 13) {
                           event.preventDefault();
                         }
-
+                        
                         // This is useful to catch "keydown" events after the browser has updated the control.
                         clearTimeout(this.searchTimeout);
 
@@ -14878,7 +14878,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                                         // Toggle current element (group or group item) according to showElement boolean.
                                         $(element).toggle(showElement).toggleClass('filter-hidden', !showElement);
-
+                                        
                                         // Differentiate groups and group items.
                                         if ($(element).hasClass('multiselect-group')) {
                                             // Remember group status.
@@ -14890,7 +14890,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                                             if (showElement) {
                                                 $(currentGroup).show().removeClass('filter-hidden');
                                             }
-
+                                            
                                             // Show all group items when group name satisfies filter.
                                             if (!showElement && currentGroupVisible) {
                                                 $(element).show().removeClass('filter-hidden');
@@ -14961,10 +14961,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         /**
          * Select all options of the given values.
-         *
+         * 
          * If triggerOnChange is set to true, the on change event is triggered if
          * and only if one value is passed.
-         *
+         * 
          * @param {Array} selectValues
          * @param {Boolean} triggerOnChange
          */
@@ -14986,11 +14986,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 if($option === undefined || $checkbox === undefined) {
                     continue;
                 }
-
+                
                 if (!this.options.multiple) {
                     this.deselectAll(false);
                 }
-
+                
                 if (this.options.selectedClass) {
                     $checkbox.closest('li')
                         .addClass(this.options.selectedClass);
@@ -14998,7 +14998,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 $checkbox.prop('checked', true);
                 $option.prop('selected', true);
-
+                
                 if (triggerOnChange) {
                     this.options.onChange($option, true);
                 }
@@ -15019,10 +15019,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         /**
          * Deselects all options of the given values.
-         *
+         * 
          * If triggerOnChange is set to true, the on change event is triggered, if
          * and only if one value is passed.
-         *
+         * 
          * @param {Array} deselectValues
          * @param {Boolean} triggerOnChange
          */
@@ -15052,7 +15052,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                 $checkbox.prop('checked', false);
                 $option.prop('selected', false);
-
+                
                 if (triggerOnChange) {
                     this.options.onChange($option, false);
                 }
@@ -15061,7 +15061,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             this.updateButtonText();
             this.updateSelectAll();
         },
-
+        
         /**
          * Selects all enabled & visible options.
          *
@@ -15076,7 +15076,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             var visibleCheckboxes = allCheckboxes.filter(":visible");
             var allCheckboxesCount = allCheckboxes.length;
             var visibleCheckboxesCount = visibleCheckboxes.length;
-
+            
             if(justVisible) {
                 visibleCheckboxes.prop('checked', true);
                 $("li:not(.divider):not(.disabled)", this.$ul).filter(":visible").addClass(this.options.selectedClass);
@@ -15085,7 +15085,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 allCheckboxes.prop('checked', true);
                 $("li:not(.divider):not(.disabled)", this.$ul).addClass(this.options.selectedClass);
             }
-
+                
             if (allCheckboxesCount === visibleCheckboxesCount || justVisible === false) {
                 $("option:enabled", this.$select).prop('selected', true);
             }
@@ -15093,12 +15093,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 var values = visibleCheckboxes.map(function() {
                     return $(this).val();
                 }).get();
-
+                
                 $("option:enabled", this.$select).filter(function(index) {
                     return $.inArray($(this).val(), values) !== -1;
                 }).prop('selected', true);
             }
-
+            
             if (triggerOnSelectAll) {
                 this.options.onSelectAll();
             }
@@ -15106,26 +15106,26 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         /**
          * Deselects all options.
-         *
+         * 
          * If justVisible is true or not specified, only visible options are deselected.
-         *
+         * 
          * @param {Boolean} justVisible
          */
         deselectAll: function (justVisible) {
             var justVisible = typeof justVisible === 'undefined' ? true : justVisible;
-
-            if(justVisible) {
+            
+            if(justVisible) {              
                 var visibleCheckboxes = $("li input[type='checkbox']:not(:disabled)", this.$ul).filter(":visible");
                 visibleCheckboxes.prop('checked', false);
-
+                
                 var values = visibleCheckboxes.map(function() {
                     return $(this).val();
                 }).get();
-
+                
                 $("option:enabled", this.$select).filter(function(index) {
                     return $.inArray($(this).val(), values) !== -1;
                 }).prop('selected', false);
-
+                
                 if (this.options.selectedClass) {
                     $("li:not(.divider):not(.disabled)", this.$ul).filter(":visible").removeClass(this.options.selectedClass);
                 }
@@ -15133,7 +15133,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             else {
                 $("li input[type='checkbox']:enabled", this.$ul).prop('checked', false);
                 $("option:enabled", this.$select).prop('selected', false);
-
+                
                 if (this.options.selectedClass) {
                     $("li:not(.divider):not(.disabled)", this.$ul).removeClass(this.options.selectedClass);
                 }
@@ -15142,7 +15142,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         /**
          * Rebuild the plugin.
-         *
+         * 
          * Rebuilds the dropdown, the filter and the select all option.
          */
         rebuild: function() {
@@ -15157,14 +15157,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
             this.updateButtonText();
             this.updateSelectAll();
-
+            
             if (this.options.disableIfEmpty && $('option', this.$select).length <= 0) {
                 this.disable();
             }
             else {
                 this.enable();
             }
-
+            
             if (this.options.dropRight) {
                 this.$ul.addClass('pull-right');
             }
@@ -15174,21 +15174,21 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
          * The provided data will be used to build the dropdown.
          */
         dataprovider: function(dataprovider) {
-
+            
             var groupCounter = 0;
             var $select = this.$select.empty();
-
+            
             $.each(dataprovider, function (index, option) {
                 var $tag;
-
+                
                 if ($.isArray(option.children)) { // create optiongroup tag
                     groupCounter++;
-
+                    
                     $tag = $('<optgroup/>').attr({
                         label: option.label || 'Group ' + groupCounter,
                         disabled: !!option.disabled
                     });
-
+                    
                     forEach(option.children, function(subOption) { // add children option tags
                         $tag.append($('<option/>').attr({
                             value: subOption.value,
@@ -15208,10 +15208,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                         disabled: !!option.disabled
                     });
                 }
-
+                
                 $select.append($tag);
             });
-
+            
             this.rebuild();
         },
 
@@ -15271,7 +15271,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                 var checkedBoxesLength = allBoxes.filter(":checked").length;
                 var selectAllLi  = $("li.multiselect-all", this.$ul);
                 var selectAllInput = selectAllLi.find("input");
-
+                
                 if (checkedBoxesLength > 0 && checkedBoxesLength === allBoxesLength) {
                     selectAllInput.prop("checked", true);
                     selectAllLi.addClass(this.options.selectedClass);
@@ -15289,7 +15289,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
          */
         updateButtonText: function() {
             var options = this.getSelected();
-
+            
             // First update the displayed button text.
             if (this.options.enableHTML) {
                 $('.multiselect .multiselect-selected-text', this.$container).html(this.options.buttonText(options, this.$select));
@@ -15297,7 +15297,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             else {
                 $('.multiselect .multiselect-selected-text', this.$container).text(this.options.buttonText(options, this.$select));
             }
-
+            
             // Now update the title attribute of the button.
             $('.multiselect', this.$container).attr('title', this.options.buttonTitle(options, this.$select));
         },
@@ -15383,7 +15383,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             // Call multiselect method.
             if (typeof option === 'string') {
                 data[option](parameter, extraOptions);
-
+                
                 if (option === 'destroy') {
                     $(this).data('multiselect', false);
                 }
@@ -21126,13 +21126,13 @@ x();"bottom"===a.start?(c.css({top:b.outerHeight()-c.outerHeight()}),n(0,!0)):"t
 }));
 
 // Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
-//
+// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-//
+// 
 // http://www.apache.org/licenses/LICENSE-2.0
-//
+// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21332,7 +21332,7 @@ x();"bottom"===a.start?(c.css({top:b.outerHeight()-c.outerHeight()}),n(0,!0)):"t
      - name (array) if you don’t want to use separators, you can use array of strings
      - f (function) event handler function
      **
-     = (function) returned function accepts a single numeric parameter that represents z-index of the handler. It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order, despite of the order of assignment.
+     = (function) returned function accepts a single numeric parameter that represents z-index of the handler. It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order, despite of the order of assignment. 
      > Example:
      | eve.on("mouse", eatIt)(2);
      | eve.on("mouse", scream);
@@ -22254,28 +22254,28 @@ Progress.prototype.draw = function(ctx){
       , y = half
       , rad = half - 1
       , fontSize = this._fontSize;
-
+  
     ctx.font = fontSize + 'px ' + this._font;
-
+  
     var angle = Math.PI * 2 * (percent / 100);
     ctx.clearRect(0, 0, size, size);
-
+  
     // outer circle
     ctx.strokeStyle = '#9f9f9f';
     ctx.beginPath();
     ctx.arc(x, y, rad, 0, angle, false);
     ctx.stroke();
-
+  
     // inner circle
     ctx.strokeStyle = '#eee';
     ctx.beginPath();
     ctx.arc(x, y, rad - 1, 0, angle, true);
     ctx.stroke();
-
+  
     // text
     var text = this._text || (percent | 0) + '%'
       , w = ctx.measureText(text).width;
-
+  
     ctx.fillText(
         text
       , x - w / 2 + 1
@@ -45097,7 +45097,7 @@ b[_type],e=/wn|up/.test(d)?t:v;if(!c[n]){if(d==_click)A(a,!1,!0);else{if(/wn|er|
     } else {
       hide($cancelBtn);
     }
-
+    
     //Confirm button
     modal.setAttribute('data-has-confirm-button', params.showConfirmButton);
     if (params.showConfirmButton) {
@@ -45105,7 +45105,7 @@ b[_type],e=/wn|up/.test(d)?t:v;if(!c[n]){if(d==_click)A(a,!1,!0);else{if(/wn|er|
     } else {
       hide($confirmBtn);
     }
-
+    
 
     // Edit text on cancel and confirm buttons
     if (params.cancelButtonText) {
@@ -47390,7 +47390,7 @@ e){fabric.loadSVGFromString(e.toString(),t,n)}):request(e,"",function(e){fabric.
 
                 // If the end of the range is before the minimum or the start of the range is
                 // after the maximum, don't display this range option at all.
-                if ((this.minDate && end.isBefore(this.minDate, this.timepicker ? 'minute' : 'day'))
+                if ((this.minDate && end.isBefore(this.minDate, this.timepicker ? 'minute' : 'day')) 
                   || (maxDate && start.isAfter(maxDate, this.timepicker ? 'minute' : 'day')))
                     continue;
 
@@ -48584,7 +48584,7 @@ e){fabric.loadSVGFromString(e.toString(),t,n)}):request(e,"",function(e){fabric.
             this.container.find('input[name="daterangepicker_start"], input[name="daterangepicker_end"]').removeClass('active');
             $(e.target).addClass('active');
 
-            // Set the state such that if the user goes back to using a mouse,
+            // Set the state such that if the user goes back to using a mouse, 
             // the calendars are aware we're selecting the end of the range, not
             // the start. This allows someone to edit the end of a date range without
             // re-selecting the beginning, by clicking on the end date input then
@@ -49827,8 +49827,8 @@ e){fabric.loadSVGFromString(e.toString(),t,n)}):request(e,"",function(e){fabric.
 /*! typeahead-addresspicker - v1.0.0 - 2014-05-18
 * https://github.com/sgruhier/typeahead-addresspicker
 * Copyright (c) 2014 Sebastien Gruhier; Licensed MIT */(function(){var a=function(a,b){return function(){return a.apply(b,arguments)}},b={}.hasOwnProperty,c=function(a,c){function d(){this.constructor=a}for(var e in c)b.call(c,e)&&(a[e]=c[e]);return d.prototype=c.prototype,a.prototype=new d,a.__super__=c.prototype,a};!function(b){return this.AddressPickerResult=function(){function a(a,b){this.placeResult=a,this.fromReverseGeocoding=null!=b?b:!1,this.latitude=this.placeResult.geometry.location.lat(),this.longitude=this.placeResult.geometry.location.lng()}return a.prototype.addressTypes=function(){var a,b,c,d,e,f,g,h,i;for(c=[],h=this.addressComponents(),d=0,f=h.length;f>d;d++)for(a=h[d],i=a.types,e=0,g=i.length;g>e;e++)b=i[e],-1===c.indexOf(b)&&c.push(b);return c},a.prototype.addressComponents=function(){return this.placeResult.address_components||[]},a.prototype.address=function(){return this.placeResult.formatted_address},a.prototype.nameForType=function(a,b){var c,d,e,f;for(null==b&&(b=!1),f=this.addressComponents(),d=0,e=f.length;e>d;d++)if(c=f[d],-1!==c.types.indexOf(a))return b?c.short_name:c.long_name;return null},a.prototype.lat=function(){return this.latitude},a.prototype.lng=function(){return this.longitude},a.prototype.setLatLng=function(a,b){this.latitude=a,this.longitude=b},a.prototype.isAccurate=function(){return!this.placeResult.geometry.viewport},a.prototype.isReverseGeocoding=function(){return this.fromReverseGeocoding},a}(),this.AddressPicker=function(d){function e(c){null==c&&(c={}),this.markerDragged=a(this.markerDragged,this),this.updateBoundsForPlace=a(this.updateBoundsForPlace,this),this.updateMap=a(this.updateMap,this),this.options=b.extend({local:[],datumTokenizer:function(a){return Bloodhound.tokenizers.whitespace(a.num)},queryTokenizer:Bloodhound.tokenizers.whitespace,autocompleteService:{types:["geocode"]},zoomForLocation:16,reverseGeocoding:!1},c),e.__super__.constructor.call(this,this.options),this.options.map&&this.initMap(),this.placeService=new google.maps.places.PlacesService(document.createElement("div"))}return c(e,d),e.prototype.bindDefaultTypeaheadEvent=function(a){return a.bind("typeahead:selected",this.updateMap),a.bind("typeahead:cursorchanged",this.updateMap)},e.prototype.initMap=function(){var a,c,d;return(null!=(c=this.options)?null!=(d=c.map)?d.gmap:void 0:void 0)?this.map=this.options.map.gmap:(this.mapOptions=b.extend({zoom:3,center:new google.maps.LatLng(0,0),mapTypeId:google.maps.MapTypeId.ROADMAP,boundsForLocation:this.updateBoundsForPlace},this.options.map),this.map=new google.maps.Map(b(this.mapOptions.id)[0],this.mapOptions)),this.lastResult=null,a=b.extend({draggable:!0,visible:!1,position:this.map.getCenter(),map:this.map},this.options.marker||{}),this.marker=new google.maps.Marker(a),a.draggable?google.maps.event.addListener(this.marker,"dragend",this.markerDragged):void 0},e.prototype.get=function(a,c){var d;return d=new google.maps.places.AutocompleteService,this.options.autocompleteService.input=a,d.getPlacePredictions(this.options.autocompleteService,function(a){return function(d){return b(a).trigger("addresspicker:predictions",[d]),c(d)}}(this))},e.prototype.updateMap=function(a,c){return this.placeService.getDetails(c,function(a){return function(c){var d;return a.lastResult=new AddressPickerResult(c),a.marker&&(a.marker.setPosition(c.geometry.location),a.marker.setVisible(!0)),a.map&&null!=(d=a.mapOptions)&&d.boundsForLocation(c),b(a).trigger("addresspicker:selected",a.lastResult)}}(this))},e.prototype.updateBoundsForPlace=function(a){return a.geometry.viewport?this.map.fitBounds(a.geometry.viewport):(this.map.setCenter(a.geometry.location),this.map.setZoom(this.options.zoomForLocation))},e.prototype.markerDragged=function(){return this.options.reverseGeocoding?this.reverseGeocode(this.marker.getPosition()):(this.lastResult?this.lastResult.setLatLng(this.marker.getPosition().lat(),this.marker.getPosition().lng()):this.lastResult=new AddressPickerResult({geometry:{location:this.marker.getPosition()}}),b(this).trigger("addresspicker:selected",this.lastResult))},e.prototype.reverseGeocode=function(a){return null==this.geocoder&&(this.geocoder=new google.maps.Geocoder),this.geocoder.geocode({location:a},function(a){return function(c){return c&&c.length>0?(a.lastResult=new AddressPickerResult(c[0],!0),b(a).trigger("addresspicker:selected",a.lastResult)):void 0}}(this))},e.prototype.getGMap=function(){return this.map},e.prototype.getGMarker=function(){return this.marker},e}(Bloodhound)}(jQuery)}).call(this);
-/*! DownloadJS v0.5.2
- Denis Radin aka PixelsCommander
+/*! DownloadJS v0.5.2 
+ Denis Radin aka PixelsCommander 
  Article about: http://pixelscommander.com/javascript/javascript-file-download-ignore-content-type/*/
 window.downloadFile=function(a){if(/(iP)/g.test(navigator.userAgent))return alert("Your device does not support files downloading. Please try again in desktop browser."),!1;if(window.downloadFile.isChrome||window.downloadFile.isSafari){var b=document.createElement("a");if(b.href=a,void 0!==b.download){var c=a.substring(a.lastIndexOf("/")+1,a.length);b.download=c}if(document.createEvent){var d=document.createEvent("MouseEvents");return d.initEvent("click",!0,!0),b.dispatchEvent(d),!0}}return-1===a.indexOf("?")&&(a+="?download"),window.open(a,"_self"),!0},window.downloadFile.isChrome=navigator.userAgent.toLowerCase().indexOf("chrome")>-1,window.downloadFile.isSafari=navigator.userAgent.toLowerCase().indexOf("safari")>-1;
 /*! AdminLTE app.js
@@ -52744,7 +52744,6 @@ $(document).ready(function () {
     Dms.all.initialize($(document));
 });
 Dms.action.responseHandler = function (httpStatusCode, actionUrl, response) {
-
     if (typeof response.redirect !== 'undefined') {
         if (typeof response.message !== 'undefined') {
             Cookies.set('dms-flash-alert', {
@@ -52967,7 +52966,7 @@ Dms.ajax.createRequest = function (options) {
         if (areHandlersCanceled) {
             return;
         }
-
+        
         callAfterInterceptors(jqXHR);
 
         if (originalErrorCallback) {
@@ -53159,8 +53158,7 @@ Dms.global.initializeCallbacks.push(function (element) {
             .addClass('dms-placeholder-a')
             .hide();
         button.before(link);
-		link.click();
-		console.log(link + " Oh and a link ");
+        link.click();
         e.preventDefault();
         e.stopImmediatePropagation();
     });
@@ -53308,6 +53306,14 @@ Dms.global.initializeCallbacks.push(function () {
             }
         });
 
+        this.find('.form-group[data-field-name]').each(function () {
+            var additionalDataToSubmit = $(this).triggerHandler('dms-get-input-data');
+
+            if (additionalDataToSubmit) {
+                data[$(this).attr('data-field-name')] = additionalDataToSubmit;
+            }
+        });
+
         return data;
     };
 
@@ -53331,6 +53337,15 @@ Dms.global.initializeCallbacks.push(function () {
                 } else {
                     $this.val(value);
                 }
+            }
+        });
+
+        this.find('.form-group[data-field-name]').each(function () {
+            var formGroup = $(this);
+            var fieldValue = data[formGroup.attr('data-field-name')];
+
+            if (fieldValue) {
+                formGroup.triggerHandler('dms-set-input-data', fieldValue);
             }
         });
 
@@ -54230,7 +54245,7 @@ Dms.chart.initializeCallbacks.push(function (element) {
                     transformedChartData.push((hasLatLng ? row.lat_lng : []).concat([row.label]).concat(row.values));
                 });
             }
-
+            
             var data = google.visualization.arrayToDataTable(transformedChartData);
 
             var googleChart = new google.visualization.GeoChart(chart.get(0));
@@ -54389,6 +54404,20 @@ Dms.form.initializeCallbacks.push(function (element) {
     });
 });
 Dms.form.initializeCallbacks.push(function (element) {
+
+    element.find('.list-of-checkboxes').each(function () {
+        var listOfCheckboxes = $(this);
+        listOfCheckboxes.find('input[type=checkbox]').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            increaseArea: '20%'
+        });
+
+        var firstCheckbox = listOfCheckboxes.find('input[type=checkbox]').first();
+        firstCheckbox.attr('data-parsley-min-elements', listOfCheckboxes.attr('data-min-elements'));
+        firstCheckbox.attr('data-parsley-max-elements', listOfCheckboxes.attr('data-max-elements'));
+    });
+});
+Dms.form.initializeCallbacks.push(function (element) {
     element.find('input.dms-colour-input').each(function () {
         var config = {
             theme: 'bootstrap'
@@ -54406,30 +54435,17 @@ Dms.form.initializeCallbacks.push(function (element) {
 });
 Dms.form.initializeCallbacks.push(function (element) {
 
-    element.find('.list-of-checkboxes').each(function () {
-        var listOfCheckboxes = $(this);
-        listOfCheckboxes.find('input[type=checkbox]').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            increaseArea: '20%'
-        });
-
-        var firstCheckbox = listOfCheckboxes.find('input[type=checkbox]').first();
-        firstCheckbox.attr('data-parsley-min-elements', listOfCheckboxes.attr('data-min-elements'));
-        firstCheckbox.attr('data-parsley-max-elements', listOfCheckboxes.attr('data-max-elements'));
-    });
-});
-Dms.form.initializeCallbacks.push(function (element) {
-    var convertFromUtcToLocal = function (dateFormat, value) {
+    var convertFromServerToLocalTimezone = function (dateFormat, value) {
         if (value) {
-            return moment.utc(value, dateFormat).local().format(dateFormat);
+            return moment.tz(value, dateFormat, Dms.config.serverTimezone).local().format(dateFormat);
         } else {
             return '';
         }
     };
 
-    var convertFromLocalToUtc = function (dateFormat, value) {
+    var convertFromLocalToServerTimezone = function (dateFormat, value) {
         if (value) {
-            return moment(value, dateFormat).utc().format(dateFormat);
+            return moment(value, dateFormat).tz(Dms.config.serverTimezone).format(dateFormat);
         } else {
             return '';
         }
@@ -54441,7 +54457,7 @@ Dms.form.initializeCallbacks.push(function (element) {
         originalInput.data('dms-input-name', inputName);
 
         stagedForm.find('input[type=hidden][name="' + inputName + '"]').remove();
-        stagedForm.append($('<input type="hidden" />').attr('name', inputName).val(convertFromLocalToUtc(dateFormat, originalInput.val())));
+        stagedForm.append($('<input type="hidden" />').attr('name', inputName).val(convertFromLocalToServerTimezone(dateFormat, originalInput.val())));
     };
 
     element.find('input.dms-date-or-time').each(function () {
@@ -54468,7 +54484,7 @@ Dms.form.initializeCallbacks.push(function (element) {
             config.timePicker = true;
             config.timePickerSeconds = phpDateFormat.indexOf('s') !== -1;
 
-            inputElement.val(convertFromUtcToLocal(dateFormat, inputElement.val()));
+            inputElement.val(convertFromServerToLocalTimezone(dateFormat, inputElement.val()));
             stagedForm.on('dms-before-submit', function () {
                 submitUtcDateTimeViaHiddenInput(stagedForm, dateFormat, inputElement);
             });
@@ -54525,8 +54541,8 @@ Dms.form.initializeCallbacks.push(function (element) {
             config.timePicker = true;
             config.timePickerSeconds = phpDateFormat.indexOf('s') !== -1;
 
-            startInput.val(convertFromUtcToLocal(dateFormat, startInput.val()));
-            endInput.val(convertFromUtcToLocal(dateFormat, endInput.val()));
+            startInput.val(convertFromServerToLocalTimezone(dateFormat, startInput.val()));
+            endInput.val(convertFromServerToLocalTimezone(dateFormat, endInput.val()));
             stagedForm.on('dms-before-submit', function () {
                 submitUtcDateTimeViaHiddenInput(stagedForm, dateFormat, startInput);
                 submitUtcDateTimeViaHiddenInput(stagedForm, dateFormat, endInput);
@@ -54585,7 +54601,7 @@ Dms.form.initializeCallbacks.push(function (element) {
         var dateTimeDisplay = $(this);
         var dateFormat = Dms.utilities.convertPhpDateFormatToMomentFormat(dateTimeDisplay.attr('data-date-format'));
 
-        dateTimeDisplay.text(convertFromUtcToLocal(dateFormat, dateTimeDisplay.text()));
+        dateTimeDisplay.text(convertFromServerToLocalTimezone(dateFormat, dateTimeDisplay.text()));
     });
 
     $('.dms-date-or-time-range-display[data-mode="date-time"]').each(function () {
@@ -54594,480 +54610,8 @@ Dms.form.initializeCallbacks.push(function (element) {
         var endDisplay = dateTimeDisplay.find('.dms-end-display');
         var dateFormat = Dms.utilities.convertPhpDateFormatToMomentFormat(dateTimeDisplay.attr('data-date-format'));
 
-        startDisplay.text(convertFromUtcToLocal(dateFormat, startDisplay.text()));
-        endDisplay.text(convertFromUtcToLocal(dateFormat, endDisplay.text()));
-    });
-});
-Dms.form.initializeCallbacks.push(function (element) {
-    element.find('.dms-inner-module, .dms-display-inner-module').each(function () {
-        var innerModule = $(this);
-
-        if (innerModule.data('dms-has-initialized-form')) {
-            return;
-        } else {
-            innerModule.data('dms-has-initialized-form', true);
-        }
-
-        var fieldName = innerModule.attr('data-name');
-        var formGroup = innerModule.closest('.form-group');
-        var rootUrl = innerModule.attr('data-root-url');
-        var isDisplayOnly = innerModule.attr('data-display-only');
-        var reloadStateUrl = rootUrl + '/state';
-        var innerModuleFormContainer = innerModule.find('.dms-inner-module-form-container');
-        var innerModuleForm = innerModuleFormContainer.find('.dms-inner-module-form');
-        var formStage = innerModule.closest('.dms-form-stage');
-        var stagedForm = innerModule.closest('.dms-staged-form');
-        var currentValue = JSON.parse(innerModule.attr('data-value') || '[]');
-
-        if (innerModule.attr('data-readonly')) {
-            innerModule.find(':input').attr('readonly', 'readonly');
-        }
-
-        var fieldDataPrefix = '__field_action_data';
-        var interceptor;
-
-        Dms.ajax.interceptors.push(interceptor = {
-            accepts: function (options) {
-                return options.url.indexOf(rootUrl) === 0 && options.url !== reloadStateUrl;
-            },
-            before: function (options) {
-                var formData;
-
-                if (isDisplayOnly) {
-                    formData = Dms.ajax.createFormData();
-                    formData.append('__initial_dependent_data', '1')
-                } else {
-                    formData = Dms.form.stages.getDependentDataForStage(formStage);
-                }
-
-
-                formData.append(fieldDataPrefix + '[current_state]', JSON.stringify(currentValue));
-                formData.append(fieldDataPrefix + '[request][url]', options.url.substring(rootUrl.length));
-                formData.append(fieldDataPrefix + '[request][method]', options.__emulatedType || options.type || 'get');
-
-                var parametersPrefix = fieldDataPrefix + '[request][parameters]';
-                $.each(Dms.ajax.parseData(options.data), function (name, entries) {
-                    $.each(entries, function (index, entry) {
-                        formData.append(Dms.utilities.combineFieldNames(parametersPrefix, name), entry.value, entry.filename);
-                    });
-                });
-
-                options.__originalDataType = options.dataType;
-                options.dataType = 'json';
-                if ((options.type || 'get').toLowerCase() === 'get') {
-                    options.data = formData.toQueryString();
-                } else {
-                    options.processData = false;
-                    options.contentType = false;
-                    options.data = formData;
-                }
-            },
-            after: function (options, response, data) {
-                if (data) {
-                    currentValue = data['new_state'];
-
-                    return Dms.ajax.convertResponse(options.__originalDataType, data.response);
-                } else {
-                    data = JSON.parse(response.responseText);
-                    currentValue = data['new_state'];
-
-                    response.responseText = data.response;
-                    console.log(response.responseText);
-                }
-            }
-        });
-
-        var originalResponseHandler = Dms.action.responseHandler;
-        Dms.action.responseHandler = function (httpStatusCode, actionUrl, response) {
-            if (actionUrl.indexOf(rootUrl) !== 0 || httpStatusCode >= 400) {
-                originalResponseHandler(httpStatusCode, actionUrl, response);
-                return;
-            }
-
-            if (response.redirect) {
-                var redirectUrl = response.redirect;
-                delete response.redirect;
-
-                if (!Dms.utilities.areUrlsEqual(redirectUrl, rootUrl)) {
-                    loadModulePage(redirectUrl);
-                }
-            }
-
-            originalResponseHandler(httpStatusCode, actionUrl, response);
-
-            innerModule.find('.dms-table-control .dms-table').triggerHandler('dms-load-table-data');
-            innerModuleForm.empty();
-            formGroup.trigger('dms-change');
-        };
-
-        var rootActionUrl = rootUrl + '/action/';
-        var currentAjaxRequest;
-
-        var loadModulePage = function (url) {
-            innerModuleFormContainer.addClass('loading');
-            Dms.utilities.scrollToView(innerModuleFormContainer);
-
-            if (currentAjaxRequest) {
-                currentAjaxRequest.abort();
-            }
-
-            currentAjaxRequest = Dms.ajax.createRequest({
-                url: url,
-                type: 'post',
-                __emulatedType: 'get',
-                dataType: 'html',
-                data: {'__content_only': 1}
-            });
-
-            currentAjaxRequest.done(function (html) {
-                innerModuleForm.html(html);
-                innerModuleForm.find('[data-reload-page-after-submit]').removeAttr('data-reload-page-after-submit');
-                Dms.form.initialize(innerModuleForm);
-            });
-
-            currentAjaxRequest.fail(function (response) {
-                if (currentAjaxRequest.statusText === 'abort') {
-                    return;
-                }
-
-                Dms.controls.showErrorDialog({
-                    title: "Could not load form",
-                    text: "An unexpected error occurred",
-                    type: "error",
-                    debugInfo: response.responseText
-                });
-            });
-
-            currentAjaxRequest.always(function () {
-                innerModuleFormContainer.removeClass('loading');
-                currentAjaxRequest = null;
-            });
-        };
-
-        innerModule.on('click', 'a[href^="' + rootActionUrl + '"]', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            var link = $(this);
-
-            loadModulePage(link.attr('href'));
-        });
-
-        innerModule.closest('.form-group').on('dms-get-input-data', function () {
-            var fieldData = {};
-            fieldData[fieldName] = currentValue;
-            return fieldData;
-        });
-
-        stagedForm.on('dms-before-submit', function () {
-            innerModuleForm.empty();
-        });
-
-        var hasReset = false;
-        var resetAjaxInterception = function () {
-            if (hasReset) {
-                return;
-            } else {
-                hasReset = true;
-            }
-
-            Dms.ajax.interceptors.splice(Dms.ajax.interceptors.indexOf(interceptor), 1);
-            Dms.action.responseHandler = originalResponseHandler;
-        };
-
-        formStage.on('dms-stage-reload', resetAjaxInterception);
-        stagedForm.on('dms-post-submit-success', resetAjaxInterception);
-        innerModule.closest('.dms-page-content').on('dms-page-unloading', resetAjaxInterception);
-    });
-});
-Dms.form.initializeCallbacks.push(function (element) {
-    element.find('.dms-inner-form').each(function () {
-        var innerForm = $(this);
-
-        if (innerForm.attr('data-readonly')) {
-            innerForm.find(':input').attr('readonly', 'readonly');
-        }
-    });
-});
-Dms.form.initializeCallbacks.push(function (element) {
-
-    element.find('ul.dms-field-list').each(function () {
-        var listOfFields = $(this);
-        var form = listOfFields.closest('.dms-staged-form');
-        var formGroup = listOfFields.closest('.form-group');
-        var templateField = listOfFields.children('.field-list-template');
-        var addButton = listOfFields.children('.field-list-add').find('.btn-add-field');
-        var guid = Dms.utilities.idGenerator();
-        var isInvalidating = false;
-
-        var minFields = listOfFields.attr('data-min-elements');
-        var maxFields = listOfFields.attr('data-max-elements');
-
-        var getAmountOfInputs = function () {
-            return listOfFields.children('.field-list-item').length;
-        };
-
-        var invalidateControl = function () {
-            if (isInvalidating) {
-                return;
-            }
-
-            isInvalidating = true;
-
-            var amountOfInputs = getAmountOfInputs();
-
-            addButton.prop('disabled', amountOfInputs >= maxFields);
-            listOfFields.find('.dms-remove-field-button').prop('disabled', amountOfInputs <= minFields);
-
-            while (amountOfInputs < minFields) {
-                addNewField();
-                amountOfInputs++;
-            }
-
-            isInvalidating = false;
-        };
-
-        var reindexFields = function () {
-            // TODO
-        };
-
-        var addNewField = function () {
-            var newField = templateField.clone()
-                .removeClass('field-list-template')
-                .removeClass('hidden')
-                .removeClass('dms-form-no-submit')
-                .addClass('field-list-item');
-
-            var fieldInputElement = newField.find('.field-list-input');
-            fieldInputElement.html(fieldInputElement.text());
-
-            var currentIndex = getAmountOfInputs();
-
-            $.each(['name', 'data-name', 'data-field-name'], function (index, attr) {
-                fieldInputElement.find('[' + attr + '*="::index::"]').each(function () {
-                    $(this).attr(attr, $(this).attr(attr).replace('::index::', currentIndex));
-                });
-            });
-
-            addButton.closest('.field-list-add').before(newField);
-
-            Dms.form.initialize(fieldInputElement);
-            form.triggerHandler('dms-form-updated');
-
-            invalidateControl();
-        };
-
-        listOfFields.on('click', '.dms-remove-field-button', function () {
-            var field = $(this).closest('.field-list-item');
-            field.remove();
-            formGroup.trigger('dms-change');
-            form.triggerHandler('dms-form-updated');
-
-            invalidateControl();
-            reindexFields();
-        });
-
-        addButton.on('click', addNewField);
-
-        invalidateControl();
-
-        var requiresAnExactAmountOfFields = typeof minFields !== 'undefined' && minFields === maxFields;
-        if (requiresAnExactAmountOfFields && getAmountOfInputs() == minFields) {
-            addButton.closest('.field-list-add').remove();
-            listOfFields.find('.dms-remove-field-button').closest('.field-list-button-container').remove();
-            listOfFields.find('.field-list-input').removeClass('col-xs-10 col-md-11').addClass('col-xs-12');
-        }
-
-        // Sorting
-        var sortable = new Sortable(listOfFields.get(0), {
-            group: "sortable-field-list-" + guid,
-            sort: true,  // sorting inside list
-            animation: 150,  // ms, animation speed moving items when sorting, `0` — without animation
-            handle: ".dms-reorder-field-button",  // Drag handle selector within list items
-            draggable: ".list-group-item",  // Specifies which items inside the element should be sortable
-            ghostClass: "sortable-ghost",  // Class name for the drop placeholder
-            chosenClass: "sortable-chosen",  // Class name for the chosen item
-            dataIdAttr: 'data-id',
-            onEnd: function (event) {
-                reindexFields();
-                formGroup.trigger('dms-change');
-            }
-        });
-
-    });
-});
-Dms.form.initializeCallbacks.push(function (element) {
-
-    var disableZoomScrollingUntilHoveredFor = function (milliseconds, googleMap) {
-        googleMap.set('scrollwheel', false);
-        var timeout;
-        $(googleMap.getDiv()).hover(function () {
-                timeout = setTimeout(function () {
-                    googleMap.set('scrollwheel', true);
-                }, milliseconds);
-            },
-            function () {
-                clearTimeout(timeout);
-                googleMap.set('scrollwheel', false);
-            });
-    };
-
-    element.find('.dms-map-input').each(function () {
-        var mapInput = $(this);
-
-        var inputMode = mapInput.attr('data-input-mode');
-        var latitudeInput = mapInput.find('input.dms-lat-input');
-        var longitudeInput = mapInput.find('input.dms-lng-input');
-        var currentLocationButton = mapInput.find('.dms-current-location');
-        var fullAddressInput = mapInput.find('input.dms-full-address-input');
-        var addressSearchInput = mapInput.find('input.dms-address-search');
-        var mapCanvas = mapInput.find('.dms-map-picker');
-        var forceSetAddress = false;
-
-        var addressPicker = new AddressPicker({
-            regionBias: 'AUS',
-            map: {
-                id: mapCanvas.get(0),
-                zoom: 12,
-                center: new google.maps.LatLng(
-                    latitudeInput.val() || mapInput.attr('data-default-latitude') || -26.4390917,
-                    longitudeInput.val() || mapInput.attr('data-default-longitude') || 133.281323), // Default to australia
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                draggable: !(mapCanvas.attr('data-no-touch-drag') && Dms.utilities.isTouchDevice())
-            },
-            marker: {
-                draggable: true,
-                visible: true
-            },
-            reverseGeocoding: true,
-            autocompleteService: {
-                autocompleteService: {
-                    types: ['(cities)', '(regions)', 'geocode', 'establishment']
-                }
-            }
-        });
-        mapCanvas.data('map-api', addressPicker.getGMap());
-
-        addressSearchInput.typeahead(null, {
-            displayKey: 'description',
-            source: addressPicker.ttAdapter()
-        });
-
-        addressSearchInput.bind("typeahead:selected", addressPicker.updateMap);
-        addressSearchInput.bind("typeahead:cursorchanged", addressPicker.updateMap);
-        addressPicker.bindDefaultTypeaheadEvent(addressSearchInput);
-
-        $(addressPicker).on('addresspicker:selected', function (event, result) {
-            if (!forceSetAddress && addressSearchInput.val() === '') {
-                addressSearchInput.typeahead('val', '');
-                latitudeInput.val('');
-                longitudeInput.val('');
-                fullAddressInput.val('');
-                return;
-            }
-
-            forceSetAddress = false;
-
-            if (addressSearchInput.is('[data-map-zoom]')) {
-                addressPicker.getGMap().setCenter(new google.maps.LatLng(result.lat(), result.lng()));
-                addressPicker.getGMap().setZoom(parseInt(addressSearchInput.attr('data-map-zoom'), 10));
-            }
-            latitudeInput.val(result.lat());
-            longitudeInput.val(result.lng());
-            var address = result.address();
-
-            if (result.placeResult.name && address.indexOf(result.placeResult.name) === -1) {
-                address = result.placeResult.name + ', ' + address;
-            }
-
-            addressSearchInput.val(address);
-            fullAddressInput.val(address);
-        });
-
-        google.maps.event.addListener(addressPicker.getGMarker(), "dragend", function (event) {
-            forceSetAddress = true;
-        });
-
-        var triggerReverseGeocode = function () {
-            forceSetAddress = true;
-            addressPicker.markerDragged();
-            addressPicker.getGMap().setZoom(12);
-        };
-
-        if (navigator.geolocation) {
-            currentLocationButton.click(function () {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    addressPicker.getGMarker().setPosition(location);
-                    addressPicker.getGMap().setCenter(location);
-                    triggerReverseGeocode();
-                });
-            });
-        } else {
-            currentLocationButton.prop('disabled', true);
-        }
-
-        if (latitudeInput.val() || longitudeInput.val()) {
-            if (inputMode === 'lat-lng') {
-                forceSetAddress = true;
-                addressPicker.markerDragged();
-            }
-
-            if (inputMode === 'address-with-lat-lng') {
-                var location = new google.maps.LatLng(latitudeInput.val(), longitudeInput.val());
-                addressPicker.getGMarker().setPosition(location);
-                addressPicker.getGMap().setCenter(location);
-                addressSearchInput.val(fullAddressInput.val());
-            }
-        }
-
-        addressSearchInput.change(function () {
-            addressPicker.markerDragged();
-        });
-
-        disableZoomScrollingUntilHoveredFor(1000, addressPicker.getGMap());
-
-        google.maps.event.addListenerOnce(addressPicker.getGMap(), 'idle', function(){
-            if (fullAddressInput.val()) {
-                addressSearchInput.typeahead('val', fullAddressInput.val());
-            }
-        });
-
-        if (inputMode === 'address' && fullAddressInput.val()) {
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({'address': fullAddressInput.val()}, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    addressPicker.getGMap().setCenter(results[0].geometry.location);
-                    addressPicker.getGMarker().setPosition(results[0].geometry.location);
-                }
-            });
-        }
-    });
-
-    $('.dms-display-map').each(function () {
-        var mapCanvas = $(this);
-
-        var location = new google.maps.LatLng(mapCanvas.attr('data-latitude'), mapCanvas.attr('data-longitude'));
-        var map = new google.maps.Map(mapCanvas.get(0), {
-            center: location,
-            zoom: parseInt(mapCanvas.attr('data-zoom'), 10) || 14,
-            scrollwheel: false
-        });
-
-        disableZoomScrollingUntilHoveredFor(1000, map);
-
-        mapCanvas.data('map-api', map);
-
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            title: mapCanvas.attr('data-title')
-        });
-    });
-});
-Dms.form.initializeCallbacks.push(function (element) {
-    element.find('select[multiple]').multiselect({
-        enableFiltering: true,
-        includeSelectAllOption: true
+        startDisplay.text(convertFromServerToLocalTimezone(dateFormat, startDisplay.text()));
+        endDisplay.text(convertFromServerToLocalTimezone(dateFormat, endDisplay.text()));
     });
 });
 Dms.form.initializeCallbacks.push(function (element) {
@@ -55368,7 +54912,7 @@ Dms.form.initializeCallbacks.push(function (element) {
 
         formGroup.on('dms-get-input-data', function () {
             var fieldData = {};
-
+            
             var allFiles = [];
 
             $.each(existingFiles.concat(dropzone.getAcceptedFiles()), function (index, file) {
@@ -55414,6 +54958,485 @@ Dms.form.initializeCallbacks.push(function (element) {
     });
 });
 Dms.form.initializeCallbacks.push(function (element) {
+    element.find('.dms-inner-form').each(function () {
+        var innerForm = $(this);
+
+        if (innerForm.attr('data-readonly')) {
+            innerForm.find(':input').attr('readonly', 'readonly');
+        }
+    });
+});
+Dms.form.initializeCallbacks.push(function (element) {
+    element.find('.dms-inner-module, .dms-display-inner-module').each(function () {
+        var innerModule = $(this);
+
+        if (innerModule.data('dms-has-initialized-form')) {
+            return;
+        } else {
+            innerModule.data('dms-has-initialized-form', true);
+        }
+
+        var fieldName = innerModule.attr('data-name');
+        var formGroup = innerModule.closest('.form-group');
+        var rootUrl = innerModule.attr('data-root-url');
+        var isDisplayOnly = innerModule.attr('data-display-only');
+        var reloadStateUrl = rootUrl + '/state';
+        var innerModuleFormContainer = innerModule.find('.dms-inner-module-form-container');
+        var innerModuleForm = innerModuleFormContainer.find('.dms-inner-module-form');
+        var formStage = innerModule.closest('.dms-form-stage');
+        var stagedForm = innerModule.closest('.dms-staged-form');
+        var currentValue = JSON.parse(innerModule.attr('data-value') || '[]');
+
+        if (innerModule.attr('data-readonly')) {
+            innerModule.find(':input').attr('readonly', 'readonly');
+        }
+
+        var fieldDataPrefix = '__field_action_data';
+        var interceptor;
+
+        Dms.ajax.interceptors.push(interceptor = {
+            accepts: function (options) {
+                return options.url.indexOf(rootUrl) === 0 && options.url !== reloadStateUrl;
+            },
+            before: function (options) {
+                var formData;
+
+                if (isDisplayOnly) {
+                    formData = Dms.ajax.createFormData();
+                    formData.append('__initial_dependent_data', '1')
+                } else {
+                    formData = Dms.form.stages.getDependentDataForStage(formStage);
+                }
+
+
+                formData.append(fieldDataPrefix + '[current_state]', JSON.stringify(currentValue));
+                formData.append(fieldDataPrefix + '[request][url]', options.url.substring(rootUrl.length));
+                formData.append(fieldDataPrefix + '[request][method]', options.__emulatedType || options.type || 'get');
+
+                var parametersPrefix = fieldDataPrefix + '[request][parameters]';
+                $.each(Dms.ajax.parseData(options.data), function (name, entries) {
+                    $.each(entries, function (index, entry) {
+                        formData.append(Dms.utilities.combineFieldNames(parametersPrefix, name), entry.value, entry.filename);
+                    });
+                });
+
+                options.__originalDataType = options.dataType;
+                options.dataType = 'json';
+                if ((options.type || 'get').toLowerCase() === 'get') {
+                    options.data = formData.toQueryString();
+                } else {
+                    options.processData = false;
+                    options.contentType = false;
+                    options.data = formData;
+                }
+            },
+            after: function (options, response, data) {
+                if (response.statusText === 'abort') {
+                    return;
+                }
+
+                if (data) {
+                    currentValue = data['new_state'];
+
+                    return Dms.ajax.convertResponse(options.__originalDataType, data.response);
+                } else {
+                    data = JSON.parse(response.responseText);
+                    currentValue = data['new_state'];
+
+                    response.responseText = data.response;
+                    console.log(response.responseText);
+                }
+            }
+        });
+
+        var originalResponseHandler = Dms.action.responseHandler;
+        Dms.action.responseHandler = function (httpStatusCode, actionUrl, response) {
+            if (actionUrl.indexOf(rootUrl) !== 0 || httpStatusCode >= 400) {
+                originalResponseHandler(httpStatusCode, actionUrl, response);
+                return;
+            }
+
+            if (response.redirect) {
+                var redirectUrl = response.redirect;
+                delete response.redirect;
+
+                if (!Dms.utilities.areUrlsEqual(redirectUrl, rootUrl)) {
+                    loadModulePage(redirectUrl);
+                }
+            }
+
+            originalResponseHandler(httpStatusCode, actionUrl, response);
+
+            innerModule.find('.dms-table-control .dms-table').triggerHandler('dms-load-table-data');
+            innerModuleForm.empty();
+            formGroup.trigger('dms-change');
+        };
+
+        var rootActionUrl = rootUrl + '/action/';
+        var currentAjaxRequest;
+
+        var loadModulePage = function (url) {
+            innerModuleFormContainer.addClass('loading');
+            Dms.utilities.scrollToView(innerModuleFormContainer);
+
+            if (currentAjaxRequest) {
+                currentAjaxRequest.abort();
+            }
+
+            currentAjaxRequest = Dms.ajax.createRequest({
+                url: url,
+                type: 'post',
+                __emulatedType: 'get',
+                dataType: 'html',
+                data: {'__content_only': 1}
+            });
+
+            currentAjaxRequest.done(function (html) {
+                innerModuleForm.html(html);
+                innerModuleForm.find('[data-reload-page-after-submit]').removeAttr('data-reload-page-after-submit');
+                Dms.form.initialize(innerModuleForm);
+            });
+
+            currentAjaxRequest.fail(function (response) {
+                if (currentAjaxRequest.statusText === 'abort') {
+                    return;
+                }
+
+                Dms.controls.showErrorDialog({
+                    title: "Could not load form",
+                    text: "An unexpected error occurred",
+                    type: "error",
+                    debugInfo: response.responseText
+                });
+            });
+
+            currentAjaxRequest.always(function () {
+                innerModuleFormContainer.removeClass('loading');
+                currentAjaxRequest = null;
+            });
+        };
+
+        innerModule.on('click', 'a[href^="' + rootActionUrl + '"]', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            var link = $(this);
+
+            loadModulePage(link.attr('href'));
+        });
+
+        innerModule.closest('.form-group').on('dms-get-input-data', function () {
+            var fieldData = {};
+            fieldData[fieldName] = currentValue;
+            return fieldData;
+        });
+
+        innerModule.closest('.form-group').on('dms-set-input-data', function (event, fieldData) {
+            var newValue = fieldData[fieldName] || [];
+
+            if (currentValue != newValue) {
+                currentValue = newValue;
+                innerModule.find('.dms-table').triggerHandler('dms-load-table-data');
+            }
+        });
+
+        stagedForm.on('dms-before-submit', function () {
+            innerModuleForm.empty();
+        });
+
+        var hasReset = false;
+        var resetAjaxInterception = function () {
+            if (hasReset) {
+                return;
+            } else {
+                hasReset = true;
+            }
+
+            Dms.ajax.interceptors.splice(Dms.ajax.interceptors.indexOf(interceptor), 1);
+            Dms.action.responseHandler = originalResponseHandler;
+        };
+
+        formStage.on('dms-stage-reload', resetAjaxInterception);
+        stagedForm.on('dms-post-submit-success', resetAjaxInterception);
+        innerModule.closest('.dms-page-content').on('dms-page-unloading', resetAjaxInterception);
+    });
+});
+Dms.form.initializeCallbacks.push(function (element) {
+
+    element.find('ul.dms-field-list').each(function () {
+        var listOfFields = $(this);
+        var form = listOfFields.closest('.dms-staged-form');
+        var formGroup = listOfFields.closest('.form-group');
+        var templateField = listOfFields.children('.field-list-template');
+        var addButton = listOfFields.children('.field-list-add').find('.btn-add-field');
+        var guid = Dms.utilities.idGenerator();
+        var isInvalidating = false;
+
+        var minFields = listOfFields.attr('data-min-elements');
+        var maxFields = listOfFields.attr('data-max-elements');
+
+        var getAmountOfInputs = function () {
+            return listOfFields.children('.field-list-item').length;
+        };
+
+        var invalidateControl = function () {
+            if (isInvalidating) {
+                return;
+            }
+
+            isInvalidating = true;
+
+            var amountOfInputs = getAmountOfInputs();
+
+            addButton.prop('disabled', amountOfInputs >= maxFields);
+            listOfFields.find('.dms-remove-field-button').prop('disabled', amountOfInputs <= minFields);
+
+            while (amountOfInputs < minFields) {
+                addNewField();
+                amountOfInputs++;
+            }
+
+            isInvalidating = false;
+        };
+
+        var reindexFields = function () {
+            // TODO
+        };
+
+        var addNewField = function () {
+            var newField = templateField.clone()
+                .removeClass('field-list-template')
+                .removeClass('hidden')
+                .removeClass('dms-form-no-submit')
+                .addClass('field-list-item');
+
+            var fieldInputElement = newField.find('.field-list-input');
+            fieldInputElement.html(fieldInputElement.text());
+
+            var currentIndex = getAmountOfInputs();
+
+            $.each(['name', 'data-name', 'data-field-name'], function (index, attr) {
+                fieldInputElement.find('[' + attr + '*="::index::"]').each(function () {
+                    $(this).attr(attr, $(this).attr(attr).replace('::index::', currentIndex));
+                });
+            });
+
+            addButton.closest('.field-list-add').before(newField);
+
+            Dms.form.initialize(fieldInputElement);
+            form.triggerHandler('dms-form-updated');
+
+            invalidateControl();
+        };
+
+        listOfFields.on('click', '.dms-remove-field-button', function () {
+            var field = $(this).closest('.field-list-item');
+            field.remove();
+            formGroup.trigger('dms-change');
+            form.triggerHandler('dms-form-updated');
+
+            invalidateControl();
+            reindexFields();
+        });
+
+        addButton.on('click', addNewField);
+
+        invalidateControl();
+
+        var requiresAnExactAmountOfFields = typeof minFields !== 'undefined' && minFields === maxFields;
+        if (requiresAnExactAmountOfFields && getAmountOfInputs() == minFields) {
+            addButton.closest('.field-list-add').remove();
+            listOfFields.find('.dms-remove-field-button').closest('.field-list-button-container').remove();
+            listOfFields.find('.field-list-input').removeClass('col-xs-10 col-md-11').addClass('col-xs-12');
+        }
+
+        // Sorting
+        var sortable = new Sortable(listOfFields.get(0), {
+            group: "sortable-field-list-" + guid,
+            sort: true,  // sorting inside list
+            animation: 150,  // ms, animation speed moving items when sorting, `0` — without animation
+            handle: ".dms-reorder-field-button",  // Drag handle selector within list items
+            draggable: ".list-group-item",  // Specifies which items inside the element should be sortable
+            ghostClass: "sortable-ghost",  // Class name for the drop placeholder
+            chosenClass: "sortable-chosen",  // Class name for the chosen item
+            dataIdAttr: 'data-id',
+            onEnd: function (event) {
+                reindexFields();
+                formGroup.trigger('dms-change');
+            }
+        });
+
+    });
+});
+Dms.form.initializeCallbacks.push(function (element) {
+
+    var disableZoomScrollingUntilHoveredFor = function (milliseconds, googleMap) {
+        googleMap.set('scrollwheel', false);
+        var timeout;
+        $(googleMap.getDiv()).hover(function () {
+                timeout = setTimeout(function () {
+                    googleMap.set('scrollwheel', true);
+                }, milliseconds);
+            },
+            function () {
+                clearTimeout(timeout);
+                googleMap.set('scrollwheel', false);
+            });
+    };
+
+    element.find('.dms-map-input').each(function () {
+        var mapInput = $(this);
+
+        var inputMode = mapInput.attr('data-input-mode');
+        var latitudeInput = mapInput.find('input.dms-lat-input');
+        var longitudeInput = mapInput.find('input.dms-lng-input');
+        var currentLocationButton = mapInput.find('.dms-current-location');
+        var fullAddressInput = mapInput.find('input.dms-full-address-input');
+        var addressSearchInput = mapInput.find('input.dms-address-search');
+        var mapCanvas = mapInput.find('.dms-map-picker');
+        var forceSetAddress = false;
+
+        var addressPicker = new AddressPicker({
+            regionBias: 'AUS',
+            map: {
+                id: mapCanvas.get(0),
+                zoom: 12,
+                center: new google.maps.LatLng(
+                    latitudeInput.val() || mapInput.attr('data-default-latitude') || -26.4390917,
+                    longitudeInput.val() || mapInput.attr('data-default-longitude') || 133.281323), // Default to australia
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                draggable: !(mapCanvas.attr('data-no-touch-drag') && Dms.utilities.isTouchDevice())
+            },
+            marker: {
+                draggable: true,
+                visible: true
+            },
+            reverseGeocoding: true,
+            autocompleteService: {
+                autocompleteService: {
+                    types: ['(cities)', '(regions)', 'geocode', 'establishment']
+                }
+            }
+        });
+        mapCanvas.data('map-api', addressPicker.getGMap());
+
+        addressSearchInput.typeahead(null, {
+            displayKey: 'description',
+            source: addressPicker.ttAdapter()
+        });
+
+        addressSearchInput.bind("typeahead:selected", addressPicker.updateMap);
+        addressSearchInput.bind("typeahead:cursorchanged", addressPicker.updateMap);
+        addressPicker.bindDefaultTypeaheadEvent(addressSearchInput);
+
+        $(addressPicker).on('addresspicker:selected', function (event, result) {
+            if (!forceSetAddress && addressSearchInput.val() === '') {
+                addressSearchInput.typeahead('val', '');
+                latitudeInput.val('');
+                longitudeInput.val('');
+                fullAddressInput.val('');
+                return;
+            }
+
+            forceSetAddress = false;
+
+            if (addressSearchInput.is('[data-map-zoom]')) {
+                addressPicker.getGMap().setCenter(new google.maps.LatLng(result.lat(), result.lng()));
+                addressPicker.getGMap().setZoom(parseInt(addressSearchInput.attr('data-map-zoom'), 10));
+            }
+            latitudeInput.val(result.lat());
+            longitudeInput.val(result.lng());
+            var address = result.address();
+
+            if (result.placeResult.name && address.indexOf(result.placeResult.name) === -1) {
+                address = result.placeResult.name + ', ' + address;
+            }
+
+            addressSearchInput.val(address);
+            fullAddressInput.val(address);
+        });
+
+        google.maps.event.addListener(addressPicker.getGMarker(), "dragend", function (event) {
+            forceSetAddress = true;
+        });
+
+        var triggerReverseGeocode = function () {
+            forceSetAddress = true;
+            addressPicker.markerDragged();
+            addressPicker.getGMap().setZoom(12);
+        };
+
+        if (navigator.geolocation) {
+            currentLocationButton.click(function () {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    addressPicker.getGMarker().setPosition(location);
+                    addressPicker.getGMap().setCenter(location);
+                    triggerReverseGeocode();
+                });
+            });
+        } else {
+            currentLocationButton.prop('disabled', true);
+        }
+
+        if (latitudeInput.val() || longitudeInput.val()) {
+            if (inputMode === 'lat-lng') {
+                forceSetAddress = true;
+                addressPicker.markerDragged();
+            }
+
+            if (inputMode === 'address-with-lat-lng') {
+                var location = new google.maps.LatLng(latitudeInput.val(), longitudeInput.val());
+                addressPicker.getGMarker().setPosition(location);
+                addressPicker.getGMap().setCenter(location);
+                addressSearchInput.val(fullAddressInput.val());
+            }
+        }
+
+        addressSearchInput.change(function () {
+            addressPicker.markerDragged();
+        });
+
+        disableZoomScrollingUntilHoveredFor(1000, addressPicker.getGMap());
+
+        google.maps.event.addListenerOnce(addressPicker.getGMap(), 'idle', function(){
+            if (fullAddressInput.val()) {
+                addressSearchInput.typeahead('val', fullAddressInput.val());
+            }
+        });
+
+        if (inputMode === 'address' && fullAddressInput.val()) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({'address': fullAddressInput.val()}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    addressPicker.getGMap().setCenter(results[0].geometry.location);
+                    addressPicker.getGMarker().setPosition(results[0].geometry.location);
+                }
+            });
+        }
+    });
+
+    $('.dms-display-map').each(function () {
+        var mapCanvas = $(this);
+
+        var location = new google.maps.LatLng(mapCanvas.attr('data-latitude'), mapCanvas.attr('data-longitude'));
+        var map = new google.maps.Map(mapCanvas.get(0), {
+            center: location,
+            zoom: parseInt(mapCanvas.attr('data-zoom'), 10) || 14,
+            scrollwheel: false
+        });
+
+        disableZoomScrollingUntilHoveredFor(1000, map);
+
+        mapCanvas.data('map-api', map);
+
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: mapCanvas.attr('data-title')
+        });
+    });
+});
+Dms.form.initializeCallbacks.push(function (element) {
     element.find('.dms-money-input-group').each(function () {
         var inputGroup = $(this);
         var moneyInput = inputGroup.find('.dms-money-input');
@@ -55440,6 +55463,12 @@ Dms.form.initializeCallbacks.push(function (element) {
 
         moneyInput.on('change input', updateShouldSubmitData);
         updateShouldSubmitData();
+    });
+});
+Dms.form.initializeCallbacks.push(function (element) {
+    element.find('select[multiple]').multiselect({
+        enableFiltering: true,
+        includeSelectAllOption: true
     });
 });
 Dms.form.initializeCallbacks.push(function (element) {
@@ -55516,6 +55545,42 @@ Dms.form.initializeCallbacks.push(function (element) {
         }).on('typeahead:selected', function (event, data) {
             hiddenInput.val(data.val);
             formGroup.trigger('dms-change');
+        });
+    });
+});
+Dms.form.initializeCallbacks.push(function (element) {
+    element.find('input[type="ip-address"]')
+        .attr('type', 'text')
+        .attr('data-parsley-ip-address', '1');
+
+    element.find('input[data-autocomplete]').each(function () {
+        var options = JSON.parse($(this).attr('data-autocomplete'));
+        $(this).removeAttr('data-autocomplete');
+
+        var values = [];
+
+        $.each(options, function (index, value) {
+            values.push({ val: value });
+        });
+
+        var engine = new Bloodhound({
+            local: values,
+            datumTokenizer: function(d) {
+                return Bloodhound.tokenizers.whitespace(d.val);
+            },
+            queryTokenizer: Bloodhound.tokenizers.whitespace
+        });
+
+        engine.initialize();
+
+        $(this).typeahead( {
+            limit: 5,
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, {
+            source: engine.ttAdapter(),
+            displayKey: 'val'
         });
     });
 });
@@ -55719,42 +55784,6 @@ Dms.form.initializeCallbacks.push(function (element) {
             tableOfFields.find('.btn-remove-row').remove();
             tableOfFields.find('.btn-add-row').remove();
         }
-    });
-});
-Dms.form.initializeCallbacks.push(function (element) {
-    element.find('input[type="ip-address"]')
-        .attr('type', 'text')
-        .attr('data-parsley-ip-address', '1');
-
-    element.find('input[data-autocomplete]').each(function () {
-        var options = JSON.parse($(this).attr('data-autocomplete'));
-        $(this).removeAttr('data-autocomplete');
-
-        var values = [];
-
-        $.each(options, function (index, value) {
-            values.push({ val: value });
-        });
-
-        var engine = new Bloodhound({
-            local: values,
-            datumTokenizer: function(d) {
-                return Bloodhound.tokenizers.whitespace(d.val);
-            },
-            queryTokenizer: Bloodhound.tokenizers.whitespace
-        });
-
-        engine.initialize();
-
-        $(this).typeahead( {
-            limit: 5,
-            hint: true,
-            highlight: true,
-            minLength: 1
-        }, {
-            source: engine.ttAdapter(),
-            displayKey: 'val'
-        });
     });
 });
 Dms.form.initializeCallbacks.push(function (element) {
