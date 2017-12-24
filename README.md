@@ -14,20 +14,17 @@
 git clone https://github.com/harikt/dms-expressive-skeleton
 cd dms-expressive-skeleton
 composer install
+```
 
-# copy env and modify username / password and database name
-cp env.example .env
+## Update .env file
 
-# Copy dms configuration manually for now.
-cp vendor/harikt/web.expressive/config/dms.php config/autoload/dms.global.php
+Open `.env` file and modify database, username and password according to yours.
 
-# Create data folder which can save cache files
-mkdir -p data/cache/blade
-chmod -R 755 data/cache/blade
 
-# Create migrations folder
-mkdir -p database/migrations
+## Migration
 
+
+```bash
 # Make migration script
 ./console dms:make:migration init
 
@@ -36,8 +33,13 @@ mkdir -p database/migrations
 
 # Execute migration
 ./console migrate
+```
 
-# Start your web server
+## Browse
+
+Start your webserver and enjoy DMS!.
+
+```bash
 php -S 0.0.0.0:8080 -t public public/index.php
 ```
 

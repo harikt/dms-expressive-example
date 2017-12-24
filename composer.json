@@ -51,6 +51,13 @@
     },
     "scripts": {
         "post-create-project-cmd": ["@development-enable"],
+        "post-install-cmd": [
+            "cp env.example .env",
+            "cp vendor/harikt/web.expressive/config/dms.php config/autoload/dms.global.php",
+            "mkdir -p data/cache/blade",
+            "chmod -R 755 data/cache/blade",
+            "mkdir -p database/migrations"
+        ],
         "development-disable": "zf-development-mode disable",
         "development-enable": "zf-development-mode enable",
         "development-status": "zf-development-mode status",
