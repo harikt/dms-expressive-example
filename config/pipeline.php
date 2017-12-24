@@ -1,6 +1,7 @@
 <?php
 
 use Dms\Web\Expressive\Http\Middleware\Authenticate;
+use Dms\Web\Expressive\Http\Middleware\LoadVariablesToTemplate;
 use RKA\Middleware\IpAddress;
 use Zend\Expressive\Helper\ServerUrlMiddleware;
 use Zend\Expressive\Helper\UrlHelperMiddleware;
@@ -47,6 +48,7 @@ $app->pipe(UrlHelperMiddleware::class);
 // - route-based authentication
 // - route-based validation
 // - etc.
+$app->pipe(LoadVariablesToTemplate::class);
 $app->pipe('/dms', Authenticate::class);
 $app->pipe('/dms/auth/login', IpAddress::class);
 
