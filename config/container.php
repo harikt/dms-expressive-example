@@ -54,7 +54,7 @@ $container->bind(IIocContainer::SCOPE_SINGLETON, IBlogArticleRepository::class, 
 $container->bind(IIocContainer::SCOPE_SINGLETON, IBlogAuthorRepository::class, DbBlogAuthorRepository::class);
 $container->bindCallback(IIocContainer::SCOPE_SINGLETON, BlogConfiguration::class, function () {
     return BlogConfiguration::builder()
-        ->setFeaturedImagePath(PUBLIC_PATH . '/app/images/blog')
+        ->setFeaturedImagePath(dirname(__DIR__) . '/public/app/images/blog')
         ->useDashedSlugGenerator()
         // Supply a preview callback to provide article previews
         // directly from the backend. This can be omitted to disable this feature.
@@ -70,7 +70,7 @@ $laravelContainer = $container->getLaravelContainer();
 
 $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
      ->needs('$imageStorageBasePath')
-     ->give(PUBLIC_PATH . '/app/content/images/');
+     ->give(dirname(__DIR__) . '/public/app/content/images/');
 
 $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
   ->needs('$imageBaseUrl')
@@ -78,7 +78,7 @@ $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
 
 $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
    ->needs('$fileStorageBasePath')
-   ->give(PUBLIC_PATH . '/app/content/files/');
+   ->give(dirname(__DIR__) . '/public/app/content/files/');
 
 $container->bind(IIocContainer::SCOPE_SINGLETON, ITodoItemRepository::class, DbTodoItemRepository::class);
 $viewFactory = $container->get(ViewFactory::class);

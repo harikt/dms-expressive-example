@@ -16,10 +16,11 @@ class MyContentPackage extends ContentPackage
 {
     protected static function defineConfig(ContentConfigDefinition $config)
     {
+        $cwd = dirname(dirname(dirname(dirname(__DIR__))));
         $config
-            ->storeImagesUnder(PUBLIC_PATH . '/app/content/images')
+            ->storeImagesUnder($cwd . '/public/app/content/images')
             ->mappedToUrl('/app/content/images')
-            ->storeFilesUnder(PUBLIC_PATH . '/app/content/files');
+            ->storeFilesUnder($cwd . '/public/app/content/files');
     }
 
     /**
