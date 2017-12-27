@@ -23,7 +23,7 @@ class TodoPackage extends Package
         $package->name('todo');
 
         $package->metadata([
-            'icon' => '',
+            'icon' => 'list',
         ]);
 
         $package->modules([
