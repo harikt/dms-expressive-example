@@ -32,3 +32,4 @@ $app->get('/about', App\Action\AboutAction::class, 'about');
 $app->route('/contact', App\Action\ContactAction::class, ['GET', 'POST'], 'app::contact');
 
 $app->injectRoutesFromConfig((new Dms\Web\Expressive\ConfigProvider())());
+$app->injectRoutesFromConfig((new App\ConfigProvider())());

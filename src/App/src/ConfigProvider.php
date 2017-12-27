@@ -22,6 +22,7 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
+            'routes'       => $this->getRoutes(),
         ];
     }
 
@@ -58,4 +59,25 @@ class ConfigProvider
             ],
         ];
     }
+
+
+    public function getRoutes() : array
+    {
+        return [
+            // Blog
+            [
+                'name'            => 'app::blog',
+                'path'            => '/blog',
+                'middleware'      => Action\BlogAction::class,
+                'allowed_methods' => ['GET'],
+            ],
+            [
+                'name'            => 'app::blog.view',
+                'path'            => '/blog/{slug}',
+                'middleware'      => Action\BlogViewAction::class,
+                'allowed_methods' => ['GET'],
+            ],
+        ];
+    }
+
 }
