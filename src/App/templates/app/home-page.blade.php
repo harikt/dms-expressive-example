@@ -8,9 +8,9 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        @foreach($content->getArrayOf('carousel-item') as $key => $item)
+          <li data-target="#myCarousel" data-slide-to="{{ $key }}" @if ($key == 0) class="active" @endif ></li>
+        @endforeach
       </ol>
       <div class="carousel-inner" role="listbox">
         @foreach($content->getArrayOf('carousel-item') as $key => $item)
@@ -19,8 +19,7 @@
               <div class="container">
                 <div class="carousel-caption">
                   <h1>{{ $item->getText('caption') }}.</h1>
-                  {{-- p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p> --}}
+                  <p><a class="btn btn-lg btn-primary" href="/dms" role="button">Go to admin</a></p>
                 </div>
               </div>
             </div>
@@ -47,11 +46,11 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">{!! $content->getText('heading1') !!}</h2>
+          {!! $content->getHtml('content1') !!}
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" src="{{ asset_file_url($content->getImage('image1')) }}" alt="{{ $content->getText('caption1') }}">
         </div>
       </div>
 
@@ -59,11 +58,11 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">{!! $content->getHtml('content') !!}</p>
+          <h2 class="featurette-heading">{!! $content->getText('heading2') !!}</span></h2>
+          <p class="lead">{!! $content->getHtml('content2') !!}</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" src="{{ asset_file_url($content->getImage('image2')) }}" alt="{{ $content->getText('caption2') }}">
         </div>
       </div>
 

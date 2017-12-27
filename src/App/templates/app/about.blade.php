@@ -2,8 +2,8 @@
 @extends('layout::layout')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 100px;" >
         <h1>{{ $content->getText('title') }}</h1>
-        <div class="row">{!! $content->getHtml('content') !!}</div>
+        <div class="col-12">{!! $content->getHtml('content') !!}</div>
     </div>
 @endsection

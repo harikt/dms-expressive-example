@@ -40,6 +40,9 @@ class TodoItemModule extends CrudModule
             $form->section('Details', [
                 $form->field(
                     Field::create('description', 'Description')->string()->required()
+                    // ->onlyContainsCharacterRanges([
+                    //     'a' => 'z',
+                    // ])
                 )->bindToProperty(TodoItem::DESCRIPTION),
                 //
                 $form->field(

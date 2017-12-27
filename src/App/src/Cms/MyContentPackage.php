@@ -41,6 +41,14 @@ class MyContentPackage extends ContentPackage
                         ->withText('caption', 'Caption')
                         ->withImage('image', 'Image');
                 })
+                ->withText('heading1', 'Heading One')
+                ->withHtml('content1', 'Content One')
+                ->withImage('image1', 'Image One')
+                ->withText('caption1', 'Image Caption One')
+                ->withText('heading2', 'Heading Two')
+                ->withHtml('content2', 'Content Two')
+                ->withImage('image2', 'Image Two')
+                ->withText('caption2', 'Image Caption Two')
                 ->withMetadata('title', 'Meta - Title')
                 ->withMetadata('description', 'Meta - Description')
                 // Optionally define a preview callback to enable
