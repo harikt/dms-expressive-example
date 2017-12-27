@@ -41,14 +41,13 @@ class MyContentPackage extends ContentPackage
                         ->withText('caption', 'Caption')
                         ->withImage('image', 'Image');
                 })
-                ->withText('heading1', 'Heading One')
-                ->withHtml('content1', 'Content One')
-                ->withImage('image1', 'Image One')
-                ->withText('caption1', 'Image Caption One')
-                ->withText('heading2', 'Heading Two')
-                ->withHtml('content2', 'Content Two')
-                ->withImage('image2', 'Image Two')
-                ->withText('caption2', 'Image Caption Two')
+                ->withArrayOf('features', 'Features', function (ContentGroupDefiner $item) {
+                    $item
+                        ->withText('feature_heading', 'Feature Heading')
+                        ->withHtml('feature_content', 'Feature Content')
+                        ->withImage('feature_image', 'Feature Image')
+                        ->withText('feature_image_caption', 'Feature Image Caption');
+                })
                 ->withMetadata('title', 'Meta - Title')
                 ->withMetadata('description', 'Meta - Description')
                 // Optionally define a preview callback to enable
