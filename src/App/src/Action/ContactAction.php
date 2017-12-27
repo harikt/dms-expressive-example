@@ -53,7 +53,7 @@ class ContactAction implements ServerMiddlewareInterface
                 }
             );
 
-            return (new Response())
+            return (new Response('php://temp', 302))
                 ->withHeader('Location', $this->router->generateUri('app::contact'));
         }
 
