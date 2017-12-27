@@ -44,29 +44,20 @@
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">{!! $content->getText('heading1') !!}</h2>
-          {!! $content->getHtml('content1') !!}
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="{{ asset_file_url($content->getImage('image1')) }}" alt="{{ $content->getText('caption1') }}">
-        </div>
-      </div>
+      @foreach($content->getArrayOf('features') as $key => $item)
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">{!! $content->getText('heading2') !!}</span></h2>
-          <p class="lead">{!! $content->getHtml('content2') !!}</p>
+        <div class="row featurette">
+          <div class="col-md-7 @if ($key % 2 == 1) col-md-push-5 @endif">
+            <h2 class="featurette-heading">{!! $item->getText('feature_heading') !!}</h2>
+            {!! $item->getHtml('feature_content') !!}
+          </div>
+          <div class="col-md-5 @if ($key % 2 == 1) col-md-pull-7 @endif">
+            <img class="featurette-image img-responsive center-block" src="{{ asset_file_url($item->getImage('feature_image')) }}" alt="{{ $item->getText('feature_image_caption') }}">
+          </div>
         </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" src="{{ asset_file_url($content->getImage('image2')) }}" alt="{{ $content->getText('caption2') }}">
-        </div>
-      </div>
 
-      <hr class="featurette-divider">
+        <hr class="featurette-divider">
+      @endforeach
 
       <!-- /END THE FEATURETTES -->
 
