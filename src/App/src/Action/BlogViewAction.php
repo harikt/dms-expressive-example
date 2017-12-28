@@ -44,7 +44,7 @@ class BlogViewAction implements ServerMiddlewareInterface
         }
 
         return new HtmlResponse($this->template->render('app::blog-view', [
-            'article' => $articles[0]
+            'item' => $articles[0]
         ]));
     }
 }
