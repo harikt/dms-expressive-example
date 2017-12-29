@@ -22,6 +22,7 @@ use Dms\Package\ContactUs\Persistence\DbContactEnquiryRepository;
 use Dms\Package\Content\Core\ContentLoaderService;
 use Dms\Web\Expressive\Ioc\LaravelIocContainer;
 use Illuminate\Contracts\View\Factory as ViewFactory;
+use Zend\Expressive\Template\TemplateRendererInterface;
 
 require_once __DIR__ . '/ExpressiveDmsConfig.php';
 
@@ -52,14 +53,17 @@ $container->bind(IIocContainer::SCOPE_SINGLETON, IBlogArticleCommentRepository::
 $container->bind(IIocContainer::SCOPE_SINGLETON, IBlogArticleRepository::class, DbBlogArticleRepository::class);
 
 $container->bind(IIocContainer::SCOPE_SINGLETON, IBlogAuthorRepository::class, DbBlogAuthorRepository::class);
-$container->bindCallback(IIocContainer::SCOPE_SINGLETON, BlogConfiguration::class, function () {
+$container->bindCallback(IIocContainer::SCOPE_SINGLETON, BlogConfiguration::class, function () use ($container) {
     return BlogConfiguration::builder()
         ->setFeaturedImagePath(dirname(__DIR__) . '/public/app/images/blog')
         ->useDashedSlugGenerator()
         // Supply a preview callback to provide article previews
         // directly from the backend. This can be omitted to disable this feature.
-        ->setArticlePreviewCallback(function (BlogArticle $article) {
-            return view('blog.article', ['article' => $article])->render();
+        ->setArticlePreviewCallback(function (BlogArticle $article) use ($container) {
+            $template = $container->get(TemplateRendererInterface::class);
+            return $template->render('app::blog-view', [
+                'item' => $article
+            ]);
         })
         ->build();
 });

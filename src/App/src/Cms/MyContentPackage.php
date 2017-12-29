@@ -2,18 +2,28 @@
 
 namespace App\Cms;
 
-// use App\Http\Controllers\PageController;
+use Dms\Core\Ioc\IIocContainer;
 use Dms\Package\Content\Cms\ContentPackage;
 use Dms\Package\Content\Cms\Definition\ContentConfigDefinition;
 use Dms\Package\Content\Cms\Definition\ContentGroupDefiner;
 use Dms\Package\Content\Cms\Definition\ContentModuleDefinition;
 use Dms\Package\Content\Cms\Definition\ContentPackageDefinition;
+use Zend\Expressive\Template\TemplateRendererInterface;
 
 /**
  * @author Elliot Levin <elliotlevin@hotmail.com>
  */
 class MyContentPackage extends ContentPackage
 {
+
+    protected $template;
+
+    public function __construct(IIocContainer $container)
+    {
+        parent::__construct($container);
+        $this->template = $container->get(TemplateRendererInterface::class);
+    }
+
     protected static function defineConfig(ContentConfigDefinition $config)
     {
         $cwd = dirname(dirname(dirname(dirname(__DIR__))));
@@ -52,9 +62,9 @@ class MyContentPackage extends ContentPackage
                 ->withMetadata('description', 'Meta - Description')
                 // Optionally define a preview callback to enable
                 // live content previews in the CMS
-                // ->setPreviewCallback(function () {
-                //     return \app()->call(PageController::class . '@showHomePage')->render();
-                // })
+                ->setPreviewCallback(function () {
+                    return $this->template->render('app::home-page');
+                })
                 ;
 
             $module->group('about', 'About')
@@ -62,6 +72,9 @@ class MyContentPackage extends ContentPackage
                     ->withHtml('content', 'Content')
                     ->withMetadata('title', 'Meta - Title')
                     ->withMetadata('description', 'Meta - Description')
+                    ->setPreviewCallback(function () {
+                        return $this->template->render('app::about');
+                    })
                     ;
             // Add more pages here ...
         });
