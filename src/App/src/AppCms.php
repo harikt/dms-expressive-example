@@ -9,6 +9,7 @@ use Dms\Core\CmsDefinition;
 use Dms\Package\Analytics\AnalyticsPackage;
 use Dms\Package\Blog\Cms\BlogPackage;
 use Dms\Package\ContactUs\Cms\ContactUsPackage;
+use Dms\Package\Faq\Cms\FaqPackage;
 use Dms\Web\Expressive\Auth\AdminPackage;
 use Dms\Web\Expressive\Document\PublicFilePackage;
 
@@ -35,6 +36,7 @@ class AppCms extends Cms
             'blog' => BlogPackage::class,
             'content' => MyContentPackage::class,
             'contact-us' => ContactUsPackage::class,
+            'faqs' => FaqPackage::class,
             'todo-app' => TodoAppPackage::class,
         ]);
     }

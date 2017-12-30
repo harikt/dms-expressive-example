@@ -10,6 +10,7 @@ use Dms\Package\Analytics\Persistence\AnalyticsOrm;
 use Dms\Package\Blog\Infrastructure\Persistence\BlogOrm;
 use Dms\Package\ContactUs\Persistence\ContactUsOrm;
 use Dms\Package\Content\Persistence\ContentOrm;
+use Dms\Package\Faq\Persistence\FaqOrm;
 use Dms\Web\Expressive\Persistence\Db\DmsOrm;
 
 /**
@@ -36,6 +37,7 @@ class AppOrm extends Orm
         $orm->encompass(new ContentOrm($this->iocContainer));
         $orm->encompass(new ContactUsOrm());
         $orm->encompass(new AnalyticsOrm());
+        $orm->encompass(new FaqOrm());
         $orm->entities([
             TodoItem::class => TodoItemMapper::class
         ]);

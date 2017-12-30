@@ -77,6 +77,12 @@ class ConfigProvider
                 'middleware'      => Action\BlogViewAction::class,
                 'allowed_methods' => ['GET'],
             ],
+            [
+                'name'            => 'app::faq',
+                'path'            => '/faq',
+                'middleware'      => Action\FaqAction::class,
+                'allowed_methods' => ['GET'],
+            ],
         ];
     }
 
