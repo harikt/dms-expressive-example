@@ -112,47 +112,41 @@ class ExpressiveDmsConfig
      */
     private function marshalDelegators(array $dependencies)
     {
-        var_dump($dependencies['delegators']);
-        exit;
         foreach ($dependencies['delegators'] as $service => $delegatorNames) {
-            // $factory = null;
-            //
-            // if (isset($dependencies['services'][$service])) {
-            //     // Marshal from service
-            //     $instance = $dependencies['services'][$service];
-            //     $factory = function () use ($instance) {
-            //         return $instance;
-            //     };
-            //     unset($dependencies['service'][$service]);
-            // }
-            //
-            // if (isset($dependencies['factories'][$service])) {
-            //     // Marshal from factory
-            //     $serviceFactory = $dependencies['factories'][$service];
-            //     $factory = function () use ($service, $serviceFactory, $this->container) {
-            //         return $serviceFactory($this->container, $service);
-            //     };
-            //     unset($dependencies['factories'][$service]);
-            // }
-            //
-            // if (isset($dependencies['invokables'][$service])) {
-            //     // Marshal from invokable
-            //     $class = $dependencies['invokables'][$service];
-            //     $factory = function () use ($class) {
-            //         return new $class();
-            //     };
-            //     unset($dependencies['invokables'][$service]);
-            // }
-            //
-            // if (! is_callable($factory)) {
-            //     continue;
-            // }
+            $factory = null;
 
-            // $delegatorFactory = new ExpressiveAuraDelegatorFactory($delegatorNames, $factory);
-            // $this->container->set(
-            //     $service,
-            //     $this->container->lazyGetCall($delegatorFactory, 'build', $this->container, $service)
-            // );
+            if (isset($dependencies['services'][$service])) {
+                // Marshal from service
+                $instance = $dependencies['services'][$service];
+                $factory = function () use ($instance) {
+                    return $instance;
+                };
+                unset($dependencies['service'][$service]);
+            }
+
+            if (isset($dependencies['factories'][$service])) {
+                // Marshal from factory
+                $serviceFactory = $dependencies['factories'][$service];
+                $factory = function () use ($service, $serviceFactory) {
+                    return $serviceFactory($this->container, $service);
+                };
+                unset($dependencies['factories'][$service]);
+            }
+
+            if (isset($dependencies['invokables'][$service])) {
+                // Marshal from invokable
+                $class = $dependencies['invokables'][$service];
+                $factory = function () use ($class) {
+                    return new $class();
+                };
+                unset($dependencies['invokables'][$service]);
+            }
+
+            if (! is_callable($factory)) {
+                continue;
+            }
+
+            $this->container->bindCallback(IIocContainer::SCOPE_SINGLETON, $service, $factory);
         }
 
         return $dependencies;
