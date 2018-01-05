@@ -85,6 +85,10 @@ $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
    ->give(dirname(__DIR__) . '/public/app/content/files/');
 
 $container->bind(IIocContainer::SCOPE_SINGLETON, ITodoItemRepository::class, DbTodoItemRepository::class);
+
+use Dms\Package\Content\Core\Repositories\IContentGroupRepository;
+use Dms\Package\Content\Persistence\DbContentGroupRepository;
+$container->bind(IIocContainer::SCOPE_SINGLETON, IContentGroupRepository::class, DbContentGroupRepository::class);
 $viewFactory = $container->get(ViewFactory::class);
 $viewFactory->composer('*', function ($view) use ($container) {
     $view->with('contentLoader', $container->get(ContentLoaderService::class));

@@ -48,8 +48,10 @@ $app->pipe(UrlHelperMiddleware::class);
 // - route-based authentication
 // - route-based validation
 // - etc.
-$app->pipe(LoadVariablesToTemplate::class);
-$app->pipe('/dms', Authenticate::class);
+$app->pipe('/dms', [
+    Authenticate::class,
+    LoadVariablesToTemplate::class
+]);
 $app->pipe('/dms/auth/login', IpAddress::class);
 
 // Register the dispatch middleware in the middleware pipeline
