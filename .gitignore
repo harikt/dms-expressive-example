@@ -1,15 +1,10 @@
+/public/images
 /vendor
 /data
-/web.expressive
-/web.laravel
 /serve
 /.env
 /public/files
 /public/app
-/bk/
-/blade-renderer
-/database
-/cli.expressive
 .php_cs
 .php_cs.cache
 composer.sh

@@ -31,6 +31,7 @@
     },
     "require-dev": {
         "filp/whoops": "^2.1.12",
+        "fzaninotto/faker": "^1.7",
         "harikt/cli.expressive": "dev-master",
         "phpunit/phpunit": "^6.5.4",
         "squizlabs/php_codesniffer": "^2.8.1",
