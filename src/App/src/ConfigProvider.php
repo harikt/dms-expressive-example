@@ -80,7 +80,7 @@ class ConfigProvider
                 'name'            => 'app::blog.view',
                 'path'            => '/blog/{slug}',
                 'middleware'      => Action\BlogViewAction::class,
-                'allowed_methods' => ['GET'],
+                'allowed_methods' => ['GET', 'POST'],
             ],
             [
                 'name'            => 'app::faq',

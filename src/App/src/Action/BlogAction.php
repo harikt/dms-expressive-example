@@ -3,7 +3,7 @@
 namespace App\Action;
 
 use Dms\Core\ICms;
-use Dms\Package\Blog\Domain\Services\Persistence\IBlogArticleRepository;
+use Dms\Package\Blog\Domain\Services\Loader\BlogArticleLoader;
 use Dms\Package\Blog\Domain\Entities\BlogArticle;
 use Interop\Http\Server\RequestHandlerInterface;
 use Interop\Http\Server\MiddlewareInterface as ServerMiddlewareInterface;
@@ -19,27 +19,29 @@ class BlogAction implements ServerMiddlewareInterface
 
     private $template;
 
-    private $blogArticleRepository;
+    private $blogArticleLoader;
 
     public function __construct(
-        Router\RouterInterface $router, 
+        Router\RouterInterface $router,
         Template\TemplateRendererInterface $template,
-        IBlogArticleRepository $blogArticleRepository
+        BlogArticleLoader $blogArticleLoader
     ) {
         $this->router   = $router;
         $this->template = $template;
-        $this->blogArticleRepository = $blogArticleRepository;
+        $this->blogArticleLoader = $blogArticleLoader;
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $articles = $this->blogArticleRepository->matching(
-            $this->blogArticleRepository->criteria()
-                ->orderByDesc(BlogArticle::ID)
-                ->limit(10)
-        );
+        $query = $request->getQueryParams();
+        $page = isset($query['page']) ? $query['page'] : 1;
+        $itemsPerPage = 10;
+        $articles = $this->blogArticleLoader->getPage($page, $itemsPerPage);
         return new HtmlResponse($this->template->render('app::blog', [
-            'articles' => $articles
+            'articles' => $articles,
+            'total' => $this->blogArticleLoader->getAmountOfArticles(),
+            'previous' => $page - 1,
+            'next' => $page + 1,
         ]));
     }
 }

@@ -3,8 +3,8 @@
 namespace App\Action;
 
 use Dms\Core\ICms;
-use Dms\Package\Blog\Domain\Services\Persistence\IBlogArticleRepository;
-use Dms\Package\Blog\Domain\Entities\BlogArticle;
+use Dms\Common\Structure\Web\EmailAddress;
+use Dms\Package\Blog\Domain\Services\BlogKernel;
 use Interop\Http\Server\RequestHandlerInterface;
 use Interop\Http\Server\MiddlewareInterface as ServerMiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -13,6 +13,7 @@ use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template;
+use Dms\Core\Model\EntityNotFoundException;
 
 class BlogViewAction implements ServerMiddlewareInterface
 {
@@ -20,31 +21,39 @@ class BlogViewAction implements ServerMiddlewareInterface
 
     private $template;
 
-    private $blogArticleRepository;
+    private $blogKernel;
 
     public function __construct(
-        Router\RouterInterface $router, 
+        Router\RouterInterface $router,
         Template\TemplateRendererInterface $template,
-        IBlogArticleRepository $blogArticleRepository
+        BlogKernel $blogKernel
     ) {
         $this->router   = $router;
         $this->template = $template;
-        $this->blogArticleRepository = $blogArticleRepository;
+        $this->blogKernel = $blogKernel;
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $articles = $this->blogArticleRepository->matching(
-            $this->blogArticleRepository->criteria()
-                ->where(BlogArticle::SLUG, '=', $request->getAttribute('slug'))
-        );
-
-        if (count($articles) == 0) {
+        try {
+            $article = $this->blogKernel->articles()->loadFromSlug($request->getAttribute('slug'));
+        } catch (EntityNotFoundException $e) {
             return new RedirectResponse('/blog');
         }
 
+        if ($request->getMethod() == 'POST') {
+            // @Todo : validate and filter
+            $post = $request->getParsedBody();
+            $comment = $this->blogKernel->comments()->postComment(
+                $article->getId(),
+                $post['name'],
+                new EmailAddress($post['email']),
+                $post['comment']
+            );
+        }
+
         return new HtmlResponse($this->template->render('app::blog-view', [
-            'item' => $articles[0]
+            'item' => $article,
         ]));
     }
 }

@@ -1466,12 +1466,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "313c717f920d1f74c7c6ffff615bc11297ac58ad"
+                "reference": "484eafb0a654fbb4e6a8536f06a28d1e831bfe87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/313c717f920d1f74c7c6ffff615bc11297ac58ad",
-                "reference": "313c717f920d1f74c7c6ffff615bc11297ac58ad",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/484eafb0a654fbb4e6a8536f06a28d1e831bfe87",
+                "reference": "484eafb0a654fbb4e6a8536f06a28d1e831bfe87",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1519,7 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2018-01-02T05:23:02+00:00"
+            "time": "2018-01-06T10:18:19+00:00"
         },
         {
             "name": "http-interop/http-server-handler",
