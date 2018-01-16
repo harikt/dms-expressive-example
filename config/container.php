@@ -20,7 +20,7 @@ use Dms\Package\Blog\Infrastructure\Persistence\DbBlogCategoryRepository;
 use Dms\Package\ContactUs\Core\IContactEnquiryRepository;
 use Dms\Package\ContactUs\Persistence\DbContactEnquiryRepository;
 use Dms\Package\Content\Core\ContentLoaderService;
-use Dms\Web\Expressive\Ioc\LaravelIocContainer;
+use Dms\Web\Expressive\AppContainer;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
@@ -31,7 +31,7 @@ $config = require __DIR__ . '/config.php';
 
 // Build container
 // new Illuminate\Container\Container()
-$container = LaravelIocContainer::getInstance();
+$container = AppContainer::getInstance();
 $configurator = new ExpressiveDmsConfig($container);
 $configurator($config);
 
@@ -70,7 +70,7 @@ $container->bindCallback(IIocContainer::SCOPE_SINGLETON, BlogConfiguration::clas
 
 $container->bind(IIocContainer::SCOPE_SINGLETON, IContactEnquiryRepository::class, DbContactEnquiryRepository::class);
 
-$laravelContainer = $container->getLaravelContainer();
+$laravelContainer = $container->getIlluminateContainer();
 
 $laravelContainer->when('Dms\Package\Content\Core\ContentConfig')
      ->needs('$imageStorageBasePath')
