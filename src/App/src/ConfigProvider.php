@@ -45,6 +45,11 @@ class ConfigProvider
             'factories'  => [
                 Action\HomePageAction::class => Action\HomePageFactory::class,
             ],
+            // 'delegators' => [
+            //     \Zend\Expressive\Application::class => [
+            //         \Zend\Expressive\Container\ApplicationConfigInjectionDelegator::class,
+            //     ],
+            // ],
         ];
     }
 

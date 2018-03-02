@@ -74,10 +74,9 @@ class ExpressiveDmsConfig
         // Inject factories
         if (isset($dependencies['factories'])) {
             foreach ($dependencies['factories'] as $service => $factory) {
-                // $this->container->set($factory, $this->container->lazyNew($factory));
-                // $this->container->set($service, $this->container->lazyGetCall($factory, '__invoke', $this->container));
                 $this->container->bindCallback(IIocContainer::SCOPE_SINGLETON, $service, function () use ($factory) {
                     $f = $this->container->get($factory);
+
                     return $f($this->container);
                 });
             }
@@ -96,7 +95,6 @@ class ExpressiveDmsConfig
         // Inject aliases
         if (isset($dependencies['aliases'])) {
             foreach ($dependencies['aliases'] as $alias => $target) {
-                // $this->container->set($alias, $this->container->lazyGet($target));
                 $this->container->alias($target, $alias);
             }
         }
