@@ -49,9 +49,9 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // - method not allowed
     // - HEAD request but no routes answer that method
     // - OPTIONS request but no routes answer that method
-    $app->pipe(MethodNotAllowedMiddleware::class);
     $app->pipe(ImplicitHeadMiddleware::class);
     $app->pipe(ImplicitOptionsMiddleware::class);
+    $app->pipe(MethodNotAllowedMiddleware::class);
     // Seed the UrlHelper with the routing results:
     $app->pipe(UrlHelperMiddleware::class);
 
