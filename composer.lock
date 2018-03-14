@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bd9ba37ea428170cd3f6a6b51f0289e",
+    "content-hash": "18a2347912f39cc5cec1fd359fd1ed4c",
     "packages": [
         {
             "name": "akrabat/ip-address-middleware",
@@ -1514,12 +1514,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "7e9d09117690c943cd28b186aa7f0a050481263a"
+                "reference": "85c9ab1f2ed1583dffcc9ef162c80421b1519b97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/7e9d09117690c943cd28b186aa7f0a050481263a",
-                "reference": "7e9d09117690c943cd28b186aa7f0a050481263a",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/85c9ab1f2ed1583dffcc9ef162c80421b1519b97",
+                "reference": "85c9ab1f2ed1583dffcc9ef162c80421b1519b97",
                 "shasum": ""
             },
             "require": {
@@ -1568,11 +1568,11 @@
                 }
             ],
             "description": "The integration package with the zend expressive",
-            "time": "2018-03-08T19:55:56+00:00"
+            "time": "2018-03-09T18:36:50+00:00"
         },
         {
             "name": "illuminate/cache",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/cache.git",
@@ -1621,7 +1621,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -1665,7 +1665,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -1709,7 +1709,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1753,7 +1753,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -1798,7 +1798,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -1848,16 +1848,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "400a321e52a4c93f71ed24b5b5f05ebadee2eff8"
+                "reference": "7540abdf66efe232bb657b9a5982fbb0d4de428f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/400a321e52a4c93f71ed24b5b5f05ebadee2eff8",
-                "reference": "400a321e52a4c93f71ed24b5b5f05ebadee2eff8",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/7540abdf66efe232bb657b9a5982fbb0d4de428f",
+                "reference": "7540abdf66efe232bb657b9a5982fbb0d4de428f",
                 "shasum": ""
             },
             "require": {
@@ -1901,11 +1901,11 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2018-03-05T13:53:42+00:00"
+            "time": "2018-03-09T16:54:15+00:00"
         },
         {
             "name": "illuminate/view",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -2416,20 +2416,20 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.23.0",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "4a874a39b2b00d7e0146cd46fab6f47c41ce9e65"
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4a874a39b2b00d7e0146cd46fab6f47c41ce9e65",
-                "reference": "4a874a39b2b00d7e0146cd46fab6f47c41ce9e65",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bba6c6e410c6b4317e37a9474aeaa753808c3875",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "php": ">=5.3.9",
                 "symfony/translation": "~2.6 || ~3.0 || ~4.0"
             },
             "require-dev": {
@@ -2465,7 +2465,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-02-28T09:22:05+00:00"
+            "time": "2018-03-10T10:10:14+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -3752,16 +3752,16 @@
         },
         {
             "name": "zendframework/zend-expressive",
-            "version": "3.0.0rc3",
+            "version": "3.0.0rc5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-expressive.git",
-                "reference": "75af35ca33be3e61bd78010a6c24feab8e6a4d7e"
+                "reference": "35344a43885eaba61d1ea401f859c76b11aedcf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-expressive/zipball/75af35ca33be3e61bd78010a6c24feab8e6a4d7e",
-                "reference": "75af35ca33be3e61bd78010a6c24feab8e6a4d7e",
+                "url": "https://api.github.com/repos/zendframework/zend-expressive/zipball/35344a43885eaba61d1ea401f859c76b11aedcf2",
+                "reference": "35344a43885eaba61d1ea401f859c76b11aedcf2",
                 "shasum": ""
             },
             "require": {
@@ -3770,7 +3770,7 @@
                 "psr/container": "^1.0",
                 "psr/http-message": "^1.0.1",
                 "psr/http-server-middleware": "^1.0",
-                "zendframework/zend-expressive-router": "^3.0.0rc4",
+                "zendframework/zend-expressive-router": "^3.0.0rc5",
                 "zendframework/zend-expressive-template": "^2.0.0alpha1",
                 "zendframework/zend-httphandlerrunner": "^1.0.1",
                 "zendframework/zend-stratigility": "^3.0.0rc1"
@@ -3795,8 +3795,8 @@
             },
             "suggest": {
                 "filp/whoops": "^2.1 to use the Whoops error handler",
+                "psr/http-message-implementation": "Please install a psr/http-message-implementation to consume Expressive; e.g., zendframework/zend-diactoros",
                 "zendframework/zend-auradi-config": "^1.0 to use Aura.Di dependency injection container",
-                "zendframework/zend-diactoros": "^1.7.1 to use diactoros with default Response, ServerRequest and Stream factories",
                 "zendframework/zend-expressive-helpers": "^3.0 for its UrlHelper, ServerUrlHelper, and BodyParseMiddleware",
                 "zendframework/zend-expressive-tooling": "For migration and development tools; require it with the --dev flag",
                 "zendframework/zend-pimple-config": "^1.0 to use Pimple for dependency injection container",
@@ -3808,9 +3808,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev",
-                    "dev-develop": "2.2.x-dev",
-                    "dev-release-3.0.0": "3.0.x-dev"
+                    "dev-master": "2.2.x-dev",
+                    "dev-develop": "3.0.x-dev"
                 },
                 "zf": {
                     "config-provider": "Zend\\Expressive\\ConfigProvider"
@@ -3840,7 +3839,7 @@
                 "zend-expressive",
                 "zf"
             ],
-            "time": "2018-03-07T17:42:21+00:00"
+            "time": "2018-03-14T16:02:38+00:00"
         },
         {
             "name": "zendframework/zend-expressive-fastroute",
@@ -3977,16 +3976,16 @@
         },
         {
             "name": "zendframework/zend-expressive-router",
-            "version": "3.0.0rc4",
+            "version": "3.0.0rc6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-expressive-router.git",
-                "reference": "3b21fb4e1b568bfa8b0ae699b6f0bdd5d5644863"
+                "reference": "239d2981a5c89c1ec3ffe7bf4a3aaf0702697a72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-expressive-router/zipball/3b21fb4e1b568bfa8b0ae699b6f0bdd5d5644863",
-                "reference": "3b21fb4e1b568bfa8b0ae699b6f0bdd5d5644863",
+                "url": "https://api.github.com/repos/zendframework/zend-expressive-router/zipball/239d2981a5c89c1ec3ffe7bf4a3aaf0702697a72",
+                "reference": "239d2981a5c89c1ec3ffe7bf4a3aaf0702697a72",
                 "shasum": ""
             },
             "require": {
@@ -3998,9 +3997,9 @@
             },
             "require-dev": {
                 "malukenho/docheader": "^0.1.6",
-                "phpunit/phpunit": "^6.5.5",
+                "phpunit/phpunit": "^7.0.2",
                 "zendframework/zend-coding-standard": "~1.0.0",
-                "zendframework/zend-diactoros": "^1.7",
+                "zendframework/zend-diactoros": "^1.7.1",
                 "zendframework/zend-stratigility": "^3.0.0rc1"
             },
             "suggest": {
@@ -4011,9 +4010,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev",
-                    "dev-develop": "2.4.x-dev",
-                    "dev-release-3.0.0": "3.0.x-dev"
+                    "dev-master": "2.4.x-dev",
+                    "dev-develop": "3.0.x-dev"
                 },
                 "zf": {
                     "config-provider": "Zend\\Expressive\\Router\\ConfigProvider"
@@ -4039,7 +4037,7 @@
                 "zend-expressive",
                 "zf"
             ],
-            "time": "2018-03-07T16:56:58+00:00"
+            "time": "2018-03-14T16:12:38+00:00"
         },
         {
             "name": "zendframework/zend-expressive-template",
@@ -4476,7 +4474,7 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v5.5.37",
+            "version": "v5.5.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
@@ -6360,8 +6358,6 @@
     "stability-flags": {
         "harikt/web.expressive": 20,
         "roave/security-advisories": 20,
-        "zendframework/zend-expressive": 15,
-        "zendframework/zend-expressive-fastroute": 15,
         "zendframework/zend-expressive-helpers": 15,
         "harikt/cli.expressive": 20,
         "zendframework/zend-expressive-tooling": 15
