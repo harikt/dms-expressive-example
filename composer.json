@@ -7,7 +7,6 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "alpha",
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
@@ -25,16 +24,16 @@
         "zendframework/zend-component-installer": "^1.0",
         "zendframework/zend-config-aggregator": "^1.0",
         "zendframework/zend-diactoros": "^1.7.1",
-        "zendframework/zend-expressive": "^3.0.0rc5",
-        "zendframework/zend-expressive-fastroute": "^3.0.0rc4",
-        "zendframework/zend-expressive-helpers": "^5.0.0alpha3",
+        "zendframework/zend-expressive": "^3.0.0",
+        "zendframework/zend-expressive-fastroute": "^3.0.0",
+        "zendframework/zend-expressive-helpers": "^5.0.0",
         "zendframework/zend-stdlib": "^3.1"
     },
     "require-dev": {
         "filp/whoops": "^2.1.12",
         "fzaninotto/faker": "^1.7",
         "harikt/cli.expressive": "dev-master",
-        "phpunit/phpunit": "^6.5.4",
+        "phpunit/phpunit": "^7.0.0",
         "squizlabs/php_codesniffer": "^2.8.1",
         "symfony/var-dumper": "^3.3",
         "zendframework/zend-expressive-tooling": "^1.0.0alpha1"
