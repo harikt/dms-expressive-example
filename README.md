@@ -44,3 +44,7 @@ php -S 0.0.0.0:8080 -t public public/index.php
 ```
 
 Browse [http://localhost:8080/dms/auth/login](http://localhost:8080/dms/auth/login) .
+
+Username : admin
+
+Password : admin
