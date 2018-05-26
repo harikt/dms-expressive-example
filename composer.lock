@@ -1516,12 +1516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harikt/web.expressive.git",
-                "reference": "4ebeb24e0faf9f9736e2a7e204a9c95c3d6f308f"
+                "reference": "3ff915dc023360abab3d0fb7ee910095bd295158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/4ebeb24e0faf9f9736e2a7e204a9c95c3d6f308f",
-                "reference": "4ebeb24e0faf9f9736e2a7e204a9c95c3d6f308f",
+                "url": "https://api.github.com/repos/harikt/web.expressive/zipball/3ff915dc023360abab3d0fb7ee910095bd295158",
+                "reference": "3ff915dc023360abab3d0fb7ee910095bd295158",
                 "shasum": ""
             },
             "require": {
@@ -1572,7 +1572,7 @@
                 }
             ],
             "description": "The integration package with DMS and zend expressive",
-            "time": "2018-05-26T07:34:35+00:00"
+            "time": "2018-05-26T07:52:48+00:00"
         },
         {
             "name": "illuminate/cache",
