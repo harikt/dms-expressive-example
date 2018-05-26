@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Dms\Web\Expressive\Http\Middleware\Authenticate;
 use Dms\Web\Expressive\Http\Middleware\LoadVariablesToTemplate;
+use Dms\Web\Expressive\Http\Middleware\VerifyCsrfToken;
 use Psr\Container\ContainerInterface;
 use RKA\Middleware\IpAddress;
 use Zend\Expressive\Application;
@@ -61,6 +62,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // - route-based authentication
     // - route-based validation
     // - etc.
+    $app->pipe(VerifyCsrfToken::class);
     $app->pipe('/dms', [
         Authenticate::class,
         LoadVariablesToTemplate::class
